@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+public class mysqltest {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 	static final String DB_URL = "jdbc:mysql:address of database/database name?options"; // DB Server address DNS or IP
 	static final String USERNAME = "put database id here"; // DB ID
