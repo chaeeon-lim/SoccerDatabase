@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias alias="Player" type="com.soccerdb.oldschool.db.entity.Player"/>
+	</typeAliases>
+	
+	<environments default="devlopment">
+		<environment id="development">
+			<transactionManager type="MANAGED">
+				<property name="closeConnection" value="false"/>
+			</transactionManager>
+			<!--  connecting to mysql -->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://15.164.104.32/SoccerDB?useSSL=false"/>
+                <property name="username" value="admin"/>
+                <property name="password" value="db1234"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource ="com/soccerdb/oldschool/db/mappers/PlayerMapper.xml"/>
+	</mappers>
+</configuration>
