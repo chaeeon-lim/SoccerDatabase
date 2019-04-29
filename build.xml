@@ -9,7 +9,7 @@
     <property name="src.dir" value="java/src"></property>
     <property name="build.dir" value="build"></property>
     <property name="classes.dir" value="${build.dir}/bin"></property>
-    <property name="classpath" value="${src.dir}/libs"/>
+    <property name="classpath" value="java/libs"/>
     <target name="clean">
         <delete dir="${build.dir}"></delete>
     </target>
