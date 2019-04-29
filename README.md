@@ -28,7 +28,10 @@ Repository 폴더 전체를 프로젝트로 설정한 뒤 빌드를 실행하면
 	
 
 ### 1.2. CLI 빌드
-현재 CLI로 빌드하는 방법은 아직 정리되지 않음.
+Ant Builder를 이용하여 터미널에서 빌드가능
+Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https://ant.apache.org/bindownload.cgi)
+	
+	build.xml 파일이 있는 프로젝트 폴더에서 ant 명령어를 실행
 
 ## 2. TODO list.
 ### 2.1. 테이블 확립 (프로그램에 등록된 Entity)
