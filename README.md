@@ -62,8 +62,8 @@ __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 	
 ### 2.2.1 맵퍼 개선하기
 맵퍼 파일을 개선함으로써 추가적인 메소드를 발생시키지 않고 기능을 늘릴 방법 모색
-동적 SQL에 대한 [link 참고사이트][id] 
-[id]: http://www.mybatis.org/mybatis-3/ko/dynamic-sql.html
+
+syntax:  동적 SQL에 대한 참조(http://www.mybatis.org/mybatis-3/ko/dynamic-sql.html)
 
 ### 2.3. DAO 처리 확립 (프로그램에 등록된 Impl<Entity>DAO)
 현재 프로그램에 등록된 Entity 중 DAO를 실행하는 모듈(Impl<Entity>DAO)가 구성된 Entity는 다음과 같다.
