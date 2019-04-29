@@ -42,7 +42,7 @@ __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 - Games
 - Keepers
 - Mathces
-		- __Players__
+	- __Players__
 - Seasons
 
 ### 2.2. 맵퍼 확립 (프로그램에 등록된 Mapper)
@@ -55,7 +55,7 @@ __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 - Games
 - Keepers
 - Mathces
-		- __Players__
+	- __Players__
 - Seasons
 	
 ### 2.2.1 맵퍼 개선하기
@@ -72,7 +72,7 @@ __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 - Games
 - Keepers
 - Mathces
-		- __Players__
+	- __Players__
 - Seasons
 	
 ### 2.4. View 구성
