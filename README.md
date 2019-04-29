@@ -12,8 +12,31 @@ Eclipse Oxygen.3 에서 빌드 성공하였음.</br>
 #### Eclipse의 임의의 workspace에서,
 	- 마우스 우클릭을 하여 Import를 누른다.
 	- General -> Projects from Folder or Archive 를 선택
-	- 오른쪽 상단에 Directory를 누른 뒤 Clone한 Repository를 찾는다. java 폴더보다 상위 폴더인 SoccerDatabase 폴더가 선택됬는지 확인한다.
+	- 오른쪽 상단에 Directory를 누른 뒤 Clone한 Repository를 찾는다. 
+	- java 폴더보다 상위 폴더인 SoccerDatabase 폴더가 선택됬는지 확인한다.
 	- 해당 Repository에서 확인을 누른다.
 	- Finish를 누른다.
+	- 추가된 프로젝트에서 다시 오른쪽 버튼을 클릭한다.
+	- 
+	- Library를 추가한다.
 	- Build 를 시행한다.
-1.2. CLI 빌드
+	
+	
+
+### 1.2. CLI 빌드
+현재 CLI로 빌드하는 방법은 아직 정리되지 않음.
+
+
+## 2. TODO list.
+### 2.1. 테이블 확립
+	- 아
+	-아?
+
+	
+	
+	
+	
+## 3. Release Note
+### ver1.0.0
+
+
