@@ -32,9 +32,9 @@ Repository 폴더 전체를 프로젝트로 설정한 뒤 빌드를 실행하면
 
 ## 2. TODO list.
 ### 2.1. 테이블 확립 (프로그램에 등록된 Entity)
-현재 스키마에 등록된 테이블 중 SoccerDatabase의 서비스를 처리하는 프로그램에서 등록된 테이블은 다음과 같다.
-__(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
+현재 스키마에 등록된 테이블 중 SoccerDatabase의 서비스를 처리하는 프로그램에서 등록된 테이블은 다음과 같다.<br>
 
+- __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 - Appears
 - Clubs
 - Contracts
@@ -48,6 +48,7 @@ __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 ### 2.2. 맵퍼 확립 (프로그램에 등록된 Mapper)
 현재 프로그램에 등록된 Entity 중 Mapper와 연결된 Entity는 다음과 같다.
 
+- __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 - Appears
 - Clubs
 - Contracts
@@ -63,8 +64,9 @@ __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 [동적 SQL에 대한 참조](http://www.mybatis.org/mybatis-3/ko/dynamic-sql.html)
 
 ### 2.3. DAO 처리 확립 (프로그램에 등록된 Impl<Entity>DAO)
-현재 프로그램에 등록된 Entity 중 DAO를 실행하는 모듈(Impl<Entity>DAO)가 구성된 Entity는 다음과 같다.
-	
+현재 프로그램에 등록된 Entity 중 DAO를 실행하는 모듈(Impl\<Entity>DAO)가 구성된 Entity는 다음과 같다.
+
+- __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 - Appears
 - Clubs
 - Contracts
