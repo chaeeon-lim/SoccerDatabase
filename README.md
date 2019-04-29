@@ -79,7 +79,56 @@ Repository 폴더 전체를 프로젝트로 설정한 뒤 빌드를 실행하면
 	
 ### 2.4. View 구성
 
-### 2.5. 시나리오 처리
-
 ### 2.6. View 연결
 
+### 2.5. 시나리오 처리
+- Search: Searching person, team, nationality…etc<br>(Searching available per attribute ex) by roll-down menu)
+	- Search player names with specific letters
+	-       Search Korean/English/Canadian/Chinese/Spanish players
+	-	Search players who are unmarried  
+	-	Search players who are born in 17 July 
+	-       Search matches on March/2018/rainy day
+	-       Search matches on the home ground of a specific team
+	-       Search matches with most goals/fouls/penalty kicks/corner kicks/cards
+	-	Search matches tomorrow 
+	-       (Search teams with red uniform) 
+
+- Login: To add favorite league, player, nationality…etc surf ad-free, and receive feeds
+	-       Display favorite league, player, country
+	-       If logged in, is_ad_free true.
+	-       (notification would pop up)
+
+- Ranking system: Rank MVP player per game, team, and league<br>
+	(Ranking available by comparison ex) compare team 1 and team 2)
+	
+	-	Rank players with most goals/cards/fouls/shooting/kicks/assistance (per game, team, league)
+	-	Rank keepers with most saves 
+	-       Rank team with most goals/cards/fouls/shooting/kicks/assistance (per game, league)
+	-	Rank players with most salaries/age/early debut/late debut/height/weight
+	-	(Rank teams on frequency of extended games )
+	-	Rank players who appear most 
+	-	Rank players with most injuries 
+	-	Rank longest runner (minutes)
+	-	Ranking from the last (haha!)
+
+	
+- Calculation based on stats<br>
+(Available by calculation) 
+
+	- Leader board, percentage calculation 
+	-	Percentage goals/fouls/shootings/kicks/cards of a player in a match/league
+	-	Probability a team runs in a rainy day 
+	-	Percentage win 
+	-	Percentage assistance 
+	-	Ranking by position (midfielder, attacker, defender, keeper) : need calculation
+
+	
+- (optional) Newsletter
+	-       (If logged in, collect searching histories and clicking on news histories with tags)
+	-       Send newsletter with specific topics 
+	
+
+## 3. Contributer
+[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/0)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/0)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/1)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/1)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/2)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/2)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/3)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/3)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/4)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/4)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/5)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/5)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/6)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/6)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/7)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/7)
+
+<!-- To setting this contributer check this site. https://sourcerer.io/settings#hof -->
