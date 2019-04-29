@@ -71,7 +71,7 @@ __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 	- Games
 	- Keepers
 	- Mathces
-		- __Players__
+		__- Players__
 	- Seasons
 	
 ### 2.4. View 구성
