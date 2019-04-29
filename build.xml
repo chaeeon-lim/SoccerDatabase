@@ -1,32 +1,59 @@
-<?xml version="1.0"?>
-
-<project name="ant.oldschool.soccerdb" default="main" basedir=".">
-    <property name="Name" value="SoccerDB"></property>
-    <property name="name" value="soccerdb"></property>
-    <property name="groupid" value="com.soccerdb.oldschool"></property>
-    <property name="project.version" value="1.0.0"></property>
-    
-    <property name="src.dir" value="java/src"></property>
-    <property name="build.dir" value="build"></property>
-    <property name="classes.dir" value="${build.dir}/bin"></property>
-    <property name="classpath" value="java/libs"/>
-    <target name="clean">
-        <delete dir="${build.dir}"></delete>
-    </target>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="SoccerDatabase">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../eclipse/java-oxygen/Eclipse.app/Contents/Eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="9"/>
+    <property name="source" value="9"/>
+    <path id="SoccerDatabase.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="java/libs/mybatis-3.5.1.jar"/>
+        <pathelement location="java/libs/mysql-connector-java-8.0.15.jar"/>
+    </path>
     <target name="init">
-        <mkdir dir="${build.dir}"></mkdir>
-        <mkdir dir="${classes.dir}"></mkdir>
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="java/src">
+                <exclude name="**/*.ucls"/>
+                <exclude name="**/*.useq"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
     </target>
-    <target name="compile" depends="init">
-        <javac 
-            srcdir="${src.dir}" 
-            destdir="${classes.dir}" 
-            classpath="${classpath}.mybatis-3.5.1.jar:${classpath}.mysql-connector-java-8.0.15.jar"
-            includeantruntime="false">
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="java/src"/>
+            <classpath refid="SoccerDatabase.classpath"/>
         </javac>
     </target>
-    <target name="main" depends="clean,compile">
-        <java classpath="${classes.dir}" classname="${groupid}.main.MainClass">
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="SoccerDatabase">
+        <java classname="com.soccerdb.oldschool.main.MainClass" failonerror="true" fork="yes">
+            <classpath refid="SoccerDatabase.classpath"/>
         </java>
     </target>
 </project>

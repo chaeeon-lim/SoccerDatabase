@@ -16,9 +16,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			<!--  connecting to mysql -->
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://15.164.104.32/SoccerDB?useSSL=false"/>
-                <property name="username" value="admin"/>
-                <property name="password" value="db1234"/>
+                <property name="url" value="jdbc:mysql://***.***.***.***/****?useSSL=false"/>
+                <property name="username" value="*****"/>
+                <property name="password" value="*****"/>
 			</dataSource>
 		</environment>
 	</environments>
