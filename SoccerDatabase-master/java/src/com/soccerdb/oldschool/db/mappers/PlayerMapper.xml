@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.soccerdb.oldschool.db.dao.PlayerDAO">
+ 	<resultMap id="result" type="Player">
+ 		<result property="player_id" column="player_id"/>
+ 		<result property="player_name" column="name"/>
+ 		<result property="player_position" column="position"/>
+ 		<result property="player_height" column="height"/>
+ 		<result property="player_weight" column="weight"/>
+        <result property="player_nationality" column="nationality"/>
+        <result property="player_debut" column="debut"/>
+        <result property="player_birthday" column="birthday"/>
+        <result property="player_total_card" column="total_card"/>
+        <result property="player_total_game" column="total_game"/>
+        <result property="player_total_foul" column="total_foul"/>
+ 	</resultMap>
+ 	
+ 	<select id="selectAll" resultMap="result">
+ 		SELECT * FROM Players;
+ 	</select>
+ 	
+ 	<select id="selectById" parameterType="int" resultMap="result">
+ 		SELECT * FROM Players WHERE player_id = #{player_id};
+ 	</select>
+ 	
+ 	<insert id="insert" parameterType="Player" useGeneratedKeys="true" keyProperty="id">
+ 		insert into Players (name, position, height, weight, nationality, debut, birthday, total_card, total_game, total_foul) 
+ 		values (#{player_name}, #{player_position}, #{player_height}, #{player_weight}, #{player_nationality}, #{player_debut}, #{player_birthday}, #{player_total_card}, #{player_total_game}, #{player_total_foul});
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="Player">
+ 		UPDATE Players
+ 		SET name = #{player_name}
+ 		WHERE player_id = #{player_id};
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="int">
+ 		DELETE FROM Players WHERE player_id = #{player_id};
+ 	</delete>
+ </mapper>
