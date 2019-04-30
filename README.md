@@ -35,7 +35,7 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 
 ## 2. TODO list.
 ### 2.1. 테이블 확립 (프로그램에 등록된 Entity)
-현재 스키마에 등록된 테이블 중 SoccerDatabase의 서비스를 처리하는 프로그램에서 등록된 테이블은 다음과 같다.<br>
+현재 스키마에 등록된 테이블 중 SoccerDatabase의 서비스를 처리하는 프로그램에서 등록된 테이블은 다음과 같다.</br>
 
 - __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
 - Appears
@@ -98,7 +98,7 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 
 - Login: To add favorite league, player, nationality…etc surf ad-free, and receive feeds
 	-       Display favorite league, player, country
-	-       If logged in, is_ad_free true.
+	-       If logged in, is\_ad\_free true.
 	-       (notification would pop up)
 
 - Ranking system: Rank MVP player per game, team, and league<br>
