@@ -27,8 +27,8 @@
  	</select>
  	
  	<insert id="insert" parameterType="Player" useGeneratedKeys="true" keyProperty="id">
- 		insert into Players (name, position, height, weight, nationality, debut, birthday, total_card, total_game, total_foul) 
- 		values (#{player_name}, #{player_position}, #{player_height}, #{player_weight}, #{player_nationality}, #{player_debut}, #{player_birthday}, #{player_total_card}, #{player_total_game}, #{player_total_foul});
+ 		insert into Players (player_id, name, position, height, weight, nationality, debut, birthday, total_card, total_game, total_foul) 
+ 		values (#{player_id}, #{player_name}, #{player_position}, #{player_height}, #{player_weight}, #{player_nationality}, #{player_debut}, #{player_birthday}, #{player_total_card}, #{player_total_game}, #{player_total_foul});
  	</insert>
  	
  	<update id="update" parameterType="Player">
