@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.soccerdb.oldschool.db.dao.FieldplayerDAO">
+ 	<resultMap id="result" type="Fieldplayer">
+ 		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
+         
+ 	</resultMap>
+ 	
+ 	<select id="selectAll" resultMap="result">
+ 		<!--SELECT * FROM "Relation";-->
+ 	</select>
+ 	
+ 	<select id="selectById" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 	</select>
+ 	
+ 	<insert id="insert" parameterType="Fieldplayer" useGeneratedKeys="true" keyProperty="id">
+ 		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
+ 		values "instace name of entity" , ... , "instace name of entity" -->
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="Fieldplayer">
+ 		<!--UPDATE "Relation"
+ 		SET "attribute name of relation" = #{"instace name of entity"}
+ 		WHERE "attribute name of relation" = #{"instace name of entity"};-->
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="int">
+ 		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
+ 	</delete>
+ </mapper>
