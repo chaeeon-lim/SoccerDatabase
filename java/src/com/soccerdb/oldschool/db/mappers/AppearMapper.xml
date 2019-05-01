@@ -6,7 +6,7 @@
  <mapper namespace="com.soccerdb.oldschool.db.dao.AppearDAO">
  	<resultMap id="result" type="Appear">
  		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
-         
+        
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
