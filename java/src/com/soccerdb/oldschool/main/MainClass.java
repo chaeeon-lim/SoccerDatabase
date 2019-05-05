@@ -28,6 +28,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
+		/*
 		UserDAO userDAO = new ImplUserDAO();
 		User user = new User();
 		try {
@@ -43,9 +44,11 @@ public class MainClass {
 			e.printStackTrace();
 		}
 		
-		/*
+		*/
 		PlayerDAO playerDAO = new ImplPlayerDAO();
 		Player player = new Player();
+		
+		/*
 		FieldplayerDAO fieldDAO = new ImplFieldplayerDAO();
         Fieldplayer field = new Fieldplayer();
 		
@@ -96,29 +99,29 @@ public class MainClass {
         */
         
         // Test codes for trying 'INSERT' query.
-		/*
+		
 		try {
-			player.setPlayer_id(4);
-			player.setPlayer_name("Son Heung-min");
-			player.setPlayer_position("FM-MF (WM)");
-			player.setPlayer_height(183);
-			player.setPlayer_weight(76);
-			player.setPlayer_nationality("Korea Republic");
-			player.setPlayer_debut(2010);
-			player.setPlayer_birthday(new SimpleDateFormat("yyyy-MM-dd").parse("1992-07-08"));
-			player.setPlayer_total_card(14);
-			player.setPlayer_total_game(264);
-			player.setPlayer_total_foul(153);
+			player.setPlayer_id(1);
+			//player.setPlayer_name("Son Heung-min");
+			//player.setPlayer_position("FM-MF (WM)");
+			//player.setPlayer_height(183);
+			//player.setPlayer_weight(76);
+			//player.setPlayer_nationality("Korea Republic");
+			//player.setPlayer_debut(2010);
+			//player.setPlayer_birthday(new SimpleDateFormat("yyyy-MM-dd").parse("1992-07-08"));
+			player.setPlayer_total_card(999);
+			player.setPlayer_total_game(999);
+			player.setPlayer_total_foul(999);
 
 
 			
-			playerDAO.insert(player);
+			playerDAO.update(player);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-        */
+        
         /*
         // Test codes for trying 'SELECT * FROM Player WHERE player_id = ?'
 		try {
