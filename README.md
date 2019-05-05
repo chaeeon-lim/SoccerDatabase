@@ -85,17 +85,16 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 ### 2.6. View 연결
 
 ### 2.5. 시나리오 처리
-- Search: Searching person, team, nationality…etc<br>(Searching available per attribute ex) by roll-down menu)
-
-	- _Search player names with specific letters_
-	- _Search Korean/English/Canadian/Chinese/Spanish players_
-	- Search players who are unmarried  
-	- _Search players who are born in 17 July _
-	- Search matches on March/2018/rainy day
-	- Search matches on the home ground of a specific team
-	- Search matches with most goals/fouls/penalty kicks/corner kicks/cards
-	- Search matches tomorrow 
-	- (Search teams with red uniform) 
+- Search: Searching person, team, nationality…etc<br>(Searching available per attribute ex) by roll-down menu)<br>
+	- ~~Search player names with specific letters~~<br>
+	- ~~Search Korean/English/Canadian/Chinese/Spanish players~~<br>
+	- Search players who are unmarried<br>
+	- ~~Search players who are born in 17 July~~<br>
+	- Search matches on March/2018/rainy day<br>
+	- Search matches on the home ground of a specific team<br>
+	- Search matches with most goals/fouls/penalty kicks/corner kicks/cards<br>
+	- Search matches tomorrow<br>
+	- (Search teams with red uniform)<br> 
 
 - Login: To add favorite league, player, nationality…etc surf ad-free, and receive feeds
 
