@@ -26,6 +26,18 @@
  		SELECT * FROM Players WHERE player_id = #{player_id};
  	</select>
  	
+ 	<select id="selectByNationality" parameterType="String" resultMap="result">
+ 		SELECT * FROM Players WHERE nationality = #{player_nationality};
+ 	</select>
+ 	
+ 	<select id="selectByLetterForName" parameterType="String" resultMap="result">
+ 		SELECT * FROM Players WHERE name LIKE #{player_name};
+ 	</select>
+ 	
+ 	<select id="selectByBirthday" parameterType="String" resultMap="result">
+ 		SELECT * FROM Players WHERE birthday = DATE_FORMAT(#{player_birthday},'%Y-%m-%d');
+ 	</select>
+ 	
  	<insert id="insert" parameterType="Player" useGeneratedKeys="true" keyProperty="id">
  		insert into Players (player_id, name, position, height, weight, nationality, debut, birthday, total_card, total_game, total_foul) 
  		values (#{player_id}, #{player_name}, #{player_position}, #{player_height}, #{player_weight}, #{player_nationality}, #{player_debut}, #{player_birthday}, #{player_total_card}, #{player_total_game}, #{player_total_foul});

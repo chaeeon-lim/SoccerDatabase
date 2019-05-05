@@ -27,12 +27,27 @@ public class MainClass {
 		
 		PlayerDAO playerDAO = new ImplPlayerDAO();
 		Player player = new Player();
+		
+		
+		try {
+			List<Player> players = playerDAO.selectByLetterForName("%o%");
+			printout("***** List of Players. ******");
+			for(int i = 0 ; i < players.size() ; i++) {
+				System.out.println(players.get(i).toString());
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		/*
         Keeper gk = new Keeper();
         KeeperDAO keeperDAO = new ImplKeeperDAO();
         FieldplayerDAO fieldDAO = new ImplFieldplayerDAO();
         Fieldplayer field = new Fieldplayer();
         SeasonDAO seasonDAO = new ImplSeasonDAO();
         Season Season = new Season();
+        */
         /*
         try {
         	field.setPlayer_id(4);
@@ -105,7 +120,7 @@ public class MainClass {
 			e.printStackTrace();
 		}
 		*/
-
+/*
 		try {
 			List<Player> players = playerDAO.selectAll();
 			List<Keeper> keepers = keeperDAO.selectAll();
@@ -137,8 +152,9 @@ public class MainClass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	*/	
 	}
+	
 	
 	public static void printout(String message) {
 		System.out.println(message);
