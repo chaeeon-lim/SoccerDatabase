@@ -5,8 +5,10 @@ import java.util.List;
 
 import com.soccerdb.oldschool.db.dao.PlayerDAO;
 import com.soccerdb.oldschool.db.dao.SeasonDAO;
+import com.soccerdb.oldschool.db.dao.UserDAO;
 import com.soccerdb.oldschool.db.dao.ImplPlayerDAO;
 import com.soccerdb.oldschool.db.dao.ImplSeasonDAO;
+import com.soccerdb.oldschool.db.dao.ImplUserDAO;
 import com.soccerdb.oldschool.db.dao.KeeperDAO;
 import com.soccerdb.oldschool.db.dao.FieldplayerDAO;
 import com.soccerdb.oldschool.db.dao.ImplFieldplayerDAO;
@@ -15,6 +17,7 @@ import com.soccerdb.oldschool.db.entity.Fieldplayer;
 import com.soccerdb.oldschool.db.entity.Keeper;
 import com.soccerdb.oldschool.db.entity.Player;
 import com.soccerdb.oldschool.db.entity.Season;
+import com.soccerdb.oldschool.db.entity.User;
 
 
 /**
@@ -25,10 +28,41 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
+		UserDAO userDAO = new ImplUserDAO();
+		User user = new User();
+		try {
+			user.setUser_name("djfi");
+			user.setUser_password("2rjid");
+			userDAO.insert(user);
+			List<User> users = userDAO.selectAll();
+			for(int i = 0 ; i < users.size(); i++) {
+				System.out.println(users.get(i).toString());
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		/*
 		PlayerDAO playerDAO = new ImplPlayerDAO();
 		Player player = new Player();
+		FieldplayerDAO fieldDAO = new ImplFieldplayerDAO();
+        Fieldplayer field = new Fieldplayer();
 		
-		
+		try {
+			field.setPlayer_id(4);
+			field.setPlayer_total_assist(0);
+			field.setPlayer_total_goal(0);
+			fieldDAO.update(field);
+			List<Fieldplayer> fields = fieldDAO.selectAll();
+			for(int i = 0 ; i < fields.size() ; i++) {
+				System.out.println(fields.get(i).toString());
+			}
+		} catch ( Exception e){
+			e.printStackTrace();
+		}
+		*/
+		/*
 		try {
 			List<Player> players = playerDAO.selectByLetterForName("%o%");
 			printout("***** List of Players. ******");
@@ -39,6 +73,7 @@ public class MainClass {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		*/
 		
 		/*
         Keeper gk = new Keeper();

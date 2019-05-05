@@ -34,57 +34,13 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 	build.xml 파일이 있는 프로젝트 폴더에서 ant 명령어를 실행
 
 ## 2. TODO list.
-### 2.1. 테이블 확립 (프로그램에 등록된 Entity)
-현재 스키마에 등록된 테이블 중 SoccerDatabase의 서비스를 처리하는 프로그램에서 등록된 테이블은 다음과 같다.</br>
+### 2.1. 데이터베이스 정리
 
-- __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
-- Appears
-- Clubs
-- Contracts
-	- __Fieldplayers__
-- Games
-	- __Keepers__
-- Mathces
-	- __Players__
-	- __Seasons__
+### 2.2. View 구성
 
-### 2.2. 맵퍼 확립 (프로그램에 등록된 Mapper)
-현재 프로그램에 등록된 Entity 중 Mapper와 연결된 Entity는 다음과 같다.
+### 2.3. View 연결
 
-- __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
-- Appears
-- Clubs
-- Contracts
-	- __Fieldplayers__
-- Games
-	- __Keepers__
-- Mathces
-	- __Players__
-	- __Seasons__
-	
-### 2.2.1 맵퍼 개선하기
-맵퍼 파일을 개선함으로써 추가적인 메소드를 발생시키지 않고 기능을 늘릴 방법 모색 ->
-[동적 SQL에 대한 참조](http://www.mybatis.org/mybatis-3/ko/dynamic-sql.html)
-
-### 2.3. DAO 처리 확립 (프로그램에 등록된 Impl<Entity>DAO)
-현재 프로그램에 등록된 Entity 중 DAO를 실행하는 모듈(Impl\<Entity>DAO)가 구성된 Entity는 다음과 같다.
-
-- __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
-- Appears
-- Clubs
-- Contracts
-	- __Fieldplayers__
-- Games
-	- __Keepers__
-- Mathces
-	- __Players__
-	- __Seasons__
-	
-### 2.4. View 구성
-
-### 2.6. View 연결
-
-### 2.5. 시나리오 처리
+### 2.4. 시나리오 처리
 - Search: Searching person, team, nationality…etc<br>(Searching available per attribute ex) by roll-down menu)<br>
 	- ~~Search player names with specific letters~~<br>
 	- ~~Search Korean/English/Canadian/Chinese/Spanish players~~<br>
@@ -116,9 +72,7 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 	- Ranking from the last (haha!)
 
 	
-- Calculation based on stats<br>
-(Available by calculation) 
-
+- Calculation based on stats<br>(Available by calculation) <br>
 	- Leader board, percentage calculation 
 	- Percentage goals/fouls/shootings/kicks/cards of a player in a match/league
 	- Probability a team runs in a rainy day 
@@ -133,7 +87,7 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 	- Send newsletter with specific topics 
 	
 
-## 3. Contributer
+## 3. Contributers
 [![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/0)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/0)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/1)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/1)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/2)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/2)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/3)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/3)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/4)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/4)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/5)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/5)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/6)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/6)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/7)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/7)
 
 <!-- To setting this contributer check this site. https://sourcerer.io/settings#hof -->

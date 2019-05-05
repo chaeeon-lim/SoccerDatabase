@@ -27,11 +27,9 @@
  	<update id="update" parameterType="Fieldplayer">
  		UPDATE Fieldplayers;
  		SET 
-		<if test="player_total_goal != null">
-			total_goal = #{player_total_goal}
+		<if test="player_total_goal != null">total_goal = #{player_total_goal}
 		</if>
-		<if test="player_total_assist != null">
-			, total_assist = #{player_total_assist}
+		<if test="player_total_assist != null">, total_assist = #{player_total_assist}
 		</if>
  		WHERE player_id = #{player_id};
  	</update>

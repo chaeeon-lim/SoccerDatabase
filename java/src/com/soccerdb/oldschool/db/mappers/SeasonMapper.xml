@@ -24,7 +24,7 @@
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
 		INSERT INTO Seasons (year)
-		VALUES (#{season_yer});
+		VALUES (#{season_year});
 
  	</insert>
  	
