@@ -57,7 +57,7 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 - Contracts
 	- __Fieldplayers__
 - Games
-	- Keepers
+	- __Keepers__
 - Mathces
 	- __Players__
 	- __Seasons__
