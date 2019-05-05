@@ -1,3 +1,4 @@
+
 package com.soccerdb.oldschool.db.entity;
 
 import java.util.Date;
@@ -49,7 +50,6 @@ public void setSeason_id(int season_id) {
 public String toString() {
 	return "Match [game_id=" + game_id + ", club_id=" + club_id + ", season_id=" + season_id + "]";
 }
-
 
 
 }

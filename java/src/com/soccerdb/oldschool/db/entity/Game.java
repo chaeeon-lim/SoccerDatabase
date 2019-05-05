@@ -1,3 +1,4 @@
+
 package com.soccerdb.oldschool.db.entity;
 
 import java.util.Date;
@@ -178,7 +179,5 @@ public String toString() {
 			+ game_card + ", game_corner_kick=" + game_corner_kick + ", game_penalty_kick=" + game_penalty_kick + ", game_throwing=" + game_throwing
 			+ ", game_uniform_color=" + game_uniform_color + "]";
 }
-
-
-
+  
 }
