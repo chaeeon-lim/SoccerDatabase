@@ -41,12 +41,12 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 - Appears
 - Clubs
 - Contracts
-- Fieldplayers
+	- __Fieldplayers__
 - Games
-- Keepers
+	- __Keepers__
 - Mathces
 	- __Players__
-- Seasons
+	- __Seasons__
 
 ### 2.2. 맵퍼 확립 (프로그램에 등록된 Mapper)
 현재 프로그램에 등록된 Entity 중 Mapper와 연결된 Entity는 다음과 같다.
@@ -55,12 +55,12 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 - Appears
 - Clubs
 - Contracts
-- Fieldplayers
+	- __Fieldplayers__
 - Games
-- Keepers
+	- __Keepers__
 - Mathces
 	- __Players__
-- Seasons
+	- __Seasons__
 	
 ### 2.2.1 맵퍼 개선하기
 맵퍼 파일을 개선함으로써 추가적인 메소드를 발생시키지 않고 기능을 늘릴 방법 모색 ->
@@ -73,62 +73,64 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 - Appears
 - Clubs
 - Contracts
-- Fieldplayers
+	- __Fieldplayers__
 - Games
-- Keepers
+	- __Keepers__
 - Mathces
 	- __Players__
-- Seasons
+	- __Seasons__
 	
 ### 2.4. View 구성
 
 ### 2.6. View 연결
 
 ### 2.5. 시나리오 처리
-- Search: Searching person, team, nationality…etc<br>(Searching available per attribute ex) by roll-down menu)
-	- Search player names with specific letters
-	-       Search Korean/English/Canadian/Chinese/Spanish players
-	-	Search players who are unmarried  
-	-	Search players who are born in 17 July 
-	-       Search matches on March/2018/rainy day
-	-       Search matches on the home ground of a specific team
-	-       Search matches with most goals/fouls/penalty kicks/corner kicks/cards
-	-	Search matches tomorrow 
-	-       (Search teams with red uniform) 
+- Search: Searching person, team, nationality…etc<br>(Searching available per attribute ex) by roll-down menu)<br>
+	- ~~Search player names with specific letters~~<br>
+	- ~~Search Korean/English/Canadian/Chinese/Spanish players~~<br>
+	- Search players who are unmarried<br>
+	- ~~Search players who are born in 17 July~~<br>
+	- Search matches on March/2018/rainy day<br>
+	- Search matches on the home ground of a specific team<br>
+	- Search matches with most goals/fouls/penalty kicks/corner kicks/cards<br>
+	- Search matches tomorrow<br>
+	- (Search teams with red uniform)<br> 
 
 - Login: To add favorite league, player, nationality…etc surf ad-free, and receive feeds
-	-       Display favorite league, player, country
-	-       If logged in, is\_ad\_free true.
-	-       (notification would pop up)
+
+	- Display favorite league, player, country
+	- If logged in, is\_ad\_free true.
+	- (notification would pop up)
 
 - Ranking system: Rank MVP player per game, team, and league<br>
 	(Ranking available by comparison ex) compare team 1 and team 2)
 	
-	-	Rank players with most goals/cards/fouls/shooting/kicks/assistance (per game, team, league)
-	-	Rank keepers with most saves 
-	-       Rank team with most goals/cards/fouls/shooting/kicks/assistance (per game, league)
-	-	Rank players with most salaries/age/early debut/late debut/height/weight
-	-	(Rank teams on frequency of extended games )
-	-	Rank players who appear most 
-	-	Rank players with most injuries 
-	-	Rank longest runner (minutes)
-	-	Ranking from the last (haha!)
+	- Rank players with most goals/cards/fouls/shooting/kicks/assistance (per game, team, league)
+	- Rank keepers with most saves 
+	- Rank team with most goals/cards/fouls/shooting/kicks/assistance (per game, league)
+	- Rank players with most salaries/age/early debut/late debut/height/weight
+	- (Rank teams on frequency of extended games )
+	- Rank players who appear most 
+	- Rank players with most injuries 
+	- Rank longest runner (minutes)
+	- Ranking from the last (haha!)
 
 	
 - Calculation based on stats<br>
 (Available by calculation) 
 
 	- Leader board, percentage calculation 
-	-	Percentage goals/fouls/shootings/kicks/cards of a player in a match/league
-	-	Probability a team runs in a rainy day 
-	-	Percentage win 
-	-	Percentage assistance 
-	-	Ranking by position (midfielder, attacker, defender, keeper) : need calculation
+	- Percentage goals/fouls/shootings/kicks/cards of a player in a match/league
+	- Probability a team runs in a rainy day 
+	- Percentage win 
+	- Percentage assistance 
+	- Ranking by position (midfielder, attacker, defender, keeper) : need calculation
 
 	
 - (optional) Newsletter
-	-       (If logged in, collect searching histories and clicking on news histories with tags)
-	-       Send newsletter with specific topics 
+
+	- (If logged in, collect searching histories and clicking on news histories with tags)
+	- Send newsletter with specific topics 
 	
 
 ## 3. Contributer

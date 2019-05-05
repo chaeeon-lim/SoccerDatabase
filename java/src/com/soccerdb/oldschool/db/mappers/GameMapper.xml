@@ -3,32 +3,55 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="com.soccerdb.oldschool.db.dao.FieldplayerDAO">
- 	<resultMap id="result" type="Fieldplayer">
- 		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
-         
+ <mapper namespace="com.soccerdb.oldschool.db.dao.GameDAO">
+ 	<resultMap id="result" type="Game">
+ 		<result property="game_id" column="game_id"/>
+ 		<result property="game_time" column="game_time"/>
+ 		<result property="game_place" column="game_place"/>
+ 		<result property="game_weather" column="game_weather"/>
+ 		<result property="game_bonus_time" column="game_bonus_time"/>
+        <result property="game_is_extended" column="game_is_extended"/>
+        <result property="game_is_shoot_out" column="game_is_shoot_out"/>
+        <result property="game_type" column="game_type"/>
+        <result property="game_score" column="game_score"/>
+        <result property="game_foul" column="game_foul"/>
+        <result property="game_ball_occupation" column="game_ball_occupation"/>
+        <result property="game_card" column="game_card"/>
+        <result property="game_corner_kick" column="game_corner_kick"/>
+        <result property="game_penalty_kick" column="game_penalty_kick"/>
+        <result property="game_throwing" column="game_throwing"/>
+        <result property="game_uniform_color" column="game_uniform_color"/>                 
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
- 		<!--SELECT * FROM "Relation";-->
+ 		SELECT * FROM Games;
  	</select>
  	
  	<select id="selectById" parameterType="int" resultMap="result">
- 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Games WHERE game_id#{game_id};
  	</select>
  	
- 	<insert id="insert" parameterType="Player" useGeneratedKeys="true" keyProperty="id">
- 		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
- 		values "instace name of entity" , ... , "instace name of entity" -->
+ 	<insert id="insert" parameterType="Game" useGeneratedKeys="true" keyProperty="id">
+ 		INSERT INTO Games(game_id, time, place,weather, bonus_time, is_extended, is_shoot_out, game_type, score, foul, ball_occupation, card, corner_kick, penalty_kick, throwing, uniform_color)
+ 		VALUES (#{game_id},#{game_time},#{game_place},#{game_weather},#{game_bonus_time},#{game_is_extended},#{game_is_shoot_out},#{game_type},#{game_score},#{game_foul},#{game_ball_occupation},#{game_card},#{game_corner_kick},#{game_penalty_kick},#{game_throwing},#{game_uniform_color});
  	</insert>
  	
- 	<update id="update" parameterType="Player">
+ 	<update id="update" parameterType="Game">
+ 		UPDATE Games
+ 		Set<!--`time`=[value-2],`place`=[value-3],`weather`=[value-4],
+ 		`bonus_time`=[value-5],`is_extended`=[value-6],
+ 		`is_shoot_out`=[value-7],`game_type`=[value-8],`score`=[value-9],
+ 		`foul`=[value-10],`ball_occupation`=[value-11],`card`=[value-12],
+ 		`corner_kick`=[value-13],`penalty_kick`=[value-14],
+ 		`throwing`=[value-15],`uniform_color`=[value-16]-->
+ 		WHERE Game_id=#{game_id};
  		<!--UPDATE "Relation"
  		SET "attribute name of relation" = #{"instace name of entity"}
  		WHERE "attribute name of relation" = #{"instace name of entity"};-->
  	</update>
  	
  	<delete id="delete" parameterType="int">
+ 		DELETE FROM Games WHERE game_id = #{game_id};
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
  	</delete>
  </mapper>
