@@ -18,18 +18,18 @@
  	
  	<select id="selectAll" resultMap="result">
  		<!--SELECT * FROM "Relation";-->
- 		SELECT * FROM Club; 
+ 		SELECT * FROM Clubs; 
  	</select>
  	
  	<select id="selectById" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
- 		SELECT * FROM Club WHERE club_id = #{club_id};
+ 		SELECT * FROM Clubs WHERE club_id = #{club_id};
  	</select>
  	
  	<insert id="insert" parameterType="Club" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
- 		insert into Club(club_id,fullname,ground,nickname,owner,chairman,manager,logo)
+ 		insert into Clubs(club_id,fullname,ground,nickname,owner,chairman,manager,logo)
  		values (#{club_id},#{fullname},#{ground},#{nickname},#{owner},#{chairman},#{manager},#{logo}); 
  	</insert>
  	
@@ -37,13 +37,13 @@
  		<!--UPDATE "Relation"
  		SET "attribute name of relation" = #{"instace name of entity"}
  		WHERE "attribute name of relation" = #{"instace name of entity"};-->
- 		UPDATE Club
+ 		UPDATE Clubs
  		SET name = (#{club_fullname})
  		WHERE club_id = #{club_id};
  	</update>
  	
  	<delete id="delete" parameterType="int">
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
- 		DELETE FROM Club WHERE club_id = #{club_id};
+ 		DELETE FROM Clubs WHERE club_id = #{club_id};
  	</delete>
  </mapper>

@@ -14,18 +14,18 @@
  	
  	<select id="selectAll" resultMap="result">
  		<!--SELECT * FROM "Relation";-->
- 		SELECT * FROM Contract; 
+ 		SELECT * FROM Contracts; 
  	</select>
  	
  	<select id="selectById" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
- 		SELECT * FROM Appear WHERE player_id = #{player_id};
+ 		SELECT * FROM Contracts WHERE player_id = #{player_id};
  	</select>
  	
  	<insert id="insert" parameterType="Contract" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
- 		insert into Contract(player_id,club_id,salary,year_contract)
+ 		insert into Contracts(player_id,club_id,salary,year_contract)
  		values (#{player_id},#{club_id},#{salary},#{year_contract}))
  	</insert>
  	
@@ -33,7 +33,7 @@
  		<!--UPDATE "Relation"
  		SET "attribute name of relation" = #{"instace name of entity"}
  		WHERE "attribute name of relation" = #{"instace name of entity"};-->
-  		UPDATE Contract
+  		UPDATE Contracts
  		SET name = #{salary}
  		WHERE salary = #{player_id};
  	</update>
