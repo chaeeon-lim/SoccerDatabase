@@ -5,7 +5,7 @@
  
  <mapper namespace="com.soccerdb.oldschool.db.dao.ClubDAO">
  	<resultMap id="result" type="Club">
- 		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->  
+ 		<!-- Instance of Entity and Attributes of Relation need to be declared HERE! -->  
  		<result property="club_id" column="club_id"/>
  		<result property="club_fullname" column="full_name"/>
  		<result property="club_ground" column="ground"/>
@@ -32,14 +32,25 @@
  		insert into Clubs(club_id,full_name,ground,nick_name,owner,chairman,manager,logo)
  		values (#{club_id},#{club_fullname},#{club_ground},#{club_nickname},#{club_owner},#{club_chairman},#{club_manager},#{club_logo}); 
  	</insert>
- 	
- 	<update id="update" parameterType="Club">
+
+
+
+  	<update id="update" parameterType="Club">
  		<!--UPDATE "Relation"
  		SET "attribute name of relation" = #{"instace name of entity"}
  		WHERE "attribute name of relation" = #{"instace name of entity"};-->
  		UPDATE Clubs
- 		SET name = (#{club_fullname})
- 		WHERE club_id = #{club_id};
+ 		<set>
+	  		<if test="club_fullname != null"> full_name = #{club_fullname}, </if>
+	  		<if test="club_ground != null"> ground = #{club_ground}, </if>
+	  		<if test="club_nickname != null"> nick_name = #{club_nickname}, </if>
+	  		<if test="club_owner != null"> owner = #{club_owner}, </if>
+	  		<if test="club_chairman != null"> chairman = #{club_chairman}, </if>
+	  		<if test="club_manager != null"> manager = #{club_manager}, </if>
+	  		<if test="club_logo != null"> logo = #{club_logo} </if>
+	  		
+        </set>
+ 		WHERE club_id = #{club_id}; 
  	</update>
  	
  	<delete id="delete" parameterType="int">

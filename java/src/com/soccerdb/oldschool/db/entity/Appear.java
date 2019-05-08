@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Appear{
 
-	private int player_id;
+	private int player_id; 
 	private int season_id;
     private int game_id;
     private Date start_time; 
