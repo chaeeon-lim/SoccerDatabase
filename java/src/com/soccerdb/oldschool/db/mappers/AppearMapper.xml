@@ -22,37 +22,38 @@
  	
  	<select id="selectAll" resultMap="result">
  		<!--SELECT * FROM "Relation";-->
- 		SELECT * FROM Appear;
+ 		SELECT * FROM Appears;
  	</select>
  	
- 	<select id="selectByPlayerId" parameterType="int" resultMap="result">
+ 	<select id="selectById" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
- 		SELECT * FROM Appear WHERE player_id = #{player_id};
+ 		SELECT * FROM Appears WHERE player_id = #{player_id};
  	</select>
 
  	<select id="selectByGameId" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
- 		SELECT * FROM Appear WHERE game_id = #{game_id};
+ 		SELECT * FROM Appears WHERE game_id = #{game_id};
  	</select>
 
- 	<insert id="insert" parameterType="Player" useGeneratedKeys="true" keyProperty="id">
+ 	<insert id="insert" parameterType="Appear" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
-  		insert into Appear (player_id,game_id, season_id,start_time,end_time,in_game_position,goals,assist,save,foul,card,distance)
-  		values (#{player_id},#{game_id}, #{season_id},#{start_time},#{end_time},#{in_game_position},#{goals},#{assist},#{save},#{foul},#{card},#{distance}); 
+  		insert into Appears (player_id,game_id, season,start_time,end_time,in_game_position,goals,assist,save,foul,card,distance)
+  		values (#{player_id},#{game_id}, #{season},#{start_time},#{end_time},#{in_game_position},#{goals},#{assist},#{save},#{foul},#{card},#{distance}); 
+
  	</insert>
  	
- 	<update id="update" parameterType="Player">
+ 	<update id="update" parameterType="Appear">
  		<!--UPDATE "Relation"
  		SET "attribute name of relation" = #{"instace name of entity"}
  		WHERE "attribute name of relation" = #{"instace name of entity"};-->
- 		UPDATE Appear
+ 		UPDATE Appears
  		SET name = #{in_game_positon}
  		WHERE in_game_position = #{player_id};
  	</update>
  	
  	<delete id="delete" parameterType="int">
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
- 		DELETE FROM Appear WHERE player_id = #{player_id};
+ 		DELETE FROM Appears WHERE player_id = #{player_id};
  	</delete>
  </mapper>
