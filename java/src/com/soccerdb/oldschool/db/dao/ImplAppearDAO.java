@@ -10,35 +10,27 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 		super();
 		namespace = "com.soccerdb.oldschool.db.dao.AppearDAO";
 	}
+
+	@Override
+	public List<Appear> selectByPlayerId(int player_id) throws Exception {
+		session = getSqlSessionFactory().openSession();
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".selectByPlayerId", player_id);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public List<Appear> selectByGameId(int game_id) throws Exception {
+		session = getSqlSessionFactory().openSession();
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".selectByGameId", game_id);
+		}finally {
+			session.close();
+		}
+	}
 	
-	@Override
-	public void insert(Appear entity) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Appear selectById(Integer key) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Appear> selectAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void update(Appear entity) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(Integer key) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
 }

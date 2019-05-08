@@ -28,7 +28,7 @@
  	</select>
  	
  	<select id="selectById" parameterType="int" resultMap="result">
- 		SELECT * FROM Games WHERE game_id#{game_id};
+ 		SELECT * FROM Games WHERE game_id = #{game_id};
  	</select>
  	
  	<insert id="insert" parameterType="Game" useGeneratedKeys="true" keyProperty="id">

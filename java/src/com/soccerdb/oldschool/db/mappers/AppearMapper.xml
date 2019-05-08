@@ -8,7 +8,7 @@
  		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
  		<result property="player_id" column="player_id"/>
  		<result property="game_id" column="game_id"/>
- 		<result property="season" column="season"/>
+ 		<result property="season_id" column="season_id"/>
  		<result property="start_time" column="start_time"/>
  		<result property="end_time" column="end_time"/>
         <result property="in_game_position" column="in_game_position"/>
@@ -40,6 +40,7 @@
  		values "instace name of entity" , ... , "instace name of entity" -->
   		insert into Appears (player_id,game_id, season,start_time,end_time,in_game_position,goals,assist,save,foul,card,distance)
   		values (#{player_id},#{game_id}, #{season},#{start_time},#{end_time},#{in_game_position},#{goals},#{assist},#{save},#{foul},#{card},#{distance}); 
+
  	</insert>
  	
  	<update id="update" parameterType="Appear">
