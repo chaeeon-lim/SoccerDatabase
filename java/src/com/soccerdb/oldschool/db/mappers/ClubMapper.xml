@@ -7,13 +7,13 @@
  	<resultMap id="result" type="Club">
  		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->  
  		<result property="club_id" column="club_id"/>
- 		<result property="club_fullname" column="club_fullname"/>
- 		<result property="club_ground" column="club_ground"/>
- 		<result property="club_nickname" column="club_nickname"/>
- 		<result property="club_owner" column="club_owner"/>
-        <result property="club_chairman" column="club_chairman"/>
-        <result property="club_manager" column="club_manager"/>
-        <result property="club_logo" column="club_logo"/>
+ 		<result property="club_fullname" column="full_name"/>
+ 		<result property="club_ground" column="ground"/>
+ 		<result property="club_nickname" column="nick_name"/>
+ 		<result property="club_owner" column="owner"/>
+        <result property="club_chairman" column="chairman"/>
+        <result property="club_manager" column="manager"/>
+        <result property="club_logo" column="logo"/>
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
@@ -29,8 +29,8 @@
  	<insert id="insert" parameterType="Club" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
- 		insert into Clubs(club_id,fullname,ground,nickname,owner,chairman,manager,logo)
- 		values (#{club_id},#{fullname},#{ground},#{nickname},#{owner},#{chairman},#{manager},#{logo}); 
+ 		insert into Clubs(club_id,full_name,ground,nick_name,owner,chairman,manager,logo)
+ 		values (#{club_id},#{club_fullname},#{club_ground},#{club_nickname},#{club_owner},#{club_chairman},#{club_manager},#{club_logo}); 
  	</insert>
  	
  	<update id="update" parameterType="Club">
