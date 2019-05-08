@@ -26,7 +26,7 @@
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
  		insert into Contracts(player_id,club_id,salary,year_contract)
- 		values (#{player_id},#{club_id},#{salary},#{year_contract}))
+ 		values (#{player_id},#{club_id},#{salary},#{year_contract}); 
  	</insert>
  	
  	<update id="update" parameterType="Contract">

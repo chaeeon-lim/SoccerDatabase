@@ -38,8 +38,8 @@
  	<insert id="insert" parameterType="Appear" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
-  		insert into Appears (player_id,game_id, season,start_time,end_time,in_game_position,goals,assist,save,foul,card,distance)
-  		values (#{player_id},#{game_id}, #{season},#{start_time},#{end_time},#{in_game_position},#{goals},#{assist},#{save},#{foul},#{card},#{distance}); 
+  		insert into Appears (player_id,game_id, season_id,start_time,end_time,in_game_position,goals,assist,save,foul,card,distance)
+  		values (#{player_id},#{game_id}, #{season_id},#{start_time},#{end_time},#{in_game_position},#{goals},#{assist},#{save},#{foul},#{card},#{distance}); 
 
  	</insert>
  	

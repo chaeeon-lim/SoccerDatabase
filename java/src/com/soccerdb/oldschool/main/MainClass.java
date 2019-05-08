@@ -1,5 +1,17 @@
 package com.soccerdb.oldschool.main;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+
+import com.soccerdb.oldschool.db.dao.AppearDAO;
+import com.soccerdb.oldschool.db.dao.ClubDAO;
+import com.soccerdb.oldschool.db.dao.ContractDAO;
+import com.soccerdb.oldschool.db.dao.ImplAppearDAO;
+import com.soccerdb.oldschool.db.dao.ImplClubDAO;
+import com.soccerdb.oldschool.db.dao.ImplContractDAO;
+import com.soccerdb.oldschool.db.entity.Appear;
+import com.soccerdb.oldschool.db.entity.Club;
+import com.soccerdb.oldschool.db.entity.Contract;
 import com.soccerdb.oldschool.view.LoginView;
 import com.soccerdb.oldschool.view.View;
 
@@ -9,9 +21,100 @@ import com.soccerdb.oldschool.view.View;
 
 public class MainClass {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+
+		ContractDAO contractDAO = new ImplContractDAO(); 
+		Contract contract = new Contract(); 
 		
-		View view = new LoginView();
+		try {
+			contract.setPlayer_id(2);
+			contract.setClub_id(1);
+			contract.setSeason_id(1);
+			contract.setSalary((float) 20.3);
+			contract.setYear_contract("2019");
+			
+			contractDAO.insert(contract);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		List<Contract>  contracts = contractDAO.selectAll(); 
+		printout("*** List of Contracts. ***"); 
+		try {
+			for(int i = 0; i < contracts.size(); i++) {
+				System.out.println(contracts.get(i).toString()); 
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		/*
+		AppearDAO appearDAO = new ImplAppearDAO(); 
+		Appear appear = new Appear(); 
+		
+		try {
+			appear.setPlayer_id(1);
+			appear.setGame_id(2); 
+			appear.setSeason_id(1); 
+			appear.setStart_time(new SimpleDateFormat("hh:mm:ss").parse("15:30:18"));
+			appear.setEnd_time(new SimpleDateFormat("hh:mm:ss").parse("18:30:18"));
+			appear.setIn_game_position("mf");
+			appear.setGoals(1);
+			appear.setAssist(1);
+			appear.setSave(0);
+			appear.setFoul(3);
+			appear.setCard(1);
+			appear.setDistance(20);
+			
+			appearDAO.insert(appear);
+			
+			System.out.println(appear.getStart_time()); 
+			System.out.println(appear.getEnd_time()); 
+			
+			List<Appear> appears = appearDAO.selectAll();
+			System.out.println(appears.size()); 
+			
+			printout("*** List of Appears. ***"); 
+			for(int i = 0; i < appears.size(); i++) {
+				System.out.println(appears.get(i).toString()); 
+			}
+	
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		*/
+		
+		/*
+		ClubDAO clubDAO = new ImplClubDAO(); 
+		Club club = new Club(); 
+		
+		try {
+			club.setClub_id(3); 
+			club.setClub_fullname("Namename"); 
+			club.setClub_ground("Barcelona"); 
+			club.setClub_nickname("namy");
+			club.setClub_owner("Obama"); 
+			club.setClub_chairman("Halsey");
+			club.setClub_manager("HK");
+			club.setClub_logo("JPG00000011111123444444");
+			
+			clubDAO.insert(club);
+			
+			List<Club> clubs = clubDAO.selectAll();
+			printout("*** List of Clubs. ***"); 
+			for(int i = 0; i < clubs.size(); i++) {
+				System.out.println(clubs.get(i).toString()); 
+			}
+	
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		*/
+		
+		
+		//View view = new LoginView();
 		/*
 		UserDAO userDAO = new ImplUserDAO();
 		User user = new User();
