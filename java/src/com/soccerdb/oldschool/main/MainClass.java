@@ -1,24 +1,7 @@
 package com.soccerdb.oldschool.main;
 
-import java.text.SimpleDateFormat;
-import java.util.List;
-
-import com.soccerdb.oldschool.db.dao.PlayerDAO;
-import com.soccerdb.oldschool.db.dao.SeasonDAO;
-import com.soccerdb.oldschool.db.dao.UserDAO;
-import com.soccerdb.oldschool.db.dao.ImplPlayerDAO;
-import com.soccerdb.oldschool.db.dao.ImplSeasonDAO;
-import com.soccerdb.oldschool.db.dao.ImplUserDAO;
-import com.soccerdb.oldschool.db.dao.KeeperDAO;
-import com.soccerdb.oldschool.db.dao.FieldplayerDAO;
-import com.soccerdb.oldschool.db.dao.ImplFieldplayerDAO;
-import com.soccerdb.oldschool.db.dao.ImplKeeperDAO;
-import com.soccerdb.oldschool.db.entity.Fieldplayer;
-import com.soccerdb.oldschool.db.entity.Keeper;
-import com.soccerdb.oldschool.db.entity.Player;
-import com.soccerdb.oldschool.db.entity.Season;
-import com.soccerdb.oldschool.db.entity.User;
-
+import com.soccerdb.oldschool.view.LoginView;
+import com.soccerdb.oldschool.view.View;
 
 /**
  * Please, do not test 'DELETE' query
@@ -28,6 +11,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
+		View view = new LoginView();
 		/*
 		UserDAO userDAO = new ImplUserDAO();
 		User user = new User();
@@ -45,8 +29,8 @@ public class MainClass {
 		}
 		
 		*/
-		PlayerDAO playerDAO = new ImplPlayerDAO();
-		Player player = new Player();
+		//PlayerDAO playerDAO = new ImplPlayerDAO();
+		//Player player = new Player();
 		
 		/*
 		FieldplayerDAO fieldDAO = new ImplFieldplayerDAO();
@@ -100,6 +84,7 @@ public class MainClass {
         
         // Test codes for trying 'INSERT' query.
 		
+		/*
 		try {
 			player.setPlayer_id(1);
 			//player.setPlayer_name("Son Heung-min");
@@ -120,7 +105,7 @@ public class MainClass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		*/
         
         /*
         // Test codes for trying 'SELECT * FROM Player WHERE player_id = ?'

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.soccerdb.oldschool.db.dao.LeagueDAO">
+ 	<resultMap id="result" type="League">
+ 		<result property="league_id" column="league_id"/>
+ 		<result property="league_name" column="league_name"/>
+ 		        
+ 	</resultMap>
+ 	
+ 	<select id="selectAll" resultMap="result">
+ 		SELECT * FROM Leagues;
+ 	</select>
+ 	
+ 	<select id="selectById" parameterType="int" resultMap="result">
+ 		SELECT * FROM Leagues WHERE league_id = #{league_id};
+ 	</select>
+ 	
+ 	<insert id="insert" parameterType="League" useGeneratedKeys="true" keyProperty="id">
+ 		INSERT INTO Leagues(league_id, league_name)
+ 		VALUES (#{league_id},#{league_name});
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="League">
+ 		UPDATE Leagues
+        SET league_name = #{league_name}
+ 		WHERE League_id=#{league_id};
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="int">
+ 		DELETE FROM Leagues WHERE league_id = #{league_id};
+ 		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
+ 	</delete>
+ </mapper>

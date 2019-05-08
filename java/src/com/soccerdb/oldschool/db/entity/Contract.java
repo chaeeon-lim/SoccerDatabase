@@ -7,6 +7,7 @@ package com.soccerdb.oldschool.db.entity;
 public class Contract{
 	private int player_id;
 	private int club_id;
+	private int season_id;
 	private float salary;
 	private String year_contract; 
 
@@ -36,6 +37,14 @@ public class Contract{
 	public void setClub_id(int club_id) {
 		this.club_id = club_id;
 	}
+	public int getSeason_id() {
+		return season_id;
+	}
+
+	public void setSeason_id(int season_id) {
+		this.season_id = season_id;
+	}
+
 
 	public float getSalary() {
 		return salary;
@@ -58,6 +67,7 @@ public class Contract{
         return "{" +
             " player_id='" + getPlayer_id() + "'" +
             ", club_id='" + getClub_id() + "'" +
+            ", season_id='" + getSeason_id() +"'" +
             ", salary='" + getSalary() + "'" +
             ", year_contract='" + getYear_contract() + "'" +
             "}";
