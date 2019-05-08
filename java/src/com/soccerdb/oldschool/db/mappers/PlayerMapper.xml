@@ -45,8 +45,20 @@
  	
  	<update id="update" parameterType="Player">
  		UPDATE Players
- 		SET name = #{player_name}
+ 		<set>
+	      <if test="player_name != null">name=#{player_name},</if>
+	      <if test="player_position != null">position =#{player_position},</if>
+	      <if test="player_height != null">height=#{player_height},</if>
+	      <if test="player_weight != null">weight=#{player_weight},</if>
+	      <if test="player_nationality != null">nationality=#{player_nationality},</if>
+	      <if test="player_debut != null">debut=#{player_debut},</if>
+	      <if test="player_birthday != null">birthday=#{player_birthday},</if>
+	      <if test="player_total_card != null">total_card=#{player_total_card},</if>
+	      <if test="player_total_game != null">total_game=#{player_total_game},</if>
+	      <if test="player_total_foul != null">total_foul=#{player_total_foul}</if>
+	    </set>
  		WHERE player_id = #{player_id};
+ 		
  	</update>
  	
  	<delete id="delete" parameterType="int">

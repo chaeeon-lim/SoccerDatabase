@@ -10,34 +10,5 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 		super();
 		namespace = "com.soccerdb.oldschool.db.dao.ClubDAO";
 	}
-	@Override
-	public void insert(Club entity) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Club selectById(Integer key) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Club> selectAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void update(Club entity) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(Integer key) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
 
 }

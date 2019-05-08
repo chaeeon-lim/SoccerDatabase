@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.soccerdb.oldschool.db.dao.BTLDAO">
+ 	<resultMap id="result" type="Belong_to_League">
+ 		<result property="league_id" column="league_id"/>
+ 		<result property="club_id" column="club_id"/>
+ 	</resultMap>
+ 	
+ 	<select id="selectAll" resultMap="result">
+ 		SELECT * FROM Belong_to_League;
+ 	</select>
+ 	
+ 	<select id="selectById" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM Belong_to_League WHERE league_id = #{league_id} AND club_id = #{club_id};-->
+ 	</select>
+ 	
+	 <select id="selectByLeagueAndClubId" parameterType="Belong_to_League" resultMap="result">
+ 		SELECT * FROM Belong_to_League WHERE league_id = #{league_id} AND club_id = #{club_id};
+ 	</select>
+
+ 	<insert id="insert" parameterType="Belong_to_League" useGeneratedKeys="true" keyProperty="id">
+ 		INSERT INTO Belong_to_League(league_id, club_id)
+ 		VALUES (#{league_id},#{club_id});
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="Belong_to_League">
+ 		<!--UPDATE Belong_to_League
+        SET club_id = #{club_id}
+ 		WHERE League_id=#{league_id}; 
+
+         // There is nothing to update in BTL
+         -->
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="int">
+ 		<!--DELETE FROM Belong_to_League WHERE league_id = #{league_id} AND club_id = #{club_id};-->
+ 		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
+ 	</delete>
+
+	<delete id="deleteByBTL" parameterType="Belong_to_League">
+		DELETE FROM Belong_to_League WHERE league_id = #{league_id} AND club_id = #{club_id};
+	</delete>
+ </mapper>

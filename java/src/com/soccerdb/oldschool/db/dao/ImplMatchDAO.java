@@ -9,4 +9,15 @@ public class ImplMatchDAO extends ImplAbstractDAO<Match, Integer> implements Mat
 		super();
 		namespace = "com.soccerdb.oldschool.db.dao.MatchDAO";
 	}
+
+	@Override
+	public void deleteMatch(Match match) throws Exception {
+		session = getSqlSessionFactory().openSession();
+		try {
+			session = getSqlSessionFactory().openSession();
+			session.delete(namespace + ".deleteMatch", match);
+		}finally {
+			session.close();
+		}
+	}
 }

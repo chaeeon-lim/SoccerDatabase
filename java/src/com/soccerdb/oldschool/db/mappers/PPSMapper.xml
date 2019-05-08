@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.soccerdb.oldschool.db.dao.PPSDAO">
+ 	<resultMap id="result" type="Player_per_Season">
+ 		<result property="player_id" column="player_id"/>
+ 		<result property="season_id" column="season_id"/>
+ 		<result property="pps_position" column="position"/>
+ 		<result property="pps_height" column="height"/>
+ 		<result property="pps_weight" column="weight"/>
+        <result property="pps_season_goal" column="season_goal"/>
+        <result property="pps_season_assist" column="season_assist"/>
+        <result property="pps_season_game" column="season_game"/>
+        <result property="pps_season_card" column="season_card"/>
+        <result property="pps_season_foul" column="season_foul"/>
+                  
+ 	</resultMap>
+ 	
+ 	<select id="selectAll" resultMap="result">
+ 		SELECT * FROM player_per_season;
+ 	</select>
+ 	
+ 	<select id="selectById" parameterType="int" resultMap="result">
+ 		<!-- SELECT * FROM player_per_season WHERE player_id = #{player_id} AND season_id = #{season_id}; -->
+ 	</select>
+
+	<select id="selectByPPS" parameterType="Player_per_Season" resultMap="result">
+ 		SELECT * FROM player_per_season WHERE player_id = #{player_id} AND season_id = #{season_id};
+ 	</select>
+
+ 	
+ 	<insert id="insert" parameterType="Player_per_Season" useGeneratedKeys="true" keyProperty="id">
+ 		INSERT INTO player_per_season(player_id, season_id, position, height, weight, season_goal, season_assist, season_game, season_card, season_foul)
+ 		VALUES (#{player_id}, #{season_id}, #{pps_position}, #{pps_height}, #{pps_weight}, #{pps_season_goal}, #{pps_season_assist}, #{pps_season_game}, #{pps_season_card}, #{pps_season_foul});
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="Player_per_Season"> </update>
+
+	 <update  id="updateByPPS" parameterType="Player_per_Season">
+	 	UPDATE player_per_season
+ 		<set>
+            <if test="pps_position != null"> position = #{pps_position},</if>
+            <if test="pps_height != null"> height = #{pps_height},</if>
+            <if test="pps_weight != null"> weight = #{pps_weight},</if>
+            <if test="pps_season_goal != null"> season_goal = #{pps_season_goal},</if>
+            <if test="pps_season_assist != null"> season_assist = #{pps_season_assist},</if>
+            <if test="pps_season_game != null"> season_game = #{pps_season_game},</if>
+            <if test="pps_season_card != null"> season_card = #{pps_season_card},</if>
+            <if test="pps_season_foul != null"> season_foul = #{pps_season_foul}</if>
+        </set>
+ 		WHERE player_id = #{player_id} AND season_id = #{season_id}
+	 </update>
+ 	
+ 	<delete id="delete" parameterType="int"> </delete>
+	<delete id="deleteByPPS" parameterType="Player_per_Season">
+		DELETE FROM player_per_season WHERE player_id = #{player_id} AND season_id = #{season_id}
+	</delete>
+ </mapper>
