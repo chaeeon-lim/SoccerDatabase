@@ -1,79 +1,49 @@
 package com.soccerdb.oldschool.view;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-
 import com.soccerdb.oldschool.control.LoginController;
 
-public class LoginView extends View {
-		JFrame frame;
-		JPanel panel;
-		JPanel label;
-		JPanel controls;
-		JButton loginButton;
-		JTextField userid;
-		JPasswordField password;
-		LoginController controller;
+import java.io.*;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class LoginView  {
+	JPanel loginPanel;
+	JPanel label;
+	JPanel controls;
+	JTextField account;
+	JPasswordField password;
+	LoginController loginController;
 	
-	public LoginView() {
-		
-	}
-	@Override
-	public void init() {
-		// TODO Auto-generated method stub
-		controller = LoginController.getController();
-		frame = (JFrame) super.getParent();
-		panel = super.basePanel;
-	}
-	
-	@Override
-	public void paint() {
-		// TODO Auto-generated method stub
+	public int showLogin(JFrame frame){
+		loginPanel = new JPanel(new BorderLayout(5, 5));
 		label = new JPanel(new GridLayout(0, 1, 2, 2));
-    	label.add(new JLabel("UserID", SwingConstants.RIGHT));
-    	label.add(new JLabel("Password", SwingConstants.RIGHT));
-    	panel.add(label, BorderLayout.WEST);
 
-    	controls = new JPanel(new GridLayout(0, 1, 2, 2));
-    	userid = new JTextField();
-    	controls.add(userid);
-    	password = new JPasswordField();
-    	controls.add(password);
-    	loginButton = new JButton("로그인");
-    	
-    	panel.add(loginButton,BorderLayout.SOUTH);
-    	loginButton.addActionListener(new ActionListener() {
+		label.add(new JLabel("Account", SwingConstants.RIGHT));
+		label.add(new JLabel("Password", SwingConstants.RIGHT));
+		loginPanel.add(label, BorderLayout.WEST);
 
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				callController(userid.getText(), password.getText());
-				
-			}
-    		
-    	});
-    	panel.add(controls, BorderLayout.CENTER);
+		controls = new JPanel(new GridLayout(0, 1, 2, 2));
+		account = new JTextField();
+		password = new JPasswordField();
 
-    	//JOptionPane.showMessageDialog(super.getParent(), super.basePanel, "login", JOptionPane.QUESTION_MESSAGE);
-    	//new onButtonClickListener
+		controls.add(account);
+		controls.add(password);
+		loginPanel.add(controls, BorderLayout.CENTER);
+
+		JOptionPane.showMessageDialog(frame, loginPanel, "Login", JOptionPane.QUESTION_MESSAGE);
+
+		loginController = LoginController.getController();
+		int mode = callController(account.getText(), password.getText());
+
+		return mode;
+
 	}
-	
-	public void callController(String id, String string) {
-		controller.loginCheck(id, string);
-		// TODO Auto-generated method stub
-		
-	}
-	
 
+	public int callController(String account, String password){
+		int mode = loginController.loginCheck(account, password);
+		return mode;
+	}
 }
+	
