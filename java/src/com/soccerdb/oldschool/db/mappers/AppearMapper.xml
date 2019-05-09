@@ -27,33 +27,42 @@
  	
  	<select id="selectById" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
- 		SELECT * FROM Appears WHERE player_id = #{player_id};
+ 		<!-- SELECT * FROM Appears WHERE player_id = #{player_id}; -->
  	</select>
-
- 	<select id="selectByGameId" parameterType="int" resultMap="result">
- 		<!--SELECT * FROM "Relation" WHERE ???;-->
- 		SELECT * FROM Appears WHERE game_id = #{game_id};
+ 	
+ 	<select id="selectByAppear" parameterType="Appear" resultMap="result">
+ 		SELECT * FROM Appears WHERE player_id = #{player_id} AND game_id = #{game_id} AND season_id = #{season_id};
  	</select>
 
  	<insert id="insert" parameterType="Appear" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
-  		insert into Appears (player_id,game_id, season,start_time,end_time,in_game_position,goals,assist,save,foul,card,distance)
-  		values (#{player_id},#{game_id}, #{season},#{start_time},#{end_time},#{in_game_position},#{goals},#{assist},#{save},#{foul},#{card},#{distance}); 
+  		insert into Appears (player_id,game_id, season_id,start_time,end_time,in_game_position,goals,assist,save,foul,card,distance)
+  		values (#{player_id},#{game_id}, #{season_id},#{start_time},#{end_time},#{in_game_position},#{goals},#{assist},#{save},#{foul},#{card},#{distance}); 
 
  	</insert>
  	
  	<update id="update" parameterType="Appear">
- 		<!--UPDATE "Relation"
- 		SET "attribute name of relation" = #{"instace name of entity"}
- 		WHERE "attribute name of relation" = #{"instace name of entity"};-->
  		UPDATE Appears
- 		SET name = #{in_game_positon}
- 		WHERE in_game_position = #{player_id};
+ 		<set>
+	  		<if test="start_time != null"> start_time = #{start_time}, </if>
+	  		<if test="end_time != null"> end_time = #{end_time}, </if>
+	  		<if test="goals != null"> goals = #{goals}, </if>
+	  		<if test="assist != null"> assist = #{assist}, </if>
+	  		<if test="save != null"> save = #{save}, </if>
+	  		<if test="foul != null"> foul = #{foul}, </if>
+	  		<if test="card != null"> card = #{card}, </if>
+	  		<if test="distance != null"> distance = #{distance}</if>
+	  		
+        </set>
+ 		WHERE player_id = #{player_id} AND game_id = #{game_id} AND season_id = #{season_id}; 
  	</update>
  	
  	<delete id="delete" parameterType="int">
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
- 		DELETE FROM Appears WHERE player_id = #{player_id};
+ 		<!-- DELETE FROM Appears WHERE player_id = #{player_id}; -->
  	</delete>
+ 	<delete id="deleteByAppear" parameterType="Appear">
+		DELETE FROM Appears WHERE player_id = #{player_id} AND game_id = #{game_id} AND season_id = #{season_id}; 
+	</delete>
  </mapper>

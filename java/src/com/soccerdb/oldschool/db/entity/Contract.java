@@ -9,15 +9,16 @@ public class Contract{
 	private int club_id;
 	private int season_id;
 	private float salary;
-	private String year_contract; 
+	private int year_contract; 
 
 
 	public Contract() {
 	}
 	
-	public Contract(int player_id, int club_id, float salary, String year_contract) {
+	public Contract(int player_id, int club_id, int season_id, float salary, int year_contract) {
 		this.player_id = player_id; 
 		this.club_id = club_id; 
+		this.season_id = season_id; 
 		this.salary = salary; 
 		this.year_contract = year_contract; 
 	  }
@@ -54,11 +55,11 @@ public class Contract{
 		this.salary = salary;
 	}
 
-	public String getYear_contract() {
+	public int getYear_contract() {
 		return year_contract;
 	}
 
-	public void setYear_contract(String year_contract) {
+	public void setYear_contract(int year_contract) {
 		this.year_contract = year_contract;
 	}
 	

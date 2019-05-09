@@ -8,6 +8,7 @@
  		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
  		<result property="player_id" column="player_id"/>
  		<result property="club_id" column="club_id"/>
+ 		<result property="season_id" column="season_id"/>
  		<result property="salary" column="salary"/>
  		<result property="year_contract" column="year_contract"/>
  	</resultMap>
@@ -22,24 +23,32 @@
  		SELECT * FROM Contracts WHERE player_id = #{player_id};
  	</select>
  	
+ 	<select id="selectByContract" parameterType="Contract" resultMap="result">
+ 		SELECT * FROM Contracts WHERE player_id = #{player_id} AND club_id = #{club_id} AND season_id = #{season_id};
+ 	</select>
+ 	
  	<insert id="insert" parameterType="Contract" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
- 		insert into Contracts(player_id,club_id,salary,year_contract)
- 		values (#{player_id},#{club_id},#{salary},#{year_contract}))
+ 		insert into Contracts(player_id,club_id,season_id,salary,year_contract)
+ 		values (#{player_id},#{club_id},#{season_id},#{salary},#{year_contract}); 
  	</insert>
  	
  	<update id="update" parameterType="Contract">
- 		<!--UPDATE "Relation"
- 		SET "attribute name of relation" = #{"instace name of entity"}
- 		WHERE "attribute name of relation" = #{"instace name of entity"};-->
   		UPDATE Contracts
- 		SET name = #{salary}
- 		WHERE salary = #{player_id};
+ 		<set>
+            <if test="salary != null"> salary = #{salary},</if>
+            <if test="year_contract != null"> year_contract = #{year_contract}</if>
+        </set>
+ 		WHERE player_id = #{player_id} AND club_id = #{club_id} AND season_id = #{season_id}; 
  	</update>
  	
  	<delete id="delete" parameterType="int">
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
- 		DELETE FROM Contract WHERE player_id = #{player_id};
+ 		<!-- DELETE FROM Contract WHERE player_id = #{player_id}; -->
  	</delete>
+ 	
+ 	<delete id="deleteByContract" parameterType="Contract">
+		DELETE FROM Contracts WHERE player_id = #{player_id} AND club_id = #{club_id} AND season_id = #{season_id}; 
+	</delete>
  </mapper>

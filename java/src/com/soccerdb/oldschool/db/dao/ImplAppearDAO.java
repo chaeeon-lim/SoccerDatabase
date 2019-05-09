@@ -3,6 +3,7 @@ package com.soccerdb.oldschool.db.dao;
 import java.util.List;
 
 import com.soccerdb.oldschool.db.entity.Appear;
+import com.soccerdb.oldschool.db.entity.Player_per_Season;
 import com.soccerdb.oldschool.db.source.ImplAbstractDAO;
 
 public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements AppearDAO {
@@ -12,25 +13,27 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	}
 
 	@Override
-	public List<Appear> selectByPlayerId(int player_id) throws Exception {
+	public Appear selectByAppear(Appear appear) throws Exception {
 		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
-			return session.selectList(namespace + ".selectByPlayerId", player_id);
+			return session.selectOne(namespace + ".selectByAppear", appear);
 		}finally {
 			session.close();
 		}
 	}
 
 	@Override
-	public List<Appear> selectByGameId(int game_id) throws Exception {
+	public void deleteByAppear(Appear appear) throws Exception {
+		// TODO Auto-generated method stub
 		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
-			return session.selectList(namespace + ".selectByGameId", game_id);
+			session.delete(namespace + ".deleteByAppear", appear);
 		}finally {
 			session.close();
 		}
+		
 	}
 	
 }
