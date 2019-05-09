@@ -1,7 +1,6 @@
 package com.soccerdb.oldschool.main;
 
-import com.soccerdb.oldschool.view.LoginView;
-import com.soccerdb.oldschool.view.View;
+import com.soccerdb.oldschool.view.MainView;
 
 /**
  * Please, do not test 'DELETE' query
@@ -11,7 +10,13 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
-		View view = new LoginView();
+//		View view = new LoginView();
+//		LoginController loginController = new LoginController();
+
+		MainView mainView = new MainView();
+
+		mainView.showDB();
+		
 		/*
 		UserDAO userDAO = new ImplUserDAO();
 		User user = new User();
