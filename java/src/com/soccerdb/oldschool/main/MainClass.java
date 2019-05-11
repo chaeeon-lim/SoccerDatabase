@@ -32,26 +32,28 @@ public class MainClass {
 		Contract contract = new Contract(); 
 		
 		contract.setClub_id(1);
-		contract.setPlayer_id(3);
-		contract.setSeason_id(1);
+		contract.setPlayer_id(5);
+		contract.setSeason_id(70);
 		contract.setSalary(20);
-		contract.setYear_contract(7);
-		
-		contractDAO.update(contract);
+		contract.setDuration_contract(5);
 		*/
+		//contractDAO.update(contract);
+		
 		/*
 		Contract contract1 = new Contract(); 
 		contract1 = contractDAO.selectByContract(contract); 
 		printInt(contract1.getClub_id()); 
 		printInt(contract1.getPlayer_id()); 
 		printInt(contract1.getSeason_id()); 
-		*/
+		
 		//contractDAO.deleteByContract(contract);
-		//contractDAO.insert(contract);
+		*/
+		
 		/*
+		contractDAO.insert(contract);
+		
 		List<Contract>  contracts = contractDAO.selectAll();
 
-		
 		printStr("*** List of Contracts. ***"); 
 		try {
 			for(int i = 0; i < contracts.size(); i++) {
@@ -61,32 +63,32 @@ public class MainClass {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-
-	*/
+		 */
+	
 /*
 		AppearDAO appearDAO = new ImplAppearDAO(); 
 		Appear appear = new Appear(); 
 		
 		try {
 			appear.setPlayer_id(2);
-			appear.setGame_id(2); 
-			appear.setSeason_id(1); 
+			appear.setGame_id(14); 
+			appear.setSeason_id(70); 
 			appear.setStart_time(new SimpleDateFormat("hh:mm:ss").parse("01:30:18"));
 			appear.setEnd_time(new SimpleDateFormat("hh:mm:ss").parse("03:30:18"));
 			appear.setIn_game_position("mf");
-			//appear.setGoals(1);
-			//appear.setAssist(1);
-			//appear.setSave(0);
-			//appear.setFoul(3);
-			//appear.setCard(1);
-			//appear.setDistance(20);
+			appear.setGoals(1);
+			appear.setAssist(1);
+			appear.setSave(0);
+			appear.setFoul(3);
+			appear.setCard(1);
+			appear.setDistance(20);
 			
-			Appear appear1 = new Appear(); 
-			appear1 = appearDAO.selectByAppear(appear); 
+			//Appear appear1 = new Appear(); 
+			//appear1 = appearDAO.selectByAppear(appear); 
 			//appearDAO.deleteByAppear(appear);
 			//appearDAO.insert(appear);
 			appearDAO.update(appear);
-			printDate(appear1.getEnd_time()); 
+			//printDate(appear1.getEnd_time()); 
 			
 			System.out.println(appear.getStart_time()); 
 			System.out.println(appear.getEnd_time()); 
@@ -102,14 +104,14 @@ public class MainClass {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-		
 */
-		
+
+		/*
 		ClubDAO clubDAO = new ImplClubDAO(); 
 		Club club = new Club(); 
 		
 		try {
-			club.setClub_id(7); 
+			club.setClub_id(1); 
 			club.setClub_fullname("namynamy1234"); 
 			club.setClub_ground("Carcelona"); 
 			club.setClub_nickname("namy1234");
@@ -121,9 +123,9 @@ public class MainClass {
 			clubDAO.insert(club);
 			//clubDAO.delete(5);
 			//clubDAO.update(club);
-			Club club1 = new Club(); 
-			club1 = clubDAO.selectById(4); 
-			printStr(club1.getClub_ground()); 
+			//Club club1 = new Club(); 
+			//club1 = clubDAO.selectById(4); 
+			//printStr(club1.getClub_ground()); 
 			List<Club> clubs = clubDAO.selectAll();
 			printStr("*** List of Clubs. ***"); 
 			for(int i = 0; i < clubs.size(); i++) {
@@ -133,19 +135,17 @@ public class MainClass {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
+		*/
 		
-		
-<<<<<<< HEAD
+
 		//View view = new LoginView();
-=======
 
 //		View view = new LoginView();
 //		LoginController loginController = new LoginController();
 
 		MainView mainView = new MainView();
-
-		mainView.sho
->>>>>>> upstream/ver4.0.0
+		mainView.showDB(); 
+		
 		/*
 		UserDAO userDAO = new ImplUserDAO();
 		User user = new User();

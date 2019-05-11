@@ -10,7 +10,7 @@
  		<result property="club_id" column="club_id"/>
  		<result property="season_id" column="season_id"/>
  		<result property="salary" column="salary"/>
- 		<result property="year_contract" column="year_contract"/>
+ 		<result property="duration_contract" column="duration_contract"/>
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
@@ -30,8 +30,8 @@
  	<insert id="insert" parameterType="Contract" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
- 		insert into Contracts(player_id,club_id,season_id,salary,year_contract)
- 		values (#{player_id},#{club_id},#{season_id},#{salary},#{year_contract}); 
+ 		insert into Contracts(player_id,club_id,season_id,salary,duration_contract)
+ 		values (#{player_id},#{club_id},#{season_id},#{salary},#{duration_contract}); 
  	</insert>
  	
  	<update id="update" parameterType="Contract">
