@@ -24,9 +24,6 @@ public class MainClass {
 
 	public static void main(String[] args) throws Exception {
 		
-		
-		
-		
 		/*
 		ContractDAO contractDAO = new ImplContractDAO(); 
 		Contract contract = new Contract(); 
@@ -109,16 +106,16 @@ public class MainClass {
 		Club club = new Club(); 
 		
 		try {
-			club.setClub_id(4); 
-			club.setClub_fullname("namynamy"); 
+			club.setClub_id(7); 
+			club.setClub_fullname("namynamy1234"); 
 			club.setClub_ground("Carcelona"); 
-			club.setClub_nickname("namy");
+			club.setClub_nickname("namy1234");
 			club.setClub_owner("Obama"); 
 			club.setClub_chairman("Halsey");
 			club.setClub_manager("HK");
 			club.setClub_logo("JPG00000011111123444444");
 			
-			//clubDAO.insert(club);
+			clubDAO.insert(club);
 			//clubDAO.delete(5);
 			//clubDAO.update(club);
 			Club club1 = new Club(); 
@@ -133,7 +130,6 @@ public class MainClass {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-		
 		
 		
 		//View view = new LoginView();
