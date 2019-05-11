@@ -1,5 +1,7 @@
 package com.soccerdb.oldschool.main;
 
+
+import com.soccerdb.oldschool.view.MainView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +17,7 @@ import com.soccerdb.oldschool.db.entity.Club;
 import com.soccerdb.oldschool.db.entity.Contract;
 import com.soccerdb.oldschool.view.LoginView;
 import com.soccerdb.oldschool.view.View;
+
 
 /**
  * Please, do not test 'DELETE' query
@@ -132,7 +135,17 @@ public class MainClass {
 			}
 		
 		
+<<<<<<< HEAD
 		//View view = new LoginView();
+=======
+
+//		View view = new LoginView();
+//		LoginController loginController = new LoginController();
+
+		MainView mainView = new MainView();
+
+		mainView.sho
+>>>>>>> upstream/ver4.0.0
 		/*
 		UserDAO userDAO = new ImplUserDAO();
 		User user = new User();
