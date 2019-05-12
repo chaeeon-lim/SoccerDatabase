@@ -27,7 +27,7 @@ public class MainClass {
 
 	public static void main(String[] args) throws Exception {
 		
-		
+		/*
 		ContractDAO contractDAO = new ImplContractDAO(); 
 		Contract contract = new Contract(); 
 		
@@ -38,7 +38,7 @@ public class MainClass {
 		contract.setDuration_contract(5);
 		
 		//contractDAO.update(contract);
-		
+		*/
 		/*
 		Contract contract1 = new Contract(); 
 		contract1 = contractDAO.selectByContract(contract); 
@@ -49,7 +49,7 @@ public class MainClass {
 		//contractDAO.deleteByContract(contract);
 		*/
 		
-		
+		/*
 		//contractDAO.insert(contract);
 		
 		List<Contract>  contracts = contractDAO.selectByDurationContractOverThan(6); 
@@ -63,9 +63,9 @@ public class MainClass {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		*/
 	
-/*
+
 		AppearDAO appearDAO = new ImplAppearDAO(); 
 		Appear appear = new Appear(); 
 		
@@ -73,8 +73,8 @@ public class MainClass {
 			appear.setPlayer_id(2);
 			appear.setGame_id(14); 
 			appear.setSeason_id(70); 
-			appear.setStart_time(new SimpleDateFormat("hh:mm:ss").parse("01:30:18"));
-			appear.setEnd_time(new SimpleDateFormat("hh:mm:ss").parse("03:30:18"));
+			appear.setStart_time(new SimpleDateFormat("hh:mm:ss").parse("03:30:18"));
+			appear.setEnd_time(new SimpleDateFormat("hh:mm:ss").parse("05:30:18"));
 			appear.setIn_game_position("mf");
 			appear.setGoals(1);
 			appear.setAssist(1);
@@ -93,7 +93,9 @@ public class MainClass {
 			System.out.println(appear.getStart_time()); 
 			System.out.println(appear.getEnd_time()); 
 			
-			List<Appear> appears = appearDAO.selectAll();
+			//List<Appear> appears = appearDAO.selectByStartTimeBetween(new SimpleDateFormat("hh:mm:ss").parse("25:00:00"), 
+			//		new SimpleDateFormat("hh:mm:ss").parse("26:00:00")); 
+			List<Appear> appears = appearDAO.selectByDistanceMoreThan((float) 19.3); 
 			System.out.println(appears.size()); 
 			
 			printStr("*** List of Appears. ***"); 
@@ -104,7 +106,7 @@ public class MainClass {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-*/
+
 
 		/*
 		ClubDAO clubDAO = new ImplClubDAO(); 
