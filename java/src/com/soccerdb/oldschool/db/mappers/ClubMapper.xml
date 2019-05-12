@@ -25,7 +25,55 @@
  		<!--SELECT * FROM "Relation" WHERE ???;-->
  		SELECT * FROM Clubs WHERE club_id = #{club_id};
  	</select>
+ 
+  	<select id="selectByFullname" parameterType="String" resultMap="result">
+ 		SELECT * FROM Clubs WHERE full_name = #{club_fullname};
+ 	</select>
+ 
+   	<select id="selectByGround" parameterType="String" resultMap="result">
+ 		SELECT * FROM Clubs WHERE ground = #{club_ground};
+ 	</select>
  	
+    <select id="selectByNickname" parameterType="String" resultMap="result">
+ 		SELECT * FROM Clubs WHERE nickname = #{club_nickname};
+ 	</select>
+ 
+    <select id="selectByOwner" parameterType="String" resultMap="result">
+ 		SELECT * FROM Clubs WHERE owner = #{club_owner};
+ 	</select>
+
+    <select id="selectByChairman" parameterType="String" resultMap="result">
+ 		SELECT * FROM Clubs WHERE chairman = #{club_chairman};
+ 	</select>
+
+    <select id="selectByManager" parameterType="String" resultMap="result">
+ 		SELECT * FROM Clubs WHERE manager = #{club_manager};
+ 	</select>
+ 	
+    <select id="orderByFullname" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY full_name; 
+ 	</select>
+ 	
+    <select id="orderByGround" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY ground; 
+ 	</select>
+ 	
+    <select id="orderByNickname" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY nickname; 
+ 	</select>
+ 
+     <select id="orderByOwner" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY owner; 
+ 	</select>
+ 
+    <select id="orderByChairman" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY chairman; 
+ 	</select>
+ 	
+    <select id="orderByManager" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY manager; 
+ 	</select>
+ 
  	<insert id="insert" parameterType="Club" useGeneratedKeys="true" keyProperty="club_id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->

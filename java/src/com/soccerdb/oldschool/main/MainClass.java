@@ -27,16 +27,16 @@ public class MainClass {
 
 	public static void main(String[] args) throws Exception {
 		
-		/*
+		
 		ContractDAO contractDAO = new ImplContractDAO(); 
 		Contract contract = new Contract(); 
 		
 		contract.setClub_id(1);
-		contract.setPlayer_id(5);
+		contract.setPlayer_id(1);
 		contract.setSeason_id(70);
-		contract.setSalary(20);
+		contract.setSalary(70);
 		contract.setDuration_contract(5);
-		*/
+		
 		//contractDAO.update(contract);
 		
 		/*
@@ -49,10 +49,10 @@ public class MainClass {
 		//contractDAO.deleteByContract(contract);
 		*/
 		
-		/*
-		contractDAO.insert(contract);
 		
-		List<Contract>  contracts = contractDAO.selectAll();
+		//contractDAO.insert(contract);
+		
+		List<Contract>  contracts = contractDAO.selectByDurationContractOverThan(6); 
 
 		printStr("*** List of Contracts. ***"); 
 		try {
@@ -63,7 +63,7 @@ public class MainClass {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		 */
+		
 	
 /*
 		AppearDAO appearDAO = new ImplAppearDAO(); 
@@ -113,20 +113,20 @@ public class MainClass {
 		try {
 			club.setClub_id(1); 
 			club.setClub_fullname("namynamy1234"); 
-			club.setClub_ground("Carcelona"); 
+			club.setClub_ground("Garcelona"); 
 			club.setClub_nickname("namy1234");
 			club.setClub_owner("Obama"); 
 			club.setClub_chairman("Halsey");
 			club.setClub_manager("HK");
 			club.setClub_logo("JPG00000011111123444444");
 			
-			clubDAO.insert(club);
-			//clubDAO.delete(5);
+			//clubDAO.insert(club);
+			//clubDAO.delete(8);
 			//clubDAO.update(club);
 			//Club club1 = new Club(); 
 			//club1 = clubDAO.selectById(4); 
 			//printStr(club1.getClub_ground()); 
-			List<Club> clubs = clubDAO.selectAll();
+			List<Club> clubs = clubDAO.orderByGround(); 
 			printStr("*** List of Clubs. ***"); 
 			for(int i = 0; i < clubs.size(); i++) {
 				System.out.println(clubs.get(i).toString()); 
@@ -135,7 +135,7 @@ public class MainClass {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-		*/
+		*/ 
 		
 
 		//View view = new LoginView();
@@ -144,7 +144,7 @@ public class MainClass {
 //		LoginController loginController = new LoginController();
 
 		MainView mainView = new MainView();
-		mainView.showDB(); 
+		//mainView.showDB(); 
 		
 		/*
 		UserDAO userDAO = new ImplUserDAO();
