@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.soccerdb.oldschool.db.entity.Game;
 import com.soccerdb.oldschool.db.entity.Match;
+
 import com.soccerdb.oldschool.db.source.ImplAbstractDAO;
 
 public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameDAO{

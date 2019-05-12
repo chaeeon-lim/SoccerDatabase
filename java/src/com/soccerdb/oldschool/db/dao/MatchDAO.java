@@ -9,5 +9,5 @@ public interface MatchDAO extends GenericDAO<Match, Integer>{
 	public List<Match> selectByGameId(int game_id) throws Exception; 
 	public List<Match> selectByClubId(int club_id) throws Exception; 
 	public List<Match> selectBySeasonId(int season_id) throws Exception; 
-    public void deleteMatch(Match match) throws Exception;
+  public void deleteMatch(Match match) throws Exception;
 }

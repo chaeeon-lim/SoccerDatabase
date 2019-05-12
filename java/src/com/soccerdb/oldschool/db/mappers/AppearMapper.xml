@@ -6,29 +6,63 @@
  <mapper namespace="com.soccerdb.oldschool.db.dao.AppearDAO">
  	<resultMap id="result" type="Appear">
  		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
-         
+ 		<result property="player_id" column="player_id"/>
+ 		<result property="game_id" column="game_id"/>
+ 		<result property="season_id" column="season_id"/>
+ 		<result property="start_time" column="start_time"/>
+ 		<result property="end_time" column="end_time"/>
+        <result property="in_game_position" column="in_game_position"/>
+        <result property="goals" column="goals"/>
+        <result property="assist" column="assist"/>
+        <result property="save" column="save"/>
+        <result property="foul" column="foul"/>
+        <result property="card" column="card"/>
+        <result property="distance" column="distance"/>
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
  		<!--SELECT * FROM "Relation";-->
+ 		SELECT * FROM Appears;
  	</select>
  	
  	<select id="selectById" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		<!-- SELECT * FROM Appears WHERE player_id = #{player_id}; -->
  	</select>
  	
- 	<insert id="insert" parameterType="Player" useGeneratedKeys="true" keyProperty="id">
+ 	<select id="selectByAppear" parameterType="Appear" resultMap="result">
+ 		SELECT * FROM Appears WHERE player_id = #{player_id} AND game_id = #{game_id} AND season_id = #{season_id};
+ 	</select>
+
+ 	<insert id="insert" parameterType="Appear" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
+  		insert into Appears (player_id,game_id, season_id,start_time,end_time,in_game_position,goals,assist,save,foul,card,distance)
+  		values (#{player_id},#{game_id}, #{season_id},#{start_time},#{end_time},#{in_game_position},#{goals},#{assist},#{save},#{foul},#{card},#{distance}); 
+
  	</insert>
  	
- 	<update id="update" parameterType="Player">
- 		<!--UPDATE "Relation"
- 		SET "attribute name of relation" = #{"instace name of entity"}
- 		WHERE "attribute name of relation" = #{"instace name of entity"};-->
+ 	<update id="update" parameterType="Appear">
+ 		UPDATE Appears
+ 		<set>
+	  		<if test="start_time != null"> start_time = #{start_time}, </if>
+	  		<if test="end_time != null"> end_time = #{end_time}, </if>
+	  		<if test="goals != null"> goals = #{goals}, </if>
+	  		<if test="assist != null"> assist = #{assist}, </if>
+	  		<if test="save != null"> save = #{save}, </if>
+	  		<if test="foul != null"> foul = #{foul}, </if>
+	  		<if test="card != null"> card = #{card}, </if>
+	  		<if test="distance != null"> distance = #{distance}</if>
+	  		
+        </set>
+ 		WHERE player_id = #{player_id} AND game_id = #{game_id} AND season_id = #{season_id}; 
  	</update>
  	
  	<delete id="delete" parameterType="int">
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
+ 		<!-- DELETE FROM Appears WHERE player_id = #{player_id}; -->
  	</delete>
+ 	<delete id="deleteByAppear" parameterType="Appear">
+		DELETE FROM Appears WHERE player_id = #{player_id} AND game_id = #{game_id} AND season_id = #{season_id}; 
+	</delete>
  </mapper>

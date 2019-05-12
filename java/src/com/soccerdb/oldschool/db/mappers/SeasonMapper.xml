@@ -3,32 +3,42 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="com.soccerdb.oldschool.db.dao.KeeperDAO">
- 	<resultMap id="result" type="Keeper">
+ <mapper namespace="com.soccerdb.oldschool.db.dao.SeasonDAO">
+ 	<resultMap id="result" type="Season">
  		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
-         
+        <result property="season_id" column="season_id"/>
+		<result property="season_year" column="year"/>
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
  		<!--SELECT * FROM "Relation";-->
+		SELECT * FROM Seasons;
  	</select>
  	
  	<select id="selectById" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
+		 SELECT * FROM Seasons WHERE season_id = #{season_id};
  	</select>
  	
- 	<insert id="insert" parameterType="Keeper" useGeneratedKeys="true" keyProperty="id">
+ 	<insert id="insert" parameterType="Season" useGeneratedKeys="true" keyProperty="season_id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
+		INSERT INTO Seasons (year)
+		VALUES (#{season_year});
+
  	</insert>
  	
- 	<update id="update" parameterType="Keeper">
+ 	<update id="update" parameterType="Season">
  		<!--UPDATE "Relation"
  		SET "attribute name of relation" = #{"instace name of entity"}
  		WHERE "attribute name of relation" = #{"instace name of entity"};-->
+		UPDATE Seasons
+		SET year = #{season_year}
+		WHERE season_id = #{season_id};
  	</update>
  	
  	<delete id="delete" parameterType="int">
- 		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
+ 		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->\
+		DELETE FROM Seasons WHERE season_id = #{season_id};
  	</delete>
  </mapper>

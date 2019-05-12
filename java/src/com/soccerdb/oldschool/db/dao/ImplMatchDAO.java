@@ -11,6 +11,7 @@ public class ImplMatchDAO extends ImplAbstractDAO<Match, Integer> implements Mat
 		super();
 		namespace = "com.soccerdb.oldschool.db.dao.MatchDAO";
 	}
+
 	@Override
 	public List<Match> selectByGameId(int game_id) throws Exception {
 		session = getSqlSessionFactory().openSession();

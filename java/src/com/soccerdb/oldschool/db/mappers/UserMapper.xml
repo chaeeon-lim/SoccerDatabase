@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.soccerdb.oldschool.db.dao.UserDAO">
+ 	<resultMap id="result" type="User">
+ 		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
+        <result property="user_id" column="user_id"/>
+        <result property="user_name" column="user_name"/>
+        <result property="user_account" column="user_account"/>
+        <result property="user_password" column="user_password"/>
+ 	</resultMap>
+ 	
+ 	<select id="selectAll" resultMap="result">
+ 		<!--SELECT * FROM "Relation";-->
+		SELECT * FROM Users;
+ 	</select>
+ 	
+ 	<select id="selectById" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+		 SELECT * FROM Users WHERE user_id = #{user_id};
+ 	</select>
+ 	
+ 	<select id="selectByAccount" parameterType="String" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+		 SELECT * FROM Users WHERE user_account = #{user_account};
+ 	</select>
+ 	
+ 	<insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="user_id">
+ 		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
+ 		values "instace name of entity" , ... , "instance name of entity" -->
+		INSERT INTO Users (user_name, user_account, user_password)
+		VALUES (#{user_name}, #{user_accout}, #{user_password});
+
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="User">
+ 		<!--UPDATE "Relation"
+ 		SET "attribute name of relation" = #{"instace name of entity"}
+ 		WHERE "attribute name of relation" = #{"instace name of entity"};-->
+		UPDATE Users
+		SET name = #{user_name}
+		WHERE user_id = #{user_id};
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="int">
+ 		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->\
+		DELETE FROM Users WHERE user_id = #{user_id};
+ 	</delete>
+ </mapper>

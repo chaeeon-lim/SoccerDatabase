@@ -10,22 +10,23 @@
  		<result property="game_place" column="place"/>
  		<result property="game_weather" column="weather"/>
  		<result property="game_bonus_time" column="bonus_time"/>
-        <result property="game_is_extended" column="is_extended"/>
-        <result property="game_is_shoot_out" column="is_shoot_out"/>
-        <result property="game_type" column="type"/>
-        <result property="game_score" column="score"/>
-        <result property="game_foul" column="foul"/>
-        <result property="game_ball_occupation" column="ball_occupation"/>
-        <result property="game_card" column="card"/>
-        <result property="game_corner_kick" column="corner_kick"/>
-        <result property="game_penalty_kick" column="penalty_kick"/>
-        <result property="game_throwing" column="throwing"/>
-        <result property="game_uniform_color" column="uniform_color"/>               
+    <result property="game_is_extended" column="is_extended"/>
+    <result property="game_is_shoot_out" column="is_shoot_out"/>
+    <result property="game_type" column="type"/>
+    <result property="game_score" column="score"/>
+    <result property="game_foul" column="foul"/>
+    <result property="game_ball_occupation" column="ball_occupation"/>
+    <result property="game_card" column="card"/>
+    <result property="game_corner_kick" column="corner_kick"/>
+    <result property="game_penalty_kick" column="penalty_kick"/>
+    <result property="game_throwing" column="throwing"/>
+    <result property="game_uniform_color" column="uniform_color"/>               
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
  		SELECT * FROM Games;
  	</select>
+
  	<select id="selectById" parameterType="int" resultMap="result">
  		SELECT * FROM Games WHERE game_id = #{game_id};
  	</select>
@@ -71,17 +72,19 @@
 	      <if test="game_uniform_color != null">uniform_color=#{game_uniform_color}</if>
 	    </set>
  		<!--Set`time`=[value-2],`place`=[value-3],`weather`=[value-4],
+
  		`bonus_time`=[value-5],`is_extended`=[value-6],
  		`is_shoot_out`=[value-7],`game_type`=[value-8],`score`=[value-9],
  		`foul`=[value-10],`ball_occupation`=[value-11],`card`=[value-12],
  		`corner_kick`=[value-13],`penalty_kick`=[value-14],
  		`throwing`=[value-15],`uniform_color`=[value-16]-->
  		WHERE game_id=#{game_id};
+
  		<!--UPDATE "Relation"
  		SET "attribute name of relation" = #{"instace name of entity"}
  		WHERE "attribute name of relation" = #{"instace name of entity"};-->
  	</update>
- 	
+ 
  	<delete id="deleteGame" parameterType="int">
  		DELETE FROM Games WHERE game_id = #{game_id};
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->

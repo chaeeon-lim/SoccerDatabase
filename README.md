@@ -34,104 +34,60 @@ Ant Commander가 설치되있는지 확인한다.[다운로드 사이트](https:
 	build.xml 파일이 있는 프로젝트 폴더에서 ant 명령어를 실행
 
 ## 2. TODO list.
-### 2.1. 테이블 확립 (프로그램에 등록된 Entity)
-현재 스키마에 등록된 테이블 중 SoccerDatabase의 서비스를 처리하는 프로그램에서 등록된 테이블은 다음과 같다.</br>
+### 2.1. 데이터베이스 정리
 
-- __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
-- Appears
-- Clubs
-- Contracts
-- Fieldplayers
-- Games
-- Keepers
-- Mathces
-	- __Players__
-- Seasons
+### 2.2. View 구성
 
-### 2.2. 맵퍼 확립 (프로그램에 등록된 Mapper)
-현재 프로그램에 등록된 Entity 중 Mapper와 연결된 Entity는 다음과 같다.
+### 2.3. View 연결
 
-- __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
-- Appears
-- Clubs
-- Contracts
-- Fieldplayers
-- Games
-- Keepers
-- Mathces
-	- __Players__
-- Seasons
-	
-### 2.2.1 맵퍼 개선하기
-맵퍼 파일을 개선함으로써 추가적인 메소드를 발생시키지 않고 기능을 늘릴 방법 모색 ->
-[동적 SQL에 대한 참조](http://www.mybatis.org/mybatis-3/ko/dynamic-sql.html)
-
-### 2.3. DAO 처리 확립 (프로그램에 등록된 Impl<Entity>DAO)
-현재 프로그램에 등록된 Entity 중 DAO를 실행하는 모듈(Impl\<Entity>DAO)가 구성된 Entity는 다음과 같다.
-
-- __(굵은 글씨로 들여쓰기 된 요소가 처리된 것임)__
-- Appears
-- Clubs
-- Contracts
-- Fieldplayers
-- Games
-- Keepers
-- Mathces
-	- __Players__
-- Seasons
-	
-### 2.4. View 구성
-
-### 2.6. View 연결
-
-### 2.5. 시나리오 처리
-- Search: Searching person, team, nationality…etc<br>(Searching available per attribute ex) by roll-down menu)
-	- Search player names with specific letters
-	-       Search Korean/English/Canadian/Chinese/Spanish players
-	-	Search players who are unmarried  
-	-	Search players who are born in 17 July 
-	-       Search matches on March/2018/rainy day
-	-       Search matches on the home ground of a specific team
-	-       Search matches with most goals/fouls/penalty kicks/corner kicks/cards
-	-	Search matches tomorrow 
-	-       (Search teams with red uniform) 
+### 2.4. 시나리오 처리
+- Search: Searching person, team, nationality…etc<br>(Searching available per attribute ex) by roll-down menu)<br>
+	- ~~Search player names with specific letters~~<br>
+	- ~~Search Korean/English/Canadian/Chinese/Spanish players~~<br>
+	- Search players who are unmarried<br>
+	- ~~Search players who are born in 17 July~~<br>
+	- Search matches on March/2018/rainy day<br>
+	- Search matches on the home ground of a specific team<br>
+	- Search matches with most goals/fouls/penalty kicks/corner kicks/cards<br>
+	- Search matches tomorrow<br>
+	- (Search teams with red uniform)<br> 
 
 - Login: To add favorite league, player, nationality…etc surf ad-free, and receive feeds
-	-       Display favorite league, player, country
-	-       If logged in, is\_ad\_free true.
-	-       (notification would pop up)
+
+	- Display favorite league, player, country
+	- If logged in, is\_ad\_free true.
+	- (notification would pop up)
 
 - Ranking system: Rank MVP player per game, team, and league<br>
 	(Ranking available by comparison ex) compare team 1 and team 2)
 	
-	-	Rank players with most goals/cards/fouls/shooting/kicks/assistance (per game, team, league)
-	-	Rank keepers with most saves 
-	-       Rank team with most goals/cards/fouls/shooting/kicks/assistance (per game, league)
-	-	Rank players with most salaries/age/early debut/late debut/height/weight
-	-	(Rank teams on frequency of extended games )
-	-	Rank players who appear most 
-	-	Rank players with most injuries 
-	-	Rank longest runner (minutes)
-	-	Ranking from the last (haha!)
+	- Rank players with most goals/cards/fouls/shooting/kicks/assistance (per game, team, league)
+	- Rank keepers with most saves 
+	- Rank team with most goals/cards/fouls/shooting/kicks/assistance (per game, league)
+	- Rank players with most salaries/age/early debut/late debut/height/weight
+	- (Rank teams on frequency of extended games )
+	- Rank players who appear most 
+	- Rank players with most injuries 
+	- Rank longest runner (minutes)
+	- Ranking from the last (haha!)
 
 	
-- Calculation based on stats<br>
-(Available by calculation) 
-
+- Calculation based on stats<br>(Available by calculation) <br>
 	- Leader board, percentage calculation 
-	-	Percentage goals/fouls/shootings/kicks/cards of a player in a match/league
-	-	Probability a team runs in a rainy day 
-	-	Percentage win 
-	-	Percentage assistance 
-	-	Ranking by position (midfielder, attacker, defender, keeper) : need calculation
+	- Percentage goals/fouls/shootings/kicks/cards of a player in a match/league
+	- Probability a team runs in a rainy day 
+	- Percentage win 
+	- Percentage assistance 
+	- Ranking by position (midfielder, attacker, defender, keeper) : need calculation
 
 	
 - (optional) Newsletter
-	-       (If logged in, collect searching histories and clicking on news histories with tags)
-	-       Send newsletter with specific topics 
+
+	- (If logged in, collect searching histories and clicking on news histories with tags)
+	- Send newsletter with specific topics 
 	
 
-## 3. Contributer
+## 3. Contributers
 [![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/0)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/0)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/1)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/1)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/2)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/2)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/3)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/3)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/4)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/4)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/5)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/5)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/6)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/6)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/7)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/7)
 
 <!-- To setting this contributer check this site. https://sourcerer.io/settings#hof -->

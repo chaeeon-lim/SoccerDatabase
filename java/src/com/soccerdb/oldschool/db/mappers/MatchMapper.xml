@@ -44,6 +44,7 @@
 	      <if test="club_id != null">club_id=#{club_id}</if>
 	    </set>
 	    WHERE game_id=#{game_id},club_id=#{club_id},season_id=#{season_id};
+
  		<!--UPDATE Matches-->
  		<!-- SET `club_id`=[value-1],`game_id`=[value-2],`season_id`=[value-3] -->
  		<!--WHERE club_id=#{player_id},game_id=#{player_id},season_id=#{player_id};-->
