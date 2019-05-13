@@ -1,10 +1,10 @@
 package com.soccerdb.oldschool.db.dao;
 
 
+import java.util.Date;
 import java.util.List;
 
 import com.soccerdb.oldschool.db.entity.Appear;
-import com.soccerdb.oldschool.db.entity.Player_per_Season;
 import com.soccerdb.oldschool.db.source.GenericDAO;
 
 public interface AppearDAO extends GenericDAO<Appear, Integer>{
@@ -12,6 +12,29 @@ public interface AppearDAO extends GenericDAO<Appear, Integer>{
     
 	public Appear selectByAppear(Appear appear) throws Exception;
 	public void deleteByAppear(Appear appear) throws Exception;
-	//public void updateByAppear(Appear appear) throws Exception;
 	
+	public List<Appear> selectByPlayerId(int player_id) throws Exception;
+	public List<Appear> selectByGameId(int game_id) throws Exception; 
+	public List<Appear> selectBySeasonId(int season_id) throws Exception; 
+	public List<Appear> selectByStartTimeBetween(Date time1, Date time2) throws Exception; 
+	public List<Appear> selectByEndTimeBetween(Date time1, Date time2) throws Exception; 
+	public List<Appear> selectByInGamePosition(String position) throws Exception; 
+	public List<Appear> selectByGoalsMoreThan(int goals) throws Exception; 
+	public List<Appear> selectByAssistMoreThan(int assist) throws Exception; 
+	public List<Appear> selectBySaveMoreThan(int save) throws Exception;
+	public List<Appear> selectByFoulMoreThan(int foul) throws Exception; 
+	public List<Appear> selectByCardMoreThan(int card) throws Exception; 
+	public List<Appear> selectByDistanceMoreThan(float distance) throws Exception; 
+	
+	public List<Appear> orderByPlayerId() throws Exception; 
+	public List<Appear> orderByGameId() throws Exception; 
+	public List<Appear> orderBySeasonId() throws Exception; 
+	public List<Appear> orderByStartTime() throws Exception; 
+	public List<Appear> orderByEndTime() throws Exception; 
+	public List<Appear> orderByGoals() throws Exception; 
+	public List<Appear> orderByAssist() throws Exception; 
+	public List<Appear> orderBySave() throws Exception; 
+	public List<Appear> orderByFoul() throws Exception; 
+	public List<Appear> orderByCard() throws Exception; 
+	public List<Appear> orderByDistance() throws Exception; 
 }

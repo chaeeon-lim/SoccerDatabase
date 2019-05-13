@@ -19,8 +19,6 @@ public class Appear{
     private int card; 
     private float distance; 
 
-
-
     public Appear() {
     }
 

@@ -10,7 +10,7 @@
  		<result property="club_id" column="club_id"/>
  		<result property="season_id" column="season_id"/>
  		<result property="salary" column="salary"/>
- 		<result property="year_contract" column="year_contract"/>
+ 		<result property="duration_contract" column="duration_contract"/>
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
@@ -19,26 +19,65 @@
  	</select>
  	
  	<select id="selectById" parameterType="int" resultMap="result">
- 		<!--SELECT * FROM "Relation" WHERE ???;-->
- 		SELECT * FROM Contracts WHERE player_id = #{player_id};
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->	
  	</select>
  	
  	<select id="selectByContract" parameterType="Contract" resultMap="result">
  		SELECT * FROM Contracts WHERE player_id = #{player_id} AND club_id = #{club_id} AND season_id = #{season_id};
  	</select>
+
+ 	<select id="selectByPlayerId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts WHERE player_id = #{player_id};
+ 	</select>
+
+ 	<select id="selectByClubId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts WHERE club_id = #{club_id};
+ 	</select>
+ 	
+ 	<select id="selectBySalaryOverThan" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts WHERE salary >= #{salary};
+ 	</select>
+
+ 	<select id="selectByDurationContractOverThan" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts WHERE duration_contract >= #{duration_contract};
+ 	</select>
+
+ 	<select id="orderByPlayerId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY player_id; 
+ 	</select>
+
+ 	<select id="orderByClubId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY club_id; 
+ 	</select>
+ 	
+  	<select id="orderBySalary" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY salary; 
+ 	</select>
+ 	
+  	<select id="orderByDurationContract" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY duration_contract; 
+ 	</select>
  	
  	<insert id="insert" parameterType="Contract" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
- 		insert into Contracts(player_id,club_id,season_id,salary,year_contract)
- 		values (#{player_id},#{club_id},#{season_id},#{salary},#{year_contract}); 
+ 		insert into Contracts(player_id,club_id,season_id,salary,duration_contract)
+ 		values (#{player_id},#{club_id},#{season_id},#{salary},#{duration_contract}); 
  	</insert>
  	
  	<update id="update" parameterType="Contract">
   		UPDATE Contracts
  		<set>
             <if test="salary != null"> salary = #{salary},</if>
-            <if test="year_contract != null"> year_contract = #{year_contract}</if>
+            <if test="duration_contract != null"> duration_contract = #{duration_contract}</if>
         </set>
  		WHERE player_id = #{player_id} AND club_id = #{club_id} AND season_id = #{season_id}; 
  	</update>

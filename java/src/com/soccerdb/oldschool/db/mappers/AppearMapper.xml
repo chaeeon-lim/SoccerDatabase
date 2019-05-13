@@ -34,12 +34,115 @@
  		SELECT * FROM Appears WHERE player_id = #{player_id} AND game_id = #{game_id} AND season_id = #{season_id};
  	</select>
 
+ 	<select id="selectByPlayerId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE player_id = #{player_id};
+ 	</select>
+
+ 	<select id="selectByGameId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE game_id = #{game_id};
+ 	</select>
+
+ 	<select id="selectBySeasonId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE season_id = #{season_id};
+ 	</select>
+
+ 	<select id="selectByStartTimeBetween" parameterType="map" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE start_time BETWEEN #{time1} AND #{time2}; 
+ 	</select>
+
+ 	<select id="selectByEndTimeBetween" parameterType="map" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE end_time BETWEEN #{time1} AND #{time2}; 
+ 	</select>
+
+ 	<select id="selectByInGamePosition" parameterType="String" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE in_game_position = #{in_game_position};
+ 	</select>
+
+ 	<select id="selectByGoalsMoreThan" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE goals >= #{goals};
+ 	</select>
+
+ 	<select id="selectByAssistMoreThan" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE assist >= #{assist};
+ 	</select>
+ 	
+  	<select id="selectBySaveMoreThan" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE save >= #{save};
+ 	</select>
+ 	
+  	<select id="selectByFoulMoreThan" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE foul >= #{foul};
+ 	</select>
+ 	
+  	<select id="selectByCardMoreThan" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE card >= #{card};
+ 	</select>
+ 	
+  	<select id="selectByDistanceMoreThan" parameterType="float" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Appears WHERE distance >= #{distance};
+ 	</select>
+ 	
+    <select id="orderByPlayerId" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY player_id; 
+ 	</select>
+ 	
+    <select id="orderByGameId" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY game_id; 
+ 	</select>
+ 	
+     <select id="orderBySeasonId" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY season_id; 
+ 	</select>
+ 	
+     <select id="orderByStartTime" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY start_time; 
+ 	</select>
+ 	
+     <select id="orderByEndTime" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY end_time; 
+ 	</select>
+ 	
+     <select id="orderByGoals" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY goals; 
+ 	</select>
+ 	
+     <select id="orderByAssist" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY assist; 
+ 	</select>
+ 	
+     <select id="orderBySave" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY save; 
+ 	</select>
+ 	
+     <select id="orderByFoul" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY foul; 
+ 	</select>
+ 	
+     <select id="orderByCard" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY card; 
+ 	</select>
+ 	
+     <select id="orderByDistance" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY distance; 
+ 	</select>
+
  	<insert id="insert" parameterType="Appear" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
   		insert into Appears (player_id,game_id, season_id,start_time,end_time,in_game_position,goals,assist,save,foul,card,distance)
   		values (#{player_id},#{game_id}, #{season_id},#{start_time},#{end_time},#{in_game_position},#{goals},#{assist},#{save},#{foul},#{card},#{distance}); 
-
  	</insert>
  	
  	<update id="update" parameterType="Appear">

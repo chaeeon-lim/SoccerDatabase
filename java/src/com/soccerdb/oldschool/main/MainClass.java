@@ -27,20 +27,17 @@ public class MainClass {
 
 	public static void main(String[] args) throws Exception {
 		
-		
-		
-		
 		/*
 		ContractDAO contractDAO = new ImplContractDAO(); 
 		Contract contract = new Contract(); 
 		
 		contract.setClub_id(1);
-		contract.setPlayer_id(3);
-		contract.setSeason_id(1);
-		contract.setSalary(20);
-		contract.setYear_contract(7);
+		contract.setPlayer_id(1);
+		contract.setSeason_id(70);
+		contract.setSalary(70);
+		contract.setDuration_contract(5);
 		
-		contractDAO.update(contract);
+		//contractDAO.update(contract);
 		*/
 		/*
 		Contract contract1 = new Contract(); 
@@ -48,13 +45,15 @@ public class MainClass {
 		printInt(contract1.getClub_id()); 
 		printInt(contract1.getPlayer_id()); 
 		printInt(contract1.getSeason_id()); 
-		*/
-		//contractDAO.deleteByContract(contract);
-		//contractDAO.insert(contract);
-		/*
-		List<Contract>  contracts = contractDAO.selectAll();
-
 		
+		//contractDAO.deleteByContract(contract);
+		*/
+		
+		/*
+		//contractDAO.insert(contract);
+		
+		List<Contract>  contracts = contractDAO.selectByDurationContractOverThan(6); 
+
 		printStr("*** List of Contracts. ***"); 
 		try {
 			for(int i = 0; i < contracts.size(); i++) {
@@ -64,37 +63,39 @@ public class MainClass {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		*/
+	
 
-	*/
-/*
 		AppearDAO appearDAO = new ImplAppearDAO(); 
 		Appear appear = new Appear(); 
 		
 		try {
 			appear.setPlayer_id(2);
-			appear.setGame_id(2); 
-			appear.setSeason_id(1); 
-			appear.setStart_time(new SimpleDateFormat("hh:mm:ss").parse("01:30:18"));
-			appear.setEnd_time(new SimpleDateFormat("hh:mm:ss").parse("03:30:18"));
+			appear.setGame_id(14); 
+			appear.setSeason_id(70); 
+			appear.setStart_time(new SimpleDateFormat("hh:mm:ss").parse("03:30:18"));
+			appear.setEnd_time(new SimpleDateFormat("hh:mm:ss").parse("05:30:18"));
 			appear.setIn_game_position("mf");
-			//appear.setGoals(1);
-			//appear.setAssist(1);
-			//appear.setSave(0);
-			//appear.setFoul(3);
-			//appear.setCard(1);
-			//appear.setDistance(20);
+			appear.setGoals(1);
+			appear.setAssist(1);
+			appear.setSave(0);
+			appear.setFoul(3);
+			appear.setCard(1);
+			appear.setDistance(20);
 			
-			Appear appear1 = new Appear(); 
-			appear1 = appearDAO.selectByAppear(appear); 
+			//Appear appear1 = new Appear(); 
+			//appear1 = appearDAO.selectByAppear(appear); 
 			//appearDAO.deleteByAppear(appear);
 			//appearDAO.insert(appear);
 			appearDAO.update(appear);
-			printDate(appear1.getEnd_time()); 
+			//printDate(appear1.getEnd_time()); 
 			
 			System.out.println(appear.getStart_time()); 
 			System.out.println(appear.getEnd_time()); 
 			
-			List<Appear> appears = appearDAO.selectAll();
+			//List<Appear> appears = appearDAO.selectByStartTimeBetween(new SimpleDateFormat("hh:mm:ss").parse("25:00:00"), 
+			//		new SimpleDateFormat("hh:mm:ss").parse("26:00:00")); 
+			List<Appear> appears = appearDAO.selectByDistanceMoreThan((float) 19.3); 
 			System.out.println(appears.size()); 
 			
 			printStr("*** List of Appears. ***"); 
@@ -105,29 +106,29 @@ public class MainClass {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-		
-*/
-		
+
+
+		/*
 		ClubDAO clubDAO = new ImplClubDAO(); 
 		Club club = new Club(); 
 		
 		try {
-			club.setClub_id(4); 
-			club.setClub_fullname("namynamy"); 
-			club.setClub_ground("Carcelona"); 
-			club.setClub_nickname("namy");
+			club.setClub_id(1); 
+			club.setClub_fullname("namynamy1234"); 
+			club.setClub_ground("Garcelona"); 
+			club.setClub_nickname("namy1234");
 			club.setClub_owner("Obama"); 
 			club.setClub_chairman("Halsey");
 			club.setClub_manager("HK");
 			club.setClub_logo("JPG00000011111123444444");
 			
 			//clubDAO.insert(club);
-			//clubDAO.delete(5);
+			//clubDAO.delete(8);
 			//clubDAO.update(club);
-			Club club1 = new Club(); 
-			club1 = clubDAO.selectById(4); 
-			printStr(club1.getClub_ground()); 
-			List<Club> clubs = clubDAO.selectAll();
+			//Club club1 = new Club(); 
+			//club1 = clubDAO.selectById(4); 
+			//printStr(club1.getClub_ground()); 
+			List<Club> clubs = clubDAO.orderByGround(); 
 			printStr("*** List of Clubs. ***"); 
 			for(int i = 0; i < clubs.size(); i++) {
 				System.out.println(clubs.get(i).toString()); 
@@ -136,15 +137,17 @@ public class MainClass {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
+		*/ 
 		
-		
+
+		//View view = new LoginView();
 
 //		View view = new LoginView();
 //		LoginController loginController = new LoginController();
 
 		MainView mainView = new MainView();
-
-		mainView.sho
+		//mainView.showDB(); 
+		
 		/*
 		UserDAO userDAO = new ImplUserDAO();
 		User user = new User();
