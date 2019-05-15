@@ -25,8 +25,8 @@ public class UserView {
 	JButton matchButton = new JButton("Match");
 	JButton ppsButton = new JButton("Player_per_Season");
 //	JTextArea searchText = new JTextArea("", 1, 75);
-	JTextArea searchBy = new JTextArea("", 1, 60);
-	JTextArea searchCondition = new JTextArea("", 1, 15);
+	JTextArea byText = new JTextArea("", 1, 60);
+	JTextArea conditionText = new JTextArea("", 1, 15);
 	JButton searchButton = new JButton("Search");
 	JButton orderButton = new JButton("Order");
 	JButton topTenButton = new JButton("Top10");
@@ -247,8 +247,8 @@ public class UserView {
 						buttons.setEnabled(true);
 					}
 					text.setText("");
-					searchBy.setText("");
-					searchCondition.setText("");
+					byText.setText("");
+					conditionText.setText("");
 					frame.setVisible(true);
 				}
 			}
@@ -257,8 +257,8 @@ public class UserView {
 		searchButton.addActionListener(
 			new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
-					Scanner s1 = new Scanner(searchBy.getText());
-					Scanner s2 = new Scanner(searchCondition.getText());
+					Scanner s1 = new Scanner(byText.getText());
+					Scanner s2 = new Scanner(conditionText.getText());
 					if(seasonsButton.isEnabled()){
 						if(s1.next().equals("id")){
 							try{
@@ -283,12 +283,30 @@ public class UserView {
 								ex.printStackTrace();
 							}
 						}
+					}					
+					for(JButton buttons : entityButtons){
+						buttons.setEnabled(true);
 					}
-/*					try{
+				}
+			}
+		);
 
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}*/
+		searchButton.addActionListener(
+			new ActionListener(){
+				public void actionPerformed(ActionEvent ae){
+					Scanner s1 = new Scanner(byText.getText());
+					Scanner s2 = new Scanner(conditionText.getText());		
+					if(playersButton.isEnabled()){
+						if(s1.next().equals("id")){
+							try{
+								Player player = playerDAO.selectById(s2.nextInt());
+								String list = player.toString();						
+								text.setText(list);
+							} catch(Exception ex){
+								ex.printStackTrace();
+							}
+						}
+					}					
 					for(JButton buttons : entityButtons){
 						buttons.setEnabled(true);
 					}
@@ -299,11 +317,52 @@ public class UserView {
 		orderButton.addActionListener(
 			new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
-					try{
-
-					} catch(Exception ex){
-						ex.printStackTrace();
+					Scanner s1 = new Scanner(byText.getText());
+					Scanner s2 = new Scanner(conditionText.getText());
+					if(playersButton.isEnabled()){						
+						if(s1.next().equals("nationality")){
+							if(s2.next().equals("desc")){
+								try{
+									List<Player> players = playerDAO.searchPlayersOrderByNationalityDesc();
+									String list = "";
+									for(int i=0; i<players.size(); i++){
+										list += players.get(i).toString() + "\n";
+									}
+									text.setText(list);
+								} catch(Exception ex){
+									ex.printStackTrace();
+								}										
+							}
+						}						
+					}			
+					for(JButton buttons : entityButtons){
+						buttons.setEnabled(true);
 					}
+				}
+			}
+		);
+
+		orderButton.addActionListener(
+			new ActionListener(){
+				public void actionPerformed(ActionEvent ae){
+					Scanner s1 = new Scanner(byText.getText());
+					Scanner s2 = new Scanner(conditionText.getText());
+					if(playersButton.isEnabled()){						
+						if(s1.next().equals("nationality")){
+							if(s2.next().equals("asc")){
+								try{
+									List<Player> players = playerDAO.searchPlayersOrderByNationality();
+									String list = "";
+									for(int i=0; i<players.size(); i++){
+										list += players.get(i).toString() + "\n";
+									}
+									text.setText(list);
+								} catch(Exception ex){
+									ex.printStackTrace();
+								}										
+							}			
+						}						
+					}			
 					for(JButton buttons : entityButtons){
 						buttons.setEnabled(true);
 					}
@@ -316,8 +375,8 @@ public class UserView {
 			panel.add(buttons);
 		}
 		panel.add(cancelButton);
-		panel.add(searchBy);
-		panel.add(searchCondition);
+		panel.add(byText);
+		panel.add(conditionText);
 		panel.add(searchButton);
 		panel.add(orderButton);
 		panel.add(sp);
