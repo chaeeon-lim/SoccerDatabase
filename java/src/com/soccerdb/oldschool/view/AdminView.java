@@ -46,10 +46,20 @@ public class AdminView {
 	PPSDAO ppsDAO = new ImplPPSDAO();
 	UserDAO userDAO = new ImplUserDAO();
 
+	JPanel menuPanel;
+/*
+	public void showMenu(JFrame frame){
+		menuPanel = new JPanel(new BorderLayout(5,5));
+		label = new JPanel(new GridLayout(0,1,2,2));
+
+		label.add(new JLabel())
+	}
+*/
 	public void showAdmin(JFrame frame, JPanel panel){
+		frame.setTitle("Administrator Mode");
 		frame.setSize(900, 550);
 
-		insertButton.addActionListener(
+/*		insertButton.addActionListener(
 			new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
 					for(JButton buttons : entityButtons){
@@ -81,12 +91,23 @@ public class AdminView {
 				}
 			}
 		);
-
+*/
 		appearButton.addActionListener(
 			new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<Appear> appears = appearDAO.selectAll();
+						String appearList = "PlayerName  PlayerId  SeasonId  GameId\n\n";
+						for(int i=0; i<appears.size(); i++){
+							int playerId = appears.get(i).getPlayer_id();
+							try{
+								Player player = playerDAO.selectById(playerId);
+								appearList += player.getPlayer_name() +" "+ appears.get(i).getPlayer_id() +" "+ appears.get(i).getSeason_id() +" "+ appears.get(i).getGame_id() + "\n";
+							} catch(Exception ex){
+								ex.printStackTrace();
+							}
+						}
+						text.setText(appearList);
 
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -107,6 +128,17 @@ public class AdminView {
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<Belong_to_League> btls = btlDAO.selectAll();
+						String btlList = "ClubName  ClubId  LeagueId\n\n";
+						for(int i=0; i<btls.size(); i++){
+							int clubId = btls.get(i).getClub_id();
+							try{
+								Club club = clubDAO.selectById(clubId);
+								btlList += club.getClub_fullname() +" "+ btls.get(i).getClub_id() +" "+ btls.get(i).getLeague_id() + "\n";
+							} catch(Exception ex){
+								ex.printStackTrace();
+							}
+						}
+						text.setText(btlList);
 						
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -127,6 +159,11 @@ public class AdminView {
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<Club> clubs = clubDAO.selectAll();
+						String clubList = "ClubName  ClubId\n\n";
+						for(int i=0; i<clubs.size(); i++){
+							clubList += clubs.get(i).getClub_fullname() +" "+ clubs.get(i).getClub_id() + "\n";
+						}
+						text.setText(clubList);
 						
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -147,6 +184,17 @@ public class AdminView {
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<Contract> contracts = contractDAO.selectAll();
+						String contractList = "PlayerName  PlayerId  ClubId  SeasonId\n\n";
+						for(int i=0; i<contracts.size(); i++){
+							int playerId = contracts.get(i).getPlayer_id();
+							try{
+								Player player = playerDAO.selectById(playerId);
+								contractList += player.getPlayer_name() +" "+ contracts.get(i).getPlayer_id() +" "+ contracts.get(i).getClub_id() +" "+ contracts.get(i).getSeason_id() + "\n";
+							} catch(Exception ex){
+								ex.printStackTrace();
+							}
+						}
+						text.setText(contractList);
 						
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -167,6 +215,11 @@ public class AdminView {
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<Game> games = gameDAO.selectAll();
+						String gameList = "GameId\n\n";
+						for(int i=0; i<games.size(); i++){
+							gameList += games.get(i).getGame_id() + "\n";
+						}
+						text.setText(gameList);
 						
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -187,6 +240,11 @@ public class AdminView {
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<League> leagues = leagueDAO.selectAll();
+						String leagueList = "LeagueName  LeagueId\n\n";
+						for(int i=0; i<leagues.size(); i++){
+							leagueList += leagues.get(i).getLeague_name() +" "+ leagues.get(i).getLeague_id() + "\n";
+						}
+						text.setText(leagueList);
 						
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -207,6 +265,17 @@ public class AdminView {
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<Match> matches = matchDAO.selectAll();
+						String matchList = "ClubName  ClubId  GameId  IsHome\n\n";
+						for(int i=0; i<matches.size(); i++){
+							int clubId = matches.get(i).getClub_id();
+							try{
+								Club club = clubDAO.selectById(clubId);
+								matchList += club.getClub_fullname() +" "+ matches.get(i).getClub_id() +" "+ matches.get(i).getGame_id() + "\n";
+							} catch(Exception ex){
+								ex.printStackTrace();
+							}
+						}
+						text.setText(matchList);
 						
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -227,11 +296,11 @@ public class AdminView {
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<Player> players = playerDAO.selectAll();
-						String playersIDList = "";
+						String playerList = "PlayerName  PlayerId\n\n";
 						for(int i=0; i<players.size(); i++){
-							playersIDList += players.get(i).getPlayer_name() + " " + players.get(i).getPlayer_id() + "\n";
+							playerList += players.get(i).getPlayer_name() + " " + players.get(i).getPlayer_id() + "\n";
 						}
-						text.setText(playersIDList);
+						text.setText(playerList);
 					} catch(Exception ex){
 						ex.printStackTrace();
 					}
@@ -251,6 +320,11 @@ public class AdminView {
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<Season> seasons = seasonDAO.selectAll();
+						String seasonList = "Year  SeasonId\n\n";
+						for(int i=0; i<seasons.size(); i++){
+							seasonList += seasons.get(i).getSeason_year() +" "+ seasons.get(i).getSeason_id() + "\n";
+						}
+						text.setText(seasonList);
 						
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -271,6 +345,17 @@ public class AdminView {
 				public void actionPerformed(ActionEvent ae){
 					try{
 						List<Player_per_Season> ppses = ppsDAO.selectAll();
+						String ppsList = "PlayerName  PlayerId  SeasonId\n\n";
+						for(int i=0; i<ppses.size(); i++){
+							int playerId = ppses.get(i).getPlayer_id();
+							try{
+								Player player = playerDAO.selectById(playerId);
+								ppsList += player.getPlayer_name() +" "+ ppses.get(i).getPlayer_id() +" "+ ppses.get(i).getSeason_id() + "\n";
+							} catch(Exception ex){
+								ex.printStackTrace();
+							}
+						}
+						text.setText(ppsList);
 						
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -289,8 +374,13 @@ public class AdminView {
 		userButton.addActionListener(
 			new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
-										try{
+					try{
 						List<User> users = userDAO.selectAll();
+						String userList = "UserName  UserAccount  UserId\n\n";
+						for(int i=0; i<users.size(); i++){
+							userList += users.get(i).getUser_name() +" "+ users.get(i).getUser_account() +" "+ users.get(i).getUser_id() + "\n";
+						}
+						text.setText(userList);
 						
 					} catch(Exception ex){
 						ex.printStackTrace();
@@ -312,6 +402,8 @@ public class AdminView {
 					for(JButton buttons : entityButtons){
 						buttons.setEnabled(true);
 					}
+					text.setText("");
+					frame.setVisible(true);
 				}
 			}
 		);	

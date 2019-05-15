@@ -6,6 +6,7 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
+import java.util.Scanner;
 
 import com.soccerdb.oldschool.db.dao.*;
 import com.soccerdb.oldschool.db.entity.*;
@@ -23,8 +24,11 @@ public class UserView {
 	JButton gameButton = new JButton("Game");
 	JButton matchButton = new JButton("Match");
 	JButton ppsButton = new JButton("Player_per_Season");
-	JTextArea searchText = new JTextArea("", 1, 70);
+//	JTextArea searchText = new JTextArea("", 1, 75);
+	JTextArea searchBy = new JTextArea("", 1, 60);
+	JTextArea searchCondition = new JTextArea("", 1, 15);
 	JButton searchButton = new JButton("Search");
+	JButton orderButton = new JButton("Order");
 	JButton topTenButton = new JButton("Top10");
 	JButton cancelButton = new JButton("Cancel All");
 
@@ -53,7 +57,7 @@ public class UserView {
 						List<Season> seasons = seasonDAO.selectAll();
 						String seasonsList = "";
 						for(int i=0; i<seasons.size(); i++){
-							seasonsList += Integer.toString(seasons.get(i).getSeason_year()) + "\n";
+							seasonsList += seasons.get(i).toString() + "\n";
 						}
 						text.setText(seasonsList);
 						searchButton.setEnabled(true);
@@ -75,7 +79,7 @@ public class UserView {
 						List<League> leagues = leagueDAO.selectAll();
 						String leaguesList = "";
 						for(int i=0; i<leagues.size(); i++){
-							leaguesList += leagues.get(i).getLeague_name() + "\n";
+							leaguesList += leagues.get(i).toString() + "\n";
 						}
 						text.setText(leaguesList);
 						searchButton.setEnabled(true);
@@ -97,7 +101,7 @@ public class UserView {
 						List<Club> clubs = clubDAO.selectAll();
 						String clubsList = "";
 						for(int i=0; i<clubs.size(); i++){
-							clubsList += clubs.get(i).getClub_fullname() + "\n";
+							clubsList += clubs.get(i).toString() + "\n";
 						}
 						text.setText(clubsList);
 						searchButton.setEnabled(true);
@@ -119,7 +123,7 @@ public class UserView {
 						List<Player> players = playerDAO.selectAll();
 						String playersList = "";
 						for(int i=0; i<players.size(); i++){
-							playersList += players.get(i).getPlayer_name() + "\n";
+							playersList += players.get(i).toString() + "\n";
 						}
 						text.setText(playersList);
 						searchButton.setEnabled(true);
@@ -243,12 +247,56 @@ public class UserView {
 						buttons.setEnabled(true);
 					}
 					text.setText("");
-
+					searchBy.setText("");
+					searchCondition.setText("");
+					frame.setVisible(true);
 				}
 			}
 		);
 
 		searchButton.addActionListener(
+			new ActionListener(){
+				public void actionPerformed(ActionEvent ae){
+					Scanner s1 = new Scanner(searchBy.getText());
+					Scanner s2 = new Scanner(searchCondition.getText());
+					if(seasonsButton.isEnabled()){
+						if(s1.next().equals("id")){
+							try{
+								Season season = seasonDAO.selectById(s2.nextInt());
+								text.setText(season.toString());
+							} catch(Exception ex){
+								ex.printStackTrace();
+							}
+						}
+					}
+					
+					if(playersButton.isEnabled()){
+						if(s1.next().equals("nationality")){
+							try{
+								List<Player> players = playerDAO.selectByNationality(s2.next());
+								String list = "";
+								for(int i=0; i<players.size(); i++){
+									list += players.get(i).toString() + "\n";
+								}
+								text.setText(list);
+							} catch(Exception ex){
+								ex.printStackTrace();
+							}
+						}
+					}
+/*					try{
+
+					} catch(Exception ex){
+						ex.printStackTrace();
+					}*/
+					for(JButton buttons : entityButtons){
+						buttons.setEnabled(true);
+					}
+				}
+			}
+		);
+
+		orderButton.addActionListener(
 			new ActionListener(){
 				public void actionPerformed(ActionEvent ae){
 					try{
@@ -268,8 +316,10 @@ public class UserView {
 			panel.add(buttons);
 		}
 		panel.add(cancelButton);
-		panel.add(searchText);
+		panel.add(searchBy);
+		panel.add(searchCondition);
 		panel.add(searchButton);
+		panel.add(orderButton);
 		panel.add(sp);
 	}
 
