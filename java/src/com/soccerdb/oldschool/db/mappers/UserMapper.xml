@@ -10,6 +10,7 @@
         <result property="user_name" column="user_name"/>
         <result property="user_account" column="user_account"/>
         <result property="user_password" column="user_password"/>
+        <result property="user_email" column="user_email"/>
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
@@ -22,16 +23,11 @@
 		 SELECT * FROM Users WHERE user_id = #{user_id};
  	</select>
  	
- 	<select id="selectByAccount" parameterType="String" resultMap="result">
- 		<!--SELECT * FROM "Relation" WHERE ???;-->
-		 SELECT * FROM Users WHERE user_account = #{user_account};
- 	</select>
- 	
  	<insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="user_id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instance name of entity" -->
 		INSERT INTO Users (user_name, user_account, user_password)
-		VALUES (#{user_name}, #{user_accout}, #{user_password});
+		VALUES (#{user_name}, #{user_account}, #{user_password});
 
  	</insert>
  	
@@ -40,7 +36,12 @@
  		SET "attribute name of relation" = #{"instace name of entity"}
  		WHERE "attribute name of relation" = #{"instace name of entity"};-->
 		UPDATE Users
-		SET name = #{user_name}
+		<set>
+			<if test="user_name != null">user_name = #{user_name},</if>
+			<if test="user_account != null">user_account = #{user_account},</if>
+			<if test="user_password != null">user_password = #{user_password},</if>
+			<if test="user_email != null">user_email = #{user_email}</if>
+		</set>
 		WHERE user_id = #{user_id};
  	</update>
  	
@@ -48,4 +49,55 @@
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->\
 		DELETE FROM Users WHERE user_id = #{user_id};
  	</delete>
+ 	
+ 	
+ 	
+ 	<!-- additional queries -->
+ 	
+ 	
+ 	<select id="searchUserAccount" parameterType="String" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+		 SELECT * FROM Users WHERE user_account = #{user_account};
+ 	</select>
+ 	
+ 	<select id="searchUserName" parameterType="String" resultMap="result">
+ 		SELECT * FROM Users WHERE user_name = #{user_name};
+ 	</select>
+ 	
+ 	<select id="searchUserEmail" parameterType="String" resultMap="result">
+ 		SELECT * FROM Users WHERE user_email = #{user_email};
+ 	</select>
+ 	
+ 	<select id="searchUsersOrderByAccount" resultMap="result">
+ 		SELECT * FROM Users ORDER BY user_account;
+ 	</select>
+ 	
+ 	<select id="searchUsersOrderByName" resultMap="result">
+ 		SELECT * FROM Users ORDER BY user_name;
+ 	</select>
+ 	
+ 	<select id="searchUsersOrderByEmail" resultMap="result">
+ 		SELECT * FROM Users ORDER BY user_email;
+ 	</select>
+ 	
+ 	<select id="searchUsersOrderByAccountDesc" resultMap="result">
+ 		SELECT * FROM Users ORDER BY user_account DESC;
+ 	</select>
+ 	
+ 	<select id="searchUsersOrderByNameDesc" resultMap="result">
+ 		SELECT * FROM Users ORDER BY user_name DESC;
+ 	</select>
+ 	
+ 	<select id="searchUsersOrderByEmailDesc" resultMap="result">
+ 		SELECT * FROM Users ORDER BY user_email DESC;
+ 	</select>
+ 	
+ 	
+ 	
+ 	<select id="countAllUsers" resultType="int">
+ 		SELECT COUNT(*) FROM Users;
+ 	</select>
+ 	
+ 	
+ 	
  </mapper>
