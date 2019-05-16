@@ -106,7 +106,7 @@ public class UserView implements ActionListener{
 					dataBox = controller.search(attribute, condition);
 				}
 		} else {
-			System.out.println("no attribute");
+			//System.out.println("no attribute");
 			// handling case : attribute is blank
 		}
 		
