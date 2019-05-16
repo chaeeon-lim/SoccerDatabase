@@ -1,5 +1,4 @@
 package com.soccerdb.oldschool.db.dao;
-import java.util.Date;
 import java.util.List;
 
 import com.soccerdb.oldschool.db.entity.Player;

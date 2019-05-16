@@ -1,8 +1,6 @@
 
 package com.soccerdb.oldschool.db.entity;
 
-import java.util.Date;
-
 public class Match{
 	private int game_id;
 	private int club_id;

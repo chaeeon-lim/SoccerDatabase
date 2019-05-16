@@ -1,6 +1,4 @@
 package com.soccerdb.oldschool.db.dao;
-import java.util.List;
-
 import com.soccerdb.oldschool.db.entity.League;
 import com.soccerdb.oldschool.db.source.GenericDAO;
 
