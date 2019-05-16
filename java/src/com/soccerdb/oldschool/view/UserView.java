@@ -201,7 +201,7 @@ public class UserView implements ActionListener{
 	JButton[] entityButtons = {appearButton, btlButton, clubsButton, contractButton, gameButton, 
 									leaguesButton, matchButton, playersButton, seasonsButton, ppsButton};
 
-	ControllerInterface controller;
+	ControllerInterface<?> controller;
 	
 
 }
