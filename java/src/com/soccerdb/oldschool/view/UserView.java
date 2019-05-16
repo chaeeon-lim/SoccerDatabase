@@ -1,11 +1,7 @@
 package com.soccerdb.oldschool.view;
 
-import java.io.*;
 import javax.swing.*;
-import java.util.*;
-import java.awt.*;
 import java.awt.event.*;
-import java.util.List;
 import java.util.Scanner;
 
 import com.soccerdb.oldschool.control.ControllerInterface;

@@ -16,7 +16,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 
 	@Override
 	public Appear selectByAppear(Appear appear) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".selectByAppear", appear);
@@ -27,8 +26,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 
 	@Override
 	public void deleteByAppear(Appear appear) throws Exception {
-		// TODO Auto-generated method stub
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			session.delete(namespace + ".deleteByAppear", appear);
@@ -40,7 +37,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectByPlayerId(int player_id) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByPlayerId", player_id);
@@ -51,7 +47,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 
 	@Override
 	public List<Appear> selectByGameId(int game_id) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByGameId", game_id);
@@ -62,7 +57,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectBySeasonId(int season_id) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectBySeasonId", season_id);
@@ -73,7 +67,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectByStartTimeBetween(Date time1, Date time2) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			Map<String, Object> params = new HashMap<String, Object>(); 
 			params.put("time1", time1); 
@@ -88,7 +81,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectByEndTimeBetween(Date time1, Date time2) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			Map<String, Object> params = new HashMap<String, Object>(); 
 			params.put("time1", time1); 
@@ -103,7 +95,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectByInGamePosition(String in_game_position) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByInGamePosition", in_game_position);
@@ -114,7 +105,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectByGoalsMoreThan(int goals) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByGoalsMoreThan", goals);
@@ -125,7 +115,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectByAssistMoreThan(int assist) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByAssistMoreThan", assist);
@@ -136,7 +125,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectBySaveMoreThan(int save) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectBySaveMoreThan", save);
@@ -147,7 +135,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectByFoulMoreThan(int foul) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByFoulMoreThan", foul);
@@ -158,7 +145,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectByCardMoreThan(int card) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByCardMoreThan", card);
@@ -169,7 +155,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> selectByDistanceMoreThan(float distance) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByDistanceMoreThan", distance);
@@ -180,7 +165,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 
 	@Override
 	public List<Appear> orderByPlayerId() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByPlayerId");
@@ -191,7 +175,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> orderByGameId() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByGameId");
@@ -202,7 +185,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 
 	@Override
 	public List<Appear> orderBySeasonId() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderBySeasonId");
@@ -213,7 +195,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 
 	@Override
 	public List<Appear> orderByStartTime() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByStartTime");
@@ -224,7 +205,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 
 	@Override
 	public List<Appear> orderByEndTime() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByEndTime");
@@ -235,7 +215,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> orderByGoals() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByGoals");
@@ -246,7 +225,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> orderByAssist() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByAssist");
@@ -257,7 +235,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> orderBySave() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderBySave");
@@ -268,7 +245,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> orderByFoul() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByFoul");
@@ -279,7 +255,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 
 	@Override
 	public List<Appear> orderByCard() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByCard");
@@ -290,7 +265,6 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	
 	@Override
 	public List<Appear> orderByDistance() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByDistance");

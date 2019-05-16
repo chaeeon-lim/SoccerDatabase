@@ -12,7 +12,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 	}
 	@Override
 	public List<Club> selectByFullname(String fullname) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByFullname", fullname);
@@ -23,7 +22,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 	
 	@Override
 	public List<Club> selectByGround(String ground) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByGround", ground);
@@ -34,7 +32,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 	
 	@Override
 	public List<Club> selectByNickname(String nickname) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByNickname", nickname);
@@ -45,7 +42,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 	
 	@Override
 	public List<Club> selectByOwner(String owner) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByOwner", owner);
@@ -56,7 +52,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 	
 	@Override
 	public List<Club> selectByChairman(String chairman) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByChairman", chairman);
@@ -67,7 +62,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 
 	@Override
 	public List<Club> selectByManager(String manager) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByManager", manager);
@@ -78,7 +72,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 	
 	@Override
 	public List<Club> orderByFullname() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByFullname");
@@ -89,7 +82,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 
 	@Override
 	public List<Club> orderByGround() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByGround");
@@ -100,7 +92,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 
 	@Override
 	public List<Club> orderByNickname() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByNickname");
@@ -111,7 +102,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 	
 	@Override
 	public List<Club> orderByOwner() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByOwner");
@@ -122,7 +112,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 	
 	@Override
 	public List<Club> orderByChairman() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByChairman");
@@ -133,7 +122,6 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 	
 	@Override
 	public List<Club> orderByManager() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByManager");

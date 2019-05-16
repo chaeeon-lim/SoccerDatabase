@@ -13,7 +13,6 @@ public class ImplBTLDAO extends ImplAbstractDAO<Belong_to_League, Integer> imple
 
 	@Override
 	public List<Belong_to_League> selectByLeagueAndClubId(Belong_to_League btl) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByNationality", btl);
@@ -24,7 +23,6 @@ public class ImplBTLDAO extends ImplAbstractDAO<Belong_to_League, Integer> imple
 
 	@Override
 	public void deleteByBTL(Belong_to_League btl) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			session.delete(namespace + ".deleteByBTL", btl);

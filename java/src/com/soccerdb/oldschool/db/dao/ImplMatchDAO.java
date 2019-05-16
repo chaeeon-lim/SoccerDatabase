@@ -14,7 +14,6 @@ public class ImplMatchDAO extends ImplAbstractDAO<Match, Integer> implements Mat
 
 	@Override
 	public List<Match> selectByGameId(int game_id) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectById", game_id);
@@ -24,7 +23,6 @@ public class ImplMatchDAO extends ImplAbstractDAO<Match, Integer> implements Mat
 	}
 	@Override
 	public List<Match> selectByClubId(int club_id) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectById",club_id);
@@ -34,7 +32,6 @@ public class ImplMatchDAO extends ImplAbstractDAO<Match, Integer> implements Mat
 	}
 	@Override
 	public List<Match> selectBySeasonId(int season_id) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectById",season_id);
@@ -44,7 +41,6 @@ public class ImplMatchDAO extends ImplAbstractDAO<Match, Integer> implements Mat
 	}
 	@Override
 	public void deleteMatch(Match match) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			session.delete(namespace + ".deleteMatch", match);

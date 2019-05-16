@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.soccerdb.oldschool.db.entity.Game;
-import com.soccerdb.oldschool.db.entity.Match;
-
 import com.soccerdb.oldschool.db.source.ImplAbstractDAO;
 
 public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameDAO{
@@ -16,7 +14,6 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 	}
 	@Override
 	public List<Game> selectById(String game_id) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectById", game_id);
@@ -26,7 +23,6 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 	}
 	@Override
 	public List<Game> selectByGameTime(Date game_time) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByTime", game_time);
@@ -36,7 +32,6 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 	}
 	@Override
 	public List<Game> selectByPlace(String place) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByPlace", place);
@@ -46,7 +41,6 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 	}
 	@Override
 	public List<Game> selectByWeather(String weather) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByWeather", weather);
@@ -56,7 +50,6 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 	}
 	@Override
 	public List<Game> selectByExtended(boolean is_extended) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByExtended", is_extended);
@@ -67,7 +60,6 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 	
 	@Override
 	public List<Game> selectByShootOut(boolean is_shoot_out) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByShootOut", is_shoot_out);
@@ -77,7 +69,6 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 	}
 	@Override
 	public List<Game> selectByGameType(String type) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			
@@ -88,7 +79,6 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 	}
 	@Override
 	public void updateGame(Game game) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			session.update(namespace + ".updateGame", game);
@@ -99,7 +89,6 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 	}
 	@Override
 	public void deleteGame(Game game) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			session.delete(namespace + ".deleteGame", game);

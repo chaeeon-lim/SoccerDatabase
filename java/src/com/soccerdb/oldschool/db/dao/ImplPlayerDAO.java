@@ -1,6 +1,5 @@
 package com.soccerdb.oldschool.db.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import com.soccerdb.oldschool.db.entity.Player;
@@ -26,7 +25,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> selectByLetterForName(String name) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByLetterForName", name);
@@ -37,7 +35,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> selectByBirthday(String birthday) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectByBirthday", birthday);
@@ -48,7 +45,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayerDebutAtThisYear(int player_debut) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayerDebutAtThisYear", player_debut);
@@ -59,7 +55,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayerDebutAfterThisYear(int player_debut) throws Exception {
-		// session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayerDebutAfterThisYear", player_debut);
@@ -70,7 +65,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayerDebutBeforeThisYear(int player_debut) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayerDebutBeforeThisYear", player_debut);
@@ -81,7 +75,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayersOrderByName() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayersOrderByName");
@@ -92,7 +85,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayersOrderByNationality() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayersOrderByNationality");
@@ -103,7 +95,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayersOrderByDebut() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayersOrderByDebut");
@@ -114,7 +105,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayersOrderByBirthday() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayersOrderByBirthday");
@@ -125,7 +115,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayersOrderByNameDesc() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayersOrderByNameDesc");
@@ -136,7 +125,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayersOrderByNationalityDesc() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayersOrderByNationalityDesc");
@@ -147,7 +135,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayersOrderByDebutDesc() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayersOrderByDebutDesc");
@@ -158,7 +145,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchPlayersOrderByBirthdayDesc() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchPlayersOrderByBirthdayDesc");
@@ -169,7 +155,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public int calculatePlayerAge(int player_id) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".calculatePlayerAge", player_id);
@@ -180,7 +165,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public int countAllPlayers() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".countAllPlayers");
@@ -191,7 +175,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public int countAllPlayerWithCountry(String player_nationality) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".countAllPlayersWithCountry", player_nationality);
@@ -202,7 +185,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public int countAllPlayerWithDebutYear(int player_debut) {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".countAllPlayersWithDebutYear", player_debut);
@@ -224,7 +206,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public int countAllPlayersSameAge(int player_debut) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".countAllPlayersSameAge", player_debut);
@@ -235,7 +216,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchAllPlayersSameAge(int player_debut) throws Exception {
-		//session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchAllPlayersSameAge", player_debut);
@@ -246,7 +226,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public int countAllPlayersUnderAge(int player_debut) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".countAllPlayersUnderAge", player_debut);
@@ -257,7 +236,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchAllPlayersUnderAge(int player_debut) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchAllPlayersUnderAge", player_debut);
@@ -268,7 +246,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public int countAllPlayersOverAge(int player_debut) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".countAllPlayersOverAge", player_debut);
@@ -279,7 +256,6 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 
 	@Override
 	public List<Player> searchAllPlayersOverAge(int player_debut) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchAllPlayersOverAge", player_debut);

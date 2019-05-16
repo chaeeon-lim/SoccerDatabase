@@ -13,7 +13,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public User searchUserAccount(String user_account) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".searchUserAccount", user_account);
@@ -24,7 +23,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public User searchUserName(String user_name) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".searchUserName", user_name);
@@ -35,7 +33,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public User searchUserEmail(String user_email) throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".searchUserEmail", user_email);
@@ -46,7 +43,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public List<User> searchUsersOrderByAccount() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchUsersOrderByAccount");
@@ -57,7 +53,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public List<User> searchUsersOrderByName() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchUsersOrderByName");
@@ -68,7 +63,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public List<User> searchUsersOrderByEmail() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchUsersOrderByEmail");
@@ -79,7 +73,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public int countAllUsers() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectOne(namespace + ".countAllUsers");
@@ -90,7 +83,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public List<User> searchUsersOrderByAccountDesc() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchUsersOrderByAccountDesc");
@@ -101,7 +93,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public List<User> searchUsersOrderByNameDesc() throws Exception {
-		// session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchUsersOrderByNameDesc");
@@ -112,7 +103,6 @@ public class ImplUserDAO extends ImplAbstractDAO<User, Integer> implements UserD
 
 	@Override
 	public List<User> searchUsersOrderByEmailDesc() throws Exception {
-		session = getSqlSessionFactory().openSession();
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".searchUsersOrderByEmailDesc");
