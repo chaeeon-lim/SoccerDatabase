@@ -8,10 +8,174 @@ import java.awt.event.*;
 import java.util.List;
 import java.util.Scanner;
 
-import com.soccerdb.oldschool.db.dao.*;
-import com.soccerdb.oldschool.db.entity.*;
+import com.soccerdb.oldschool.control.ControllerInterface;
+import com.soccerdb.oldschool.control.PlayerController;
 
-public class UserView {
+public class UserView implements ActionListener{
+	JFrame frame;
+	JPanel panel;
+	
+	public void showUser(JFrame _frame, JPanel _panel){
+		frame = _frame;
+		panel = _panel;
+		frame.setTitle("User Mode");
+		frame.setSize(900, 550);
+
+		
+		
+		// TODO make all buttons like '<~~>Button.addActionListener(this);
+		
+		seasonsButton.addActionListener(this);
+		leaguesButton.addActionListener(this);
+		playersButton.addActionListener(this);
+		
+
+
+		searchButton.addActionListener(this);
+		cancelButton.addActionListener(this);
+	
+
+		for(JButton buttons : entityButtons){
+			panel.add(buttons);
+		}
+		panel.add(cancelButton);
+		panel.add(byText);
+		panel.add(conditionText);
+		panel.add(searchButton);
+		panel.add(orderButton);
+		panel.add(sp);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+		for(JButton buttons : entityButtons){
+			buttons.setEnabled(false);
+		}
+		text.setText("");
+		
+		// TODO MUST make proper flags on each entity! 
+		// TODO controller does not have to be assigned except here!
+		 
+		/* TODO Call controller method for search like below
+		 *  
+		 * controller = PlayerController.getController();
+		 *	dataBox = controller.selectAll();
+		 *	playersButton.setEnabled(true);
+		 *	player_flag = true;
+		 *
+		 */
+		
+		if(e.getSource().equals(playersButton)) {
+			controller = PlayerController.getController();
+			dataBox = controller.selectAll();
+			playersButton.setEnabled(true);
+			player_flag = true;
+		}
+		/*
+		 *  other entitiy buttons...
+		 */
+		else if(e.getSource().equals(searchButton)) {
+			searchButtonListener();	
+		}
+		else if(e.getSource().equals(cancelButton)) {
+			for(JButton buttons : entityButtons){
+				buttons.setEnabled(true);
+			}
+			text.setText("");
+			byText.setText("");
+			conditionText.setText("");
+			frame.setVisible(true);
+			dataBox = "";
+			flag_reset();
+		}
+		
+		text.setText(dataBox);
+	}
+
+	void searchButtonListener() {
+		scanner_flag = search_scanner_set();
+		
+		
+		/* TODO Call controller method for search like below 
+		 * dataBox = controller.search(attribute, condition);
+		 */
+		
+		if(scanner_flag) {
+				if(player_flag) {
+					dataBox = controller.search(attribute, condition);
+				}
+		} else {
+			System.out.println("no attribute");
+			// handling case : attribute is blank
+		}
+		
+		
+		
+		
+		text.setText(dataBox);
+		scanner_free();
+	}
+	
+
+	private void orderButtonListener() {
+
+		/* TODO Call controller method for search like below 
+		 * dataBox = controller.search(attribute, condition, logic);
+		 */
+		
+	}
+	
+	
+	
+	
+	boolean search_scanner_set() {
+		s1 = new Scanner(byText.getText());
+		s2 = new Scanner(conditionText.getText());
+		if(s1.hasNext() && s2.hasNext()) {
+			attribute = s1.nextLine();
+			condition = s2.nextLine();
+			return true;
+		}
+		return false;
+	}
+	
+	void scanner_free() {
+		s1.close();
+		s2.close();
+	}
+	
+	void flag_reset() {
+		appear_flag = false;
+		btl_flag = false;
+		club_flag = false;
+		contract_flag = false;
+		game_flag = false;
+		league_flag = false;
+		match_flag = false;
+		pps_flag = false;
+		user_flag = false;
+		player_flag = false;
+		season_flag = false;
+	}
+	
+	String attribute;
+	String condition;
+	
+	String dataBox;
+
+	boolean appear_flag = false;
+	boolean btl_flag = false;
+	boolean club_flag = false;
+	boolean contract_flag = false;
+	boolean game_flag = false;
+	boolean league_flag = false;
+	boolean match_flag = false;
+	boolean pps_flag = false;
+	boolean user_flag = false;
+	boolean player_flag = false;
+	boolean season_flag = false;
+	boolean scanner_flag = false;
 	JTextArea text = new JTextArea("", 20, 75);
 	JScrollPane sp = new JScrollPane(text);
 	JButton seasonsButton = new JButton("Season");
@@ -27,6 +191,8 @@ public class UserView {
 //	JTextArea searchText = new JTextArea("", 1, 75);
 	JTextArea byText = new JTextArea("", 1, 60);
 	JTextArea conditionText = new JTextArea("", 1, 15);
+	Scanner s1;
+	Scanner s2;
 	JButton searchButton = new JButton("Search");
 	JButton orderButton = new JButton("Order");
 	JButton topTenButton = new JButton("Top10");
@@ -35,352 +201,7 @@ public class UserView {
 	JButton[] entityButtons = {appearButton, btlButton, clubsButton, contractButton, gameButton, 
 									leaguesButton, matchButton, playersButton, seasonsButton, ppsButton};
 
-	SeasonDAO seasonDAO = new ImplSeasonDAO();
-	LeagueDAO leagueDAO = new ImplLeagueDAO();
-	ClubDAO clubDAO = new ImplClubDAO();
-	PlayerDAO playerDAO = new ImplPlayerDAO();
-	AppearDAO apearDAO = new ImplAppearDAO();
-	BTLDAO btlDAO = new ImplBTLDAO();
-	ContractDAO contractDAO = new ImplContractDAO();
-	GameDAO gameDAO = new ImplGameDAO();
-	MatchDAO matchDAO = new ImplMatchDAO();
-	PPSDAO ppsDAO = new ImplPPSDAO();
-
-	public void showUser(JFrame frame, JPanel panel){
-		frame.setTitle("User Mode");
-		frame.setSize(900, 550);
-
-		seasonsButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-						List<Season> seasons = seasonDAO.selectAll();
-						String seasonsList = "";
-						for(int i=0; i<seasons.size(); i++){
-							seasonsList += seasons.get(i).toString() + "\n";
-						}
-						text.setText(seasonsList);
-						searchButton.setEnabled(true);
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					seasonsButton.setEnabled(true);
-				}
-			}
-		);
-
-		leaguesButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-						List<League> leagues = leagueDAO.selectAll();
-						String leaguesList = "";
-						for(int i=0; i<leagues.size(); i++){
-							leaguesList += leagues.get(i).toString() + "\n";
-						}
-						text.setText(leaguesList);
-						searchButton.setEnabled(true);
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					leaguesButton.setEnabled(true);
-				}
-			}
-		);
-
-		clubsButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-						List<Club> clubs = clubDAO.selectAll();
-						String clubsList = "";
-						for(int i=0; i<clubs.size(); i++){
-							clubsList += clubs.get(i).toString() + "\n";
-						}
-						text.setText(clubsList);
-						searchButton.setEnabled(true);
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					clubsButton.setEnabled(true);
-				}
-			}
-		);
-
-		playersButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-						List<Player> players = playerDAO.selectAll();
-						String playersList = "";
-						for(int i=0; i<players.size(); i++){
-							playersList += players.get(i).toString() + "\n";
-						}
-						text.setText(playersList);
-						searchButton.setEnabled(true);
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					playersButton.setEnabled(true);
-				}
-			}
-		);
-
-		appearButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					appearButton.setEnabled(true);
-
-				}
-			}
-		);
-
-		btlButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					btlButton.setEnabled(true);
-
-				}
-			}
-		);
-
-		contractButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					contractButton.setEnabled(true);
-
-				}
-			}
-		);
-
-		gameButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					gameButton.setEnabled(true);
-
-				}
-			}
-		);
-
-		matchButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					matchButton.setEnabled(true);
-
-				}
-			}
-		);
-
-		ppsButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					try{
-
-					} catch(Exception ex){
-						ex.printStackTrace();
-					}
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(false);
-					}
-					ppsButton.setEnabled(true);
-
-				}
-			}
-		);
-
-		cancelButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(true);
-					}
-					text.setText("");
-					byText.setText("");
-					conditionText.setText("");
-					frame.setVisible(true);
-				}
-			}
-		);
-
-		searchButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					Scanner s1 = new Scanner(byText.getText());
-					Scanner s2 = new Scanner(conditionText.getText());
-					if(seasonsButton.isEnabled()){
-						if(s1.next().equals("id")){
-							try{
-								Season season = seasonDAO.selectById(s2.nextInt());
-								text.setText(season.toString());
-							} catch(Exception ex){
-								ex.printStackTrace();
-							}
-						}
-					}
-					
-					if(playersButton.isEnabled()){
-						if(s1.next().equals("nationality")){
-							try{
-								List<Player> players = playerDAO.selectByNationality(s2.next());
-								String list = "";
-								for(int i=0; i<players.size(); i++){
-									list += players.get(i).toString() + "\n";
-								}
-								text.setText(list);
-							} catch(Exception ex){
-								ex.printStackTrace();
-							}
-						}
-					}					
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(true);
-					}
-				}
-			}
-		);
-
-		searchButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					Scanner s1 = new Scanner(byText.getText());
-					Scanner s2 = new Scanner(conditionText.getText());		
-					if(playersButton.isEnabled()){
-						if(s1.next().equals("id")){
-							try{
-								Player player = playerDAO.selectById(s2.nextInt());
-								String list = player.toString();						
-								text.setText(list);
-							} catch(Exception ex){
-								ex.printStackTrace();
-							}
-						}
-					}					
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(true);
-					}
-				}
-			}
-		);
-
-		orderButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					Scanner s1 = new Scanner(byText.getText());
-					Scanner s2 = new Scanner(conditionText.getText());
-					if(playersButton.isEnabled()){						
-						if(s1.next().equals("nationality")){
-							if(s2.next().equals("desc")){
-								try{
-									List<Player> players = playerDAO.searchPlayersOrderByNationalityDesc();
-									String list = "";
-									for(int i=0; i<players.size(); i++){
-										list += players.get(i).toString() + "\n";
-									}
-									text.setText(list);
-								} catch(Exception ex){
-									ex.printStackTrace();
-								}										
-							}
-						}						
-					}			
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(true);
-					}
-				}
-			}
-		);
-
-		orderButton.addActionListener(
-			new ActionListener(){
-				public void actionPerformed(ActionEvent ae){
-					Scanner s1 = new Scanner(byText.getText());
-					Scanner s2 = new Scanner(conditionText.getText());
-					if(playersButton.isEnabled()){						
-						if(s1.next().equals("nationality")){
-							if(s2.next().equals("asc")){
-								try{
-									List<Player> players = playerDAO.searchPlayersOrderByNationality();
-									String list = "";
-									for(int i=0; i<players.size(); i++){
-										list += players.get(i).toString() + "\n";
-									}
-									text.setText(list);
-								} catch(Exception ex){
-									ex.printStackTrace();
-								}										
-							}			
-						}						
-					}			
-					for(JButton buttons : entityButtons){
-						buttons.setEnabled(true);
-					}
-				}
-			}
-		);
-
-
-		for(JButton buttons : entityButtons){
-			panel.add(buttons);
-		}
-		panel.add(cancelButton);
-		panel.add(byText);
-		panel.add(conditionText);
-		panel.add(searchButton);
-		panel.add(orderButton);
-		panel.add(sp);
-	}
-
+	ControllerInterface controller;
+	
 
 }
