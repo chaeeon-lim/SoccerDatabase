@@ -95,34 +95,34 @@ public class UserView implements ActionListener{
 			clubsButton.setEnabled(true);
 			club_flag = true;
 		}
-		else if(e.getSource().equals(appearsButton)){
+		else if(e.getSource().equals(appearButton)){
 			controller = AppearController.getController();
 			dataBox = controller.selectAll();
-			appearsButton.setEnabled(true);
+			appearButton.setEnabled(true);
 			appear_flag = true;
 		}
-		else if(e.getSource().equals(btlsButton)){
+		else if(e.getSource().equals(btlButton)){
 			controller = BTLController.getController();
 			dataBox = controller.selectAll();
-			btlsButton.setEnabled(true);
+			btlButton.setEnabled(true);
 			btl_flag = true;
 		}
-		else if(e.getSource().equals(contractsButton)){
+		else if(e.getSource().equals(contractButton)){
 			controller = ContractController.getController();
 			dataBox = controller.selectAll();
-			contractsButton.setEnabled(true);
+			contractButton.setEnabled(true);
 			contract_flag = true;
 		}
-		else if(e.getSource().equals(gamesButton)){
+		else if(e.getSource().equals(gameButton)){
 			controller = GameController.getController();
 			dataBox = controller.selectAll();
-			gamesButton.setEnabled(true);
+			gameButton.setEnabled(true);
 			game_flag = true;
 		}
-		else if(e.getSource().equals(matchsButton)){
+		else if(e.getSource().equals(matchButton)){
 			controller = MatchController.getController();
 			dataBox = controller.selectAll();
-			matchsButton.setEnabled(true);
+			matchButton.setEnabled(true);
 			match_flag = true;
 		}
 		else if(e.getSource().equals(ppsButton)){
