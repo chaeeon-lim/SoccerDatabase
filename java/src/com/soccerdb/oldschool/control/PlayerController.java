@@ -46,7 +46,7 @@ public class PlayerController implements ControllerInterface<Player>{
 	@Override
 	public String search(String attribute, String condition) {
 		init();
-		if(!attribute.isBlank() && !condition.isBlank()) {
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
 			try {
 				switch(attribute) {
 					case "nationality":
@@ -77,7 +77,7 @@ public class PlayerController implements ControllerInterface<Player>{
 				e.printStackTrace();
 			}
 		}
-		if(temp.equals(column_name) || temp.isBlank()) temp += "\n\n\n\t\t\t There is no data for " + condition + "";
+		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + "";
 		return temp;
 		
 	}
