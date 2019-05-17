@@ -125,10 +125,10 @@ public class UserView implements ActionListener{
 			matchsButton.setEnabled(true);
 			match_flag = true;
 		}
-		else if(e.getSource().equals(ppssButton)){
+		else if(e.getSource().equals(ppsButton)){
 			controller = PPSController.getController();
 			dataBox = controller.selectAll();
-			ppssButton.setEnabled(true);
+			ppsButton.setEnabled(true);
 			pps_flag = true;
 		}
 		else if(e.getSource().equals(searchButton)) {
