@@ -108,11 +108,11 @@ public class PlayerController implements ControllerInterface<Player>{
 		
 	}
 	@Override
-	public String order(String attribute, String condition, String logic) {
+	public String order(String attribute, String condition) {
 		
 		init();
 		
-		if(!attribute.isEmpty() && !condition.isEmpty() && !logic.isEmpty()) {
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
 			try {
 				player.setPlayer_name(attribute);
 				switch(condition) {

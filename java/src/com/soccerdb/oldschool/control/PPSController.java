@@ -101,7 +101,7 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 	}
 
 	@Override
-	public String order(String attribute, String condition, String logic) {
+	public String order(String attribute, String condition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

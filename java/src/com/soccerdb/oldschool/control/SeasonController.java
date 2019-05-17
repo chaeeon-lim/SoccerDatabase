@@ -60,7 +60,7 @@ public class SeasonController implements ControllerInterface<Season>{
 	}
 
 	@Override
-	public String order(String attribute, String condition, String logic) {
+	public String order(String attribute, String condition) {
 		// TODO Auto-generated method stub
 		return null;
 	}
