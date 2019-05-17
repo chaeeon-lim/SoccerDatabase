@@ -84,22 +84,4 @@ public class SeasonController implements ControllerInterface<Season>{
 		return controller;
 	}
 	
-	@Override
-	public int insert(Season entity) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void update(Season entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Season entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

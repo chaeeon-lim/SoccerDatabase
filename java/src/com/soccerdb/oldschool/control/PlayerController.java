@@ -122,6 +122,7 @@ public class PlayerController implements ControllerInterface<Player>{
 						getData();
 						break;
 					case "asc":
+						System.out.println("Ascending Order..");
 						playerList = playerDAO.searchPlayerOrderBy(player);
 						getData();
 						break;
@@ -191,21 +192,5 @@ public class PlayerController implements ControllerInterface<Player>{
 			player = itr.next();
 			temp += player.getPlayer_name() + "\t" + player.getPlayer_nationality()+ "\t" + player.getPlayer_debut() + "\t" + player.getPlayer_birthday() +  "\n";
 		}
-	}
-
-	@Override
-	public int insert(Player entity) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public void update(Player entity) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void delete(Player entity) {
-		// TODO Auto-generated method stub
-		
 	}
 }

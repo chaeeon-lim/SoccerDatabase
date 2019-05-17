@@ -130,24 +130,6 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 		}
 	}
 	
-
-	@Override
-	public int insert(Player_per_Season entity) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void update(Player_per_Season entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Player_per_Season entity) {
-		// TODO Auto-generated method 
-		
-	}
 	
 	public static PPSController getController() {
 		// TODO Auto-generated method stub

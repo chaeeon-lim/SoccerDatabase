@@ -82,7 +82,7 @@ public class UserView implements ActionListener{
 			dataBox = controller.selectAll();
 			seasonsButton.setEnabled(true);
 			season_flag = true;
-		}
+		}/*
 		else if(e.getSource().equals(leaguesButton)){
 			controller = LeagueController.getController();
 			dataBox = controller.selectAll();
@@ -124,7 +124,7 @@ public class UserView implements ActionListener{
 			dataBox = controller.selectAll();
 			matchButton.setEnabled(true);
 			match_flag = true;
-		}
+		}*/
 		else if(e.getSource().equals(ppsButton)){
 			controller = PPSController.getController();
 			dataBox = controller.selectAll();

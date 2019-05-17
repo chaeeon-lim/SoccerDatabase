@@ -8,7 +8,4 @@ public interface ControllerInterface<Entity> {
 	String order(String attribute, String condition);
 	int count(String attribute, String condition);
 	
-	int insert(Entity entity);
-	void update(Entity entity);
-	void delete(Entity entity);
 }

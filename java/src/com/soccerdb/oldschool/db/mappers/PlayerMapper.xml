@@ -104,8 +104,8 @@
  	</select>
  	
  	<select id="searchPlayerOrderBy" parameterType="Player" resultMap="result">
- 		SELECT * FROM Player ORDER BY #{player_name} 
- 		<if test="nationality == dsc">DESC</if>
+ 		SELECT * FROM Players ORDER BY #{player_name} 
+ 		<if test="player_nationality == 'dsc'">DESC</if>
  	</select>
  	
  	<select id="calculatePlayerAge" parameterType="int" resultType="int">
