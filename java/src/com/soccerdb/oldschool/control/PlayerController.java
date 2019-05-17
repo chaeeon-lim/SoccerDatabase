@@ -192,7 +192,7 @@ public class PlayerController implements ControllerInterface<Player>{
 			temp += player.getPlayer_name() + "\t" + player.getPlayer_nationality()+ "\t" + player.getPlayer_debut() + "\t" + player.getPlayer_birthday() +  "\n";
 		}
 	}
-	
+
 	@Override
 	public int insert(Player entity) {
 		// TODO Auto-generated method stub
@@ -208,5 +208,4 @@ public class PlayerController implements ControllerInterface<Player>{
 		// TODO Auto-generated method stub
 		
 	}
-	
 }
