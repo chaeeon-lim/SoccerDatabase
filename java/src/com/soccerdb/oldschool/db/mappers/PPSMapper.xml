@@ -211,7 +211,7 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
-	<select id="search\MoreThan" parameterType="Player_per_Season" resultMap="result">
+	<select id="searchMoreThan" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE season_foul >= #{pps_season_foul}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
@@ -377,39 +377,60 @@
 	
 	<select id="countAllPPS" parameterType="Player_per_Season" resultType="int">
 		SELECT COUNT(*) FROM player_per_season
-		<if test="season_id != 0">WHERE season_id = #{season_id}</if>
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where>
 	</select>
 	
 	
 	<!-- We can count Goals by season or Total Goals with or without season information -->
 	<select id="sumOfPlayerGoals" parameterType="Player_per_Season" resultType="int">
-		SELECT SUM(season_goal) FROM player_per_season WHERE player_id = #{player_id}
-		<if test="season_id != 0"> AND season_id = #{season_id}; </if> 
+		SELECT SUM(season_goal) FROM player_per_season
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
 	</select>
 	
 	<select id="sumOfPlayerAssists" parameterType="Player_per_Season" resultType="int">
-		SELECT SUM(season_assist) FROM player_per_season WHERE player_id = #{player_id}
-		<if test="season_id != 0"> AND season_id = #{season_id}; </if> 
+		SELECT SUM(season_assist) FROM player_per_season 
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
 	</select>
 	
 	<select id="sumOfPlayerSaves" parameterType="Player_per_Season" resultType="int">
-		SELECT SUM(season_save) FROM player_per_season WHERE player_id = #{player_id}
-		<if test="season_id != 0"> AND season_id = #{season_id}; </if> 
+		SELECT SUM(season_save) FROM player_per_season 
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
 	</select>
 	
 	<select id="sumOfPlayerGames" parameterType="Player_per_Season" resultType="int">
-		SELECT SUM(season_game) FROM player_per_season WHERE player_id = #{player_id}
-		<if test="season_id != 0"> AND season_id = #{season_id}; </if> 
+		SELECT SUM(season_game) FROM player_per_season 
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
 	</select>
 	
 	<select id="sumOfPlayerCards" parameterType="Player_per_Season" resultType="int">
-		SELECT SUM(season_card) FROM player_per_season WHERE player_id = #{player_id}
-		<if test="season_id != 0"> AND season_id = #{season_id}; </if> 
+		SELECT SUM(season_card) FROM player_per_season 
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
 	</select>
 	
 	<select id="sumOfPlayerFouls" parameterType="Player_per_Season" resultType="int">
-		SELECT SUM(season_foul) FROM player_per_season WHERE player_id = #{player_id}
-		<if test="season_id != 0"> AND season_id = #{season_id}; </if> 
+		SELECT SUM(season_foul) FROM player_per_season
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where>
 	</select>
 	
 	

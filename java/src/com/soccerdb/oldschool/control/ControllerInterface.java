@@ -6,6 +6,7 @@ public interface ControllerInterface<Entity> {
 	String selectAll();
 	String search(String attribute, String condition);
 	String order(String attribute, String condition, String logic);
+	int count(String attribute, String condition);
 	
 	int insert(Entity entity);
 	void update(Entity entity);
