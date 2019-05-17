@@ -17,9 +17,17 @@
  		<!--SELECT * FROM "Relation";-->
  	</select>
  	
- 	<select id="selectById" parameterType="int" resultMap="result">
+ 	<select id="selectByGameId" parameterType="int" resultMap="result">
  		SELECT * FROM Matches
- 		WHERE game_id=#{game_id},club_id=#{club_id},season_id=#{season_id}; 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		WHERE game_id=#{game_id}; 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 	</select>
+ 	<select id="selectByClubId" parameterType="int" resultMap="result">
+ 		SELECT * FROM Matches
+ 		WHERE club_id=#{club_id} 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 	</select>
+ 	<select id="selectBySeasonId" parameterType="int" resultMap="result">
+ 		SELECT * FROM Matches
+ 		WHERE season_id=#{season_id}; 		<!--SELECT * FROM "Relation" WHERE ???;-->
  	</select>
  	
  	<insert id="insert" parameterType="Match" useGeneratedKeys="true" keyProperty="id">
@@ -30,6 +38,13 @@
  	</insert>
  	
  	<update id="update" parameterType="Match">
+ 		<set>
+	      <if test="game_id != null">game_id=#{game_id},</if>
+	      <if test="season_id != null">season_id =#{season_id},</if>
+	      <if test="club_id != null">club_id=#{club_id}</if>
+	    </set>
+	    WHERE game_id=#{game_id},club_id=#{club_id},season_id=#{season_id};
+
  		<!--UPDATE Matches-->
  		<!-- SET `club_id`=[value-1],`game_id`=[value-2],`season_id`=[value-3] -->
  		<!--WHERE club_id=#{player_id},game_id=#{player_id},season_id=#{player_id};-->

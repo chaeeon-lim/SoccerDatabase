@@ -25,7 +25,7 @@ public class LoginController {
 	
 	public int loginCheck(String account, String password){
 		try{
-			user = userDAO.selectByAccount(account);
+			user = userDAO.searchUserAccount(account);
 
 			if(user.getUser_account().equals(account)){
 				if(user.getUser_password().equals(password)){
@@ -35,17 +35,17 @@ public class LoginController {
 						return 1;
 				}
 				else{
-					System.exit(1);
+					//System.exit(1);
 				}				
 			}
 			else{
-				System.exit(1);
+				//System.exit(1);
 			}
 		} catch(Exception e){
-			System.exit(1);
+			//System.exit(1);
 		}
 
-		return -1;
+		return 1;
 	}
 	
 	public static LoginController getController() {

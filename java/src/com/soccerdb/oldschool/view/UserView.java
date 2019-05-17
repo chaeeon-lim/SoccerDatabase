@@ -3,8 +3,8 @@ package com.soccerdb.oldschool.view;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.Scanner;
-
 import com.soccerdb.oldschool.control.*;
+
 
 public class UserView implements ActionListener{
 	JFrame frame;
@@ -14,6 +14,7 @@ public class UserView implements ActionListener{
 		frame = _frame;
 		panel = _panel;
 		frame.setTitle("User Mode");
+
 		frame.setSize(900, 550);		
 		
 		// TODO make all buttons like '<~~>Button.addActionListener(this);
@@ -32,6 +33,7 @@ public class UserView implements ActionListener{
 		orderButton.addActionListener(this);
 		searchButton.addActionListener(this);
 		countButton.addActionListener(this);
+
 		cancelButton.addActionListener(this);
 	
 
@@ -41,6 +43,7 @@ public class UserView implements ActionListener{
 		panel.add(cancelButton);
 		panel.add(byText);
 		panel.add(conditionText);
+
 	//	panel.add(moreLessText);
 		panel.add(searchButton);
 		panel.add(orderButton);
@@ -74,7 +77,7 @@ public class UserView implements ActionListener{
 			playersButton.setEnabled(true);
 			player_flag = true;
 		}
-/*		else if(e.getSource().equals(seasonsButton)){
+  		else if(e.getSource().equals(seasonsButton)){
 			controller = SeasonController.getController();
 			dataBox = controller.selectAll();
 			seasonsButton.setEnabled(true);
@@ -127,7 +130,7 @@ public class UserView implements ActionListener{
 			dataBox = controller.selectAll();
 			ppssButton.setEnabled(true);
 			pps_flag = true;
-		}*/
+		}
 		else if(e.getSource().equals(searchButton)) {
 			searchButtonListener();	
 		}
@@ -161,6 +164,7 @@ public class UserView implements ActionListener{
 		 */
 		
 		if(scanner_flag) {
+
 		//	if(player_flag) {
 				dataBox = controller.search(attribute, condition);
 		//	}
@@ -176,6 +180,7 @@ public class UserView implements ActionListener{
 	
 
 	private void orderButtonListener() {
+
 		scanner_flag = search_scanner_set();
 
 		if(scanner_flag){
@@ -204,18 +209,15 @@ public class UserView implements ActionListener{
 		text.setText(dataBox);
 		scanner_free();
 	}*/
-	
-	
-	
+
 	
 	boolean search_scanner_set() {
 		s1 = new Scanner(byText.getText());
 		s2 = new Scanner(conditionText.getText());
-	//	s3 = new Scanner(moreLessText.getText());
 		if(s1.hasNext() && s2.hasNext()) {
 			attribute = s1.nextLine();
 			condition = s2.nextLine();
-			
+
 			return true;
 		}
 		return false;
@@ -242,7 +244,6 @@ public class UserView implements ActionListener{
 	
 	String attribute;
 	String condition;
-//	String moreLess;
 	
 	String dataBox;
 

@@ -6,7 +6,7 @@
  <mapper namespace="com.soccerdb.oldschool.db.dao.SeasonDAO">
  	<resultMap id="result" type="Season">
  		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
-        <result property="season_id" column="Season_id"/>
+        <result property="season_id" column="season_id"/>
 		<result property="season_year" column="year"/>
  	</resultMap>
  	
@@ -17,10 +17,10 @@
  	
  	<select id="selectById" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
-		 SELECT * FROM Seasons WHERE Season_id = #{season_id};
+		 SELECT * FROM Seasons WHERE season_id = #{season_id};
  	</select>
  	
- 	<insert id="insert" parameterType="Season" useGeneratedKeys="true" keyProperty="id">
+ 	<insert id="insert" parameterType="Season" useGeneratedKeys="true" keyProperty="season_id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
 		INSERT INTO Seasons (year)
@@ -34,11 +34,11 @@
  		WHERE "attribute name of relation" = #{"instace name of entity"};-->
 		UPDATE Seasons
 		SET year = #{season_year}
-		WHERE Season_id = #{season_id};
+		WHERE season_id = #{season_id};
  	</update>
  	
  	<delete id="delete" parameterType="int">
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->\
-		DELETE FROM Seasons WHERE Season_id = #{season_id};
+		DELETE FROM Seasons WHERE season_id = #{season_id};
  	</delete>
  </mapper>

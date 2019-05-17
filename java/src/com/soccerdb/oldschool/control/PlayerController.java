@@ -25,10 +25,16 @@ public class PlayerController implements ControllerInterface<Player>{
 	PlayerDAO playerDAO = new ImplPlayerDAO();
 	List<Player> playerList;
 	Iterator<Player> itr;
+	int count;
 	String temp = "";
 	String column_name = "Name\t" + "Nationality\t" + "Debut\t"+"Birthday" + "\n"
 						+ "----\t--------\t-----\t--------"+"\n";
-	
+
+	@Override
+	public void init() {
+		temp = "";
+		
+	}
 	
 	@Override
 	public String selectAll() {
@@ -44,11 +50,14 @@ public class PlayerController implements ControllerInterface<Player>{
 		return temp;
 	}
 	@Override
-	public String search(String attribute, String condition) {		// 'moreLess' for more than or less than condition
+	public String search(String attribute, String condition) {
 		init();
-	//	if(!attribute.isBlank() && !condition.isBlank()) {
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
 			try {
 				switch(attribute) {
+				case "id":
+						player = playerDAO.selectById(Integer.parseInt(condition));
+						return player.getPlayer_name();
 					case "nationality":
 						playerList = playerDAO.selectByNationality(condition);
 						getData();
@@ -61,27 +70,27 @@ public class PlayerController implements ControllerInterface<Player>{
 						playerList = playerDAO.searchPlayerDebutAtThisYear(Integer.parseInt(condition));
 						getData();
 						break;
-					case "debut before":
-						playerList = playerDAO.searchPlayerDebutBeforeThisYear(Integer.parseInt(condition));
-						getData();
-						break;
 					case "debut after":
 						playerList = playerDAO.searchPlayerDebutAfterThisYear(Integer.parseInt(condition));
+						getData();
+						break;
+					case "debut before":
+						playerList = playerDAO.searchPlayerDebutBeforeThisYear(Integer.parseInt(condition));
 						getData();
 						break;
 					case "birthday":
 						playerList = playerDAO.selectByBirthday(condition);
 						getData();
 						break;
-					case "age":
+					case "same age":
 						playerList = playerDAO.searchAllPlayersSameAge(Integer.parseInt(condition));
 						getData();
 						break;
-					case "age under":
+					case "under age":
 						playerList = playerDAO.searchAllPlayersUnderAge(Integer.parseInt(condition));
 						getData();
 						break;
-					case "age over":
+					case "over age":
 						playerList = playerDAO.searchAllPlayersOverAge(Integer.parseInt(condition));
 						getData();
 						break;
@@ -93,67 +102,82 @@ public class PlayerController implements ControllerInterface<Player>{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-	//	}
-	//	if(temp.equals(column_name) || temp.isBlank()) temp += "\n\n\n\t\t\t There is no data for " + condition + "";
+		}
+		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Player Table"  + " \n";
 		return temp;
 		
 	}
 	@Override
-	public String order(String attribute, String condition) {
-		// TODO Auto-generated method stub
+	public String order(String attribute, String condition, String logic) {
+		
 		init();
-		try{
-			switch(attribute){
-				case "nationality":
-					if(condition.equals("asc")){
-						playerList = playerDAO.searchPlayersOrderByNationality();
-						getData();						
-					}
-					else if(condition.equals("desc")){
-						playerList = playerDAO.searchPlayersOrderByNationalityDesc();
+		
+		if(!attribute.isEmpty() && !condition.isEmpty() && !logic.isEmpty()) {
+			try {
+				player.setPlayer_name(attribute);
+				switch(condition) {
+					case "dsc":
+						player.setPlayer_nationality(condition);
+						playerList = playerDAO.searchPlayerOrderBy(player);
 						getData();
-					}
+						break;
+					case "asc":
+						playerList = playerDAO.searchPlayerOrderBy(player);
+						getData();
+						break;
+					default:
+						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
+						break;
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return temp;
+	}
+	
+	@Override
+	public int count(String attribute, String condition) {
+
+		init();
+		
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
+			try {
+				switch(attribute) {
+				case "all":
+					count = playerDAO.countAllPlayers();
 					break;
-				case "name":
-					if(condition.equals("asc")){
-						playerList = playerDAO.searchPlayersOrderByName();
-						getData();						
-					}
-					else if(condition.equals("desc")){
-						playerList = playerDAO.searchPlayersOrderByNameDesc();
-						getData();
-					}
+				case "country":
+					count = playerDAO.countAllPlayerWithCountry(condition);
 					break;
 				case "debut":
-					if(condition.equals("asc")){
-						playerList = playerDAO.searchPlayersOrderByDebut();
-						getData();						
-					}
-					else if(condition.equals("desc")){
-						playerList = playerDAO.searchPlayersOrderByDebutDesc();
-						getData();
-					}
+					count = playerDAO.countAllPlayerWithDebutYear(Integer.parseInt(condition));
 					break;
 				case "birthday":
-					if(condition.equals("asc")){
-						playerList = playerDAO.searchPlayersOrderByBirthday();
-						getData();						
-					}
-					else if(condition.equals("desc")){
-						playerList = playerDAO.searchPlayersOrderByBirthdayDesc();
-						getData();
-					}
+					count = playerDAO.countAllPlayerWithBirthday(condition);
+					break;
+				case "same age":
+					count = playerDAO.countAllPlayersSameAge(Integer.parseInt(condition));
+					break;
+				case "under age":
+					count = playerDAO.countAllPlayersUnderAge(Integer.parseInt(condition));
+					break;
+				case "over age":
+					count = playerDAO.countAllPlayersOverAge(Integer.parseInt(condition));
 					break;
 				default:
-					temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
-					break;
+					count = -1;
+					
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
 			}
-
-		} catch(Exception ex){
-			ex.printStackTrace();
+			
 		}
-
-		return temp;
+		return count;
 	}
 
 	public static PlayerController getController() {
@@ -168,11 +192,7 @@ public class PlayerController implements ControllerInterface<Player>{
 			temp += player.getPlayer_name() + "\t" + player.getPlayer_nationality()+ "\t" + player.getPlayer_debut() + "\t" + player.getPlayer_birthday() +  "\n";
 		}
 	}
-	@Override
-	public void init() {
-		temp = "";
-		
-	}
+
 	@Override
 	public int insert(Player entity) {
 		// TODO Auto-generated method stub

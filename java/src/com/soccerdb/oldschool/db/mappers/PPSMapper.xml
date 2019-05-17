@@ -36,10 +36,8 @@
  		VALUES (#{player_id}, #{season_id}, #{pps_position}, #{pps_height}, #{pps_weight}, #{pps_season_goal}, #{pps_season_assist}, #{pps_season_game}, #{pps_season_card}, #{pps_season_foul});
  	</insert>
  	
- 	<update id="update" parameterType="Player_per_Season"> </update>
-
-	 <update  id="updateByPPS" parameterType="Player_per_Season">
-	 	UPDATE player_per_season
+ 	<update id="update" parameterType="Player_per_Season"> 
+ 		UPDATE player_per_season
  		<set>
             <if test="pps_position != null"> position = #{pps_position},</if>
             <if test="pps_height != null"> height = #{pps_height},</if>
@@ -51,10 +49,389 @@
             <if test="pps_season_foul != null"> season_foul = #{pps_season_foul}</if>
         </set>
  		WHERE player_id = #{player_id} AND season_id = #{season_id}
-	 </update>
+ 	</update>
+
  	
  	<delete id="delete" parameterType="int"> </delete>
 	<delete id="deleteByPPS" parameterType="Player_per_Season">
 		DELETE FROM player_per_season WHERE player_id = #{player_id} AND season_id = #{season_id}
 	</delete>
+	
+	
+	<!--  Additional Queries  -->
+	
+	<select id="searchPPSWhoseHeightIs" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE height = #{pps_height};
+			<if test="season_id != 0"> AND season_id = #{season_id};</if>
+	</select>
+	
+	<select id="searchPPSWhoseShorterThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season
+		WHERE 
+		<![CDATA[
+			 height < #{pps_height}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseTallerThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE height >= #{pps_height}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseWeightIs" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE weight = #{pps_weight}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseLighterThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season
+		WHERE 
+		<![CDATA[
+			 weight < #{pps_weight}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseHeavierThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE weight >= #{pps_weight}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhosePositionIs" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE position LIKE #{pps_position}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseGoalsAre" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_goal = #{pps_season_goal}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseGoalsLessThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE 
+		<![CDATA[
+			season_goal < #{pps_season_goal}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseGoalsMoreThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_goal >= #{pps_season_goal}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	
+	<select id="searchPPSWhoseAssistsAre" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_assist = #{pps_season_assist}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseAssistsLessThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE 
+		<![CDATA[
+			season_assist < #{pps_season_assist}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseAssistsMoreThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_assist >= #{pps_season_assist}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	
+	<select id="searchPPSWhoseSavessAre" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_save = #{pps_season_save}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseSavessLessThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE 
+		<![CDATA[
+			season_save < #{pps_season_save}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseSavessMoreThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_save >= #{pps_season_save}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	
+	<select id="searchPPSWhoseGamesAre" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_game = #{pps_season_game}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseGamesLessThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE 
+		<![CDATA[
+			season_game < #{pps_season_game}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseGamesMoreThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_game >= #{pps_season_game}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	
+	<select id="searchPPSWhoseCardsAre" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_card = #{pps_season_card}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseCardsLessThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE 
+		<![CDATA[
+			season_card < #{pps_season_card}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseCardsMoreThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_card >= #{pps_season_card}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	
+	<select id="searchPPSWhoseFoulsAre" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_foul = #{pps_season_foul}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSWhoseFoulsLessThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE 
+		<![CDATA[
+			season_foul < #{pps_season_foul}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchMoreThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_foul >= #{pps_season_foul}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="searchPPSOrderBySeason" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_id;
+		<where>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByPosition" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season ORDER BY position
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByHeight" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY height
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByWeight" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY weight
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByGoals" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_goal
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByAssists" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_assist
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderBySaves" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_save
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByGames" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_game
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByCards" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_card
+	<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByFouls" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_foul
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderBySeasonDesc"  parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_id DESC;
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByPositionDesc" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season ORDER BY position DESC
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+		
+	</select>
+	
+	<select id="searchPPSOrderByHeightDesc" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season ORDER BY height DESC
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByWeightDesc" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season ORDER BY weight DESC
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByGoalsDesc" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_goal DESC
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByAssistsDesc" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_assist DESC
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderBySavesDesc" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_save DESC
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByGamesDesc" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_game
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByCardsDesc" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_card DESC
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="searchPPSOrderByFoulsDesc" parameterType="Player_per_Season"  resultMap="result">
+		SELECT * FROM player_per_season ORDER BY season_foul DESC
+		<where>
+			<if test="season_id != 0">season_id = #{season_id}</if>
+			<if test="player_id != 0">AND player_id = #{player_id}</if>
+		</where>
+	</select>
+	
+	<select id="countAllPPS" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where>
+	</select>
+	
+	
+	<!-- We can count Goals by season or Total Goals with or without season information -->
+	<select id="sumOfPlayerGoals" parameterType="Player_per_Season" resultType="int">
+		SELECT SUM(season_goal) FROM player_per_season
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
+	</select>
+	
+	<select id="sumOfPlayerAssists" parameterType="Player_per_Season" resultType="int">
+		SELECT SUM(season_assist) FROM player_per_season 
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
+	</select>
+	
+	<select id="sumOfPlayerSaves" parameterType="Player_per_Season" resultType="int">
+		SELECT SUM(season_save) FROM player_per_season 
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
+	</select>
+	
+	<select id="sumOfPlayerGames" parameterType="Player_per_Season" resultType="int">
+		SELECT SUM(season_game) FROM player_per_season 
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
+	</select>
+	
+	<select id="sumOfPlayerCards" parameterType="Player_per_Season" resultType="int">
+		SELECT SUM(season_card) FROM player_per_season 
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where> 
+	</select>
+	
+	<select id="sumOfPlayerFouls" parameterType="Player_per_Season" resultType="int">
+		SELECT SUM(season_foul) FROM player_per_season
+		<where>
+			<if test="player_id != 0">player_id = #{player_id}</if>
+			<if test="season_id != 0">AND season_id = #{season_id}</if>
+		</where>
+	</select>
+	
+	
  </mapper>
