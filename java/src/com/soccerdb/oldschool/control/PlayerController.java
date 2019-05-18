@@ -32,7 +32,7 @@ public class PlayerController implements ControllerInterface<Player>{
 
 	@Override
 	public void init() {
-		temp = "";
+		temp = column_name;
 		player.setPlayer_nationality("");
 		player.setPlayer_name("");
 		player.setPlayer_id(0);
@@ -60,44 +60,44 @@ public class PlayerController implements ControllerInterface<Player>{
 		if(!attribute.isEmpty() && !condition.isEmpty()) {
 			try {
 				switch(attribute) {
-				case "id":
+					case "id":
 						player = playerDAO.selectById(Integer.parseInt(condition));
 						return player.getPlayer_name();
 					case "nationality":
 						playerList = playerDAO.selectByNationality(condition);
-						getData();
+						
 						break;
 					case "name":
 						playerList = playerDAO.selectByLetterForName("%"+condition+"%");
-						getData();
+						
 						break;
 					case "debut":
 						playerList = playerDAO.searchPlayerDebutAtThisYear(Integer.parseInt(condition));
-						getData();
+						
 						break;
 					case "debut after":
 						playerList = playerDAO.searchPlayerDebutAfterThisYear(Integer.parseInt(condition));
-						getData();
+						
 						break;
 					case "debut before":
 						playerList = playerDAO.searchPlayerDebutBeforeThisYear(Integer.parseInt(condition));
-						getData();
+						
 						break;
 					case "birthday":
 						playerList = playerDAO.selectByBirthday(condition);
-						getData();
+						
 						break;
 					case "same age":
 						playerList = playerDAO.searchAllPlayersSameAge(Integer.parseInt(condition));
-						getData();
+						
 						break;
 					case "under age":
 						playerList = playerDAO.searchAllPlayersUnderAge(Integer.parseInt(condition));
-						getData();
+						
 						break;
 					case "over age":
 						playerList = playerDAO.searchAllPlayersOverAge(Integer.parseInt(condition));
-						getData();
+						
 						break;
 					default:
 						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
@@ -106,10 +106,13 @@ public class PlayerController implements ControllerInterface<Player>{
 			
 			}catch(Exception e) {
 				e.printStackTrace();
+			}finally{
+				getData();
 			}
 		}
+		
 
-		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Player Table"  + " \n";
+		if(temp.equals(column_name)) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Player Table"  + " \n";
 
 		return temp;		
 	}
@@ -120,27 +123,59 @@ public class PlayerController implements ControllerInterface<Player>{
 		
 		if(!attribute.isEmpty() && !condition.isEmpty()) {
 			try {
-				player.setPlayer_name(attribute);
-				switch(condition) {
-					case "dsc":
-						player.setPlayer_nationality(condition);
-						playerList = playerDAO.searchPlayerOrderBy(player);
-						getData();
+				if(condition.equals("dsc")) {
+					switch(attribute) {
+					case "nationality":
+						playerList = playerDAO.searchPlayersOrderByNationalityDesc();
+						
 						break;
-					case "asc":
-						System.out.println("Ascending Order..");
-						playerList = playerDAO.searchPlayerOrderBy(player);
-						getData();
+					case "name":
+						playerList = playerDAO.searchPlayersOrderByNameDesc();
+						
+						break;
+					case "debut":
+						playerList = playerDAO.searchPlayersOrderByDebutDesc();
+						
+						break;
+					case "birthday":
+						playerList = playerDAO.searchPlayersOrderByBirthdayDesc();
+						
 						break;
 					default:
-						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute + "or " + condition +"?";
+						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
 						break;
+					}
 				}
+				else {
+					switch(attribute) {
+					case "nationality":
+						playerList = playerDAO.searchPlayersOrderByNationality();
+						
+						break;
+					case "name":
+						playerList = playerDAO.searchPlayersOrderByName();
+						
+						break;
+					case "debut":
+						playerList = playerDAO.searchPlayersOrderByDebut();
+						
+						break;
+					case "birthday":
+						playerList = playerDAO.searchPlayersOrderByBirthday();
+						
+						break;
+					default:
+						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
+						break;
+					}
+				}
+				
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
 		
+		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Player Table"  + " \n";
 		
 		return temp;
 	}
@@ -181,6 +216,8 @@ public class PlayerController implements ControllerInterface<Player>{
 				
 			}catch(Exception e) {
 				e.printStackTrace();
+			}finally{
+				getData();
 			}
 			
 		}
@@ -193,7 +230,6 @@ public class PlayerController implements ControllerInterface<Player>{
 	
 	void getData() {
 		itr = playerList.iterator();
-		temp += column_name;
 		while(itr.hasNext()) {
 			player = itr.next();
 			temp += player.getPlayer_name() + "\t" + player.getPlayer_nationality()+ "\t" + player.getPlayer_debut() + "\t" + player.getPlayer_birthday() +  "\n";

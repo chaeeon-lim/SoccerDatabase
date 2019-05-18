@@ -103,10 +103,10 @@
  		SELECT * FROM Players ORDER BY birthday DESC;
  	</select>
  	
- 	<select id="searchPlayerOrderBy" parameterType="Player" resultMap="result">
+ 	<!--select id="searchPlayerOrderBy" parameterType="Player" resultMap="result">
  		SELECT * FROM Players ORDER BY #{player_name} 
- 		<if test="player_nationality != 'asc'">DESC</if>
- 	</select>
+ 		<if test="player_nationality != 'asc'"> DESC</if>
+ 	</select-->
  	
  	<select id="calculatePlayerAge" parameterType="int" resultType="int">
  		SELECT TIMESTAMPDIFF(year, birthday, NOW()) FROM Players WHERE player_id = #{player_id};

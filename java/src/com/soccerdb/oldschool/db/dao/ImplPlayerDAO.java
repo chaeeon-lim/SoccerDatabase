@@ -264,6 +264,7 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 		}
 	}
 
+	/*
 	@Override
 	public List<Player> searchPlayerOrderBy(Player player) throws Exception {
 		try {
@@ -273,5 +274,5 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 			session.close();
 		}
 	}
-
+*/
 }
