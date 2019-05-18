@@ -127,7 +127,7 @@ public class PlayerController implements ControllerInterface<Player>{
 						getData();
 						break;
 					default:
-						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
+						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute + "or " + condition +"?";
 						break;
 				}
 			} catch(Exception e) {
