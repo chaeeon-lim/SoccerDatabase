@@ -47,6 +47,7 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 	public String selectAll() {
 		init();
 		try {
+			System.out.println("selectAll");
 			ppsList = ppsDAO.selectAll();
 			getData();
 		} catch(Exception e) {
@@ -118,6 +119,7 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 		while(itr.hasNext()) {
 			pps = itr.next();
 			temp += c_player.search("id", ""+pps.getPlayer_id()) + "\t" + c_season.search("id", ""+pps.getSeason_id()) + "\t" + pps.getPps_position() +"\t" + pps.getPps_height() + "\t" + pps.getPps_weight() + "\t" + pps.getPps_season_goal() + "\t" + pps.getPps_season_assist() + "\t" + pps.getPps_season_save() + "\t" + pps.getPps_season_game() + "\t" + pps.getPps_season_card() + "\t" +pps.getPps_season_foul() + "\n";
+			System.out.println(temp);
 		}
 	}
 	

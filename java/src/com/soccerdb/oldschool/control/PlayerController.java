@@ -21,7 +21,7 @@ public class PlayerController implements ControllerInterface<Player>{
 		}	
 	}
 	
-	Player player;
+	Player player = new Player();
 	PlayerDAO playerDAO = new ImplPlayerDAO();
 	List<Player> playerList;
 	Iterator<Player> itr;
@@ -33,6 +33,11 @@ public class PlayerController implements ControllerInterface<Player>{
 	@Override
 	public void init() {
 		temp = "";
+		player.setPlayer_nationality("");
+		player.setPlayer_name("");
+		player.setPlayer_id(0);
+		player.setPlayer_debut(0);
+		player.setPlayer_birthday(null);
 		
 	}
 	

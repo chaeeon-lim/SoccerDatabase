@@ -21,7 +21,7 @@
         <result property="game_penalty_kick" column="penalty_kick"/>
         <result property="game_throwing" column="throwing"/>
         <result property="game_uniform_color" column="uniform_color"/> 
-        <result property="game_free_kick" column="freekick"/>              
+        <result property="game_freekick" column="freekick"/>              
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">

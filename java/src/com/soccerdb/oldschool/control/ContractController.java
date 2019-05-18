@@ -7,7 +7,7 @@ import com.soccerdb.oldschool.db.dao.ContractDAO;
 import com.soccerdb.oldschool.db.dao.ImplContractDAO;
 import com.soccerdb.oldschool.db.entity.Contract;
 
-public class ContractController implements ControllerInterface{
+public class ContractController implements ControllerInterface<Contract>{
 	
 	private static ContractController controller;
 
