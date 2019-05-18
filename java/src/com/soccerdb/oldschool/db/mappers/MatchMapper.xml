@@ -8,6 +8,7 @@
  		<result property="game_id" column="game_id"/>
  		<result property="club_id" column="club_id"/>
  		<result property="season_id" column="season_id"/>
+ 		<result property="is_home" column="is_home"/>
  		<!-- Instance of Entity and Attributes of Relation need to be delclared HERE! -->
          
  	</resultMap>
@@ -29,34 +30,38 @@
  		SELECT * FROM Matches
  		WHERE season_id=#{season_id}; 		<!--SELECT * FROM "Relation" WHERE ???;-->
  	</select>
+ 	<select id="selectByIsHome" parameterType="boolean" resultMap="result">
+ 		SELECT * FROM Matches
+ 		WHERE is_home=#{is_home}; 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 	</select>
+ 	<select id="selectOrderByGameId" resultMap="result">
+ 		SELECT * FROM Games ORDER BY game_id;
+ 	</select>
+ 	<select id="selectOrderByClubId" resultMap="result">
+ 		SELECT * FROM Games ORDER BY club_id;
+ 	</select>
+ 	<select id="selectOrderBySeasonId" resultMap="result">
+ 		SELECT * FROM Games ORDER BY season_id;
+ 	</select>
+ 	
  	
  	<insert id="insert" parameterType="Match" useGeneratedKeys="true" keyProperty="id">
- 		INSERT INTO Matches(club_id, game_id, season_id)
- 		VALUES (#{game_id},#{season_id},#{club_id});
- 		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
- 		values "instace name of entity" , ... , "instace name of entity" -->
+ 		INSERT INTO Matches(club_id, game_id, season_id,is_home)
+ 		VALUES (#{game_id},#{season_id},#{club_id},#{is_home});
+ 
  	</insert>
  	
- 	<update id="update" parameterType="Match">
+ 	<update id="updateMatch" parameterType="Match">
+ 		UPDATE Matches
  		<set>
 	      <if test="game_id != null">game_id=#{game_id},</if>
 	      <if test="season_id != null">season_id =#{season_id},</if>
 	      <if test="club_id != null">club_id=#{club_id}</if>
+	      <if test="is_home != null">is_home=#{is_home}</if>
 	    </set>
-	    WHERE game_id=#{game_id},club_id=#{club_id},season_id=#{season_id};
-
- 		<!--UPDATE Matches-->
- 		<!-- SET `club_id`=[value-1],`game_id`=[value-2],`season_id`=[value-3] -->
- 		<!--WHERE club_id=#{player_id},game_id=#{player_id},season_id=#{player_id};-->
- 		<!--UPDATE "Relation"
- 		SET "attribute name of relation" = #{"instace name of entity"}
- 		WHERE "attribute name of relation" = #{"instace name of entity"};-->
+	    WHERE game_id=#{game_id},club_id=#{club_id},season_id=#{season_id};		
  	</update>
  	
- 	<delete id="delete" parameterType="int">
- 		
- 		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
- 	</delete>
 
 	 <delete id="deleteMatch" parameterType="Match">
 		DELETE FROM Matches WHERE club_id=#{club_id},game_id=#{game_id},season_id=#{season_id}; 
