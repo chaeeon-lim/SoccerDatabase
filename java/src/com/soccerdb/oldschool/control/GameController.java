@@ -25,10 +25,15 @@ public class GameController implements ControllerInterface<Game>{
 	GameDAO gameDAO = new ImplGameDAO();
 	List<Game> gameList;
 	Iterator<Game> itr;
+	int count;
 	String temp = "";
 	String column_name = "Name\t" + "Nationality\t" + "Debut\t"+"Birthday" + "\n"
 						+ "----\t--------\t-----\t--------"+"\n";
-	
+	@Override
+	public void init() {
+		temp = "";
+		
+	}
 	
 	@Override
 	public String selectAll() {
@@ -82,12 +87,18 @@ public class GameController implements ControllerInterface<Game>{
 		
 	}
 	@Override
-	public String order(String attribute, String condition, String logic) {
-		// TODO Auto-generated method stub
+	public String order(String attribute, String condition) {
 		init();
-		return null;
-	}
+		
 
+		
+		return temp;
+	}
+	@Override
+	public int count(String attribute, String condition) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	public static GameController getController() {
 		return controller;
 	}
@@ -105,24 +116,6 @@ public class GameController implements ControllerInterface<Game>{
 			+ game.getgame_throwing() + "\t"+ game.getgame_uniform_color() + "\t"+"\n";
 		}
 	}
-	@Override
-	public void init() {
-		temp = "";
-		
-	}
-	@Override
-	public int insert(Game entity) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public void update(Game entity) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void delete(Game entity) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 }
