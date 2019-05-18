@@ -23,16 +23,7 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 			session.close();
 		}
 	}
-	@Override
-	public List<Game> selectById(int game_id) throws Exception {
-		session = getSqlSessionFactory().openSession();
-		try {
-			session = getSqlSessionFactory().openSession();
-			return session.selectList(namespace + ".selectById", game_id);
-		}finally {
-			session.close();
-		}
-	}
+
 	@Override
 	public List<Game> selectByGameTime(Date game_time) throws Exception {
 		session = getSqlSessionFactory().openSession();

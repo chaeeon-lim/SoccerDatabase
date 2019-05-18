@@ -101,6 +101,16 @@ public class ImplContractDAO extends ImplAbstractDAO<Contract, Integer> implemen
 			session.close();
 		}
 	}
+
+	@Override
+	public List<Contract> orderBySeasonId() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderBySeasonId");
+		}finally {
+			session.close();
+		}
+	}
 	
 	@Override
 	public List<Contract> orderBySalary() throws Exception {
@@ -117,6 +127,55 @@ public class ImplContractDAO extends ImplAbstractDAO<Contract, Integer> implemen
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".orderByDurationContract");
+		}finally {
+			session.close();
+		}
+	}
+	@Override
+	public List<Contract> orderByPlayerIdDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByPlayerIdDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Contract> orderByClubIdDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByClubIdDESC");
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public List<Contract> orderBySeasonIdDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderBySeasonIdDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Contract> orderBySalaryDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderBySalaryDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Contract> orderByDurationContractDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByDurationContractDESC");
 		}finally {
 			session.close();
 		}

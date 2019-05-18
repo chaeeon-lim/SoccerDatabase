@@ -34,7 +34,6 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 	String column_name = "Name\t" + "Season\t" + "Position\t" +"Height" + "Weight" + "Goals" + "Assists" + "Saves" + "Game" + "Card" + "Foul" + "\n"
 						+"----\t-----\t------\t-----\t----\t----\t-----\t----\t----\t----\t----\t" +"\n";
 	
-	
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
