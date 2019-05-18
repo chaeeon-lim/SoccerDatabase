@@ -3,9 +3,8 @@ package com.soccerdb.oldschool.view;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.Scanner;
+import com.soccerdb.oldschool.control.*;
 
-import com.soccerdb.oldschool.control.ControllerInterface;
-import com.soccerdb.oldschool.control.PlayerController;
 
 public class UserView implements ActionListener{
 	JFrame frame;
@@ -15,19 +14,26 @@ public class UserView implements ActionListener{
 		frame = _frame;
 		panel = _panel;
 		frame.setTitle("User Mode");
-		frame.setSize(900, 550);
 
-		
+		frame.setSize(900, 550);		
 		
 		// TODO make all buttons like '<~~>Button.addActionListener(this);
 		
 		seasonsButton.addActionListener(this);
 		leaguesButton.addActionListener(this);
 		playersButton.addActionListener(this);
-		
+		clubsButton.addActionListener(this);
+		appearButton.addActionListener(this);
+		btlButton.addActionListener(this);
+		contractButton.addActionListener(this);
+		gameButton.addActionListener(this);
+		matchButton.addActionListener(this);
+		ppsButton.addActionListener(this);
 
-
+		orderButton.addActionListener(this);
 		searchButton.addActionListener(this);
+		countButton.addActionListener(this);
+
 		cancelButton.addActionListener(this);
 	
 
@@ -37,8 +43,11 @@ public class UserView implements ActionListener{
 		panel.add(cancelButton);
 		panel.add(byText);
 		panel.add(conditionText);
+
+	//	panel.add(moreLessText);
 		panel.add(searchButton);
 		panel.add(orderButton);
+		panel.add(countButton);
 		panel.add(sp);
 	}
 
@@ -68,12 +77,69 @@ public class UserView implements ActionListener{
 			playersButton.setEnabled(true);
 			player_flag = true;
 		}
-		/*
-		 *  other entitiy buttons...
-		 */
+  		else if(e.getSource().equals(seasonsButton)){
+			controller = SeasonController.getController();
+			dataBox = controller.selectAll();
+			seasonsButton.setEnabled(true);
+			season_flag = true;
+		}/*
+		else if(e.getSource().equals(leaguesButton)){
+			controller = LeagueController.getController();
+			dataBox = controller.selectAll();
+			leaguesButton.setEnabled(true);
+			league_flag = true;
+		}
+		else if(e.getSource().equals(clubsButton)){
+			controller = ClubController.getController();
+			dataBox = controller.selectAll();
+			clubsButton.setEnabled(true);
+			club_flag = true;
+		}
+		else if(e.getSource().equals(appearButton)){
+			controller = AppearController.getController();
+			dataBox = controller.selectAll();
+			appearButton.setEnabled(true);
+			appear_flag = true;
+		}
+		else if(e.getSource().equals(btlButton)){
+			controller = BTLController.getController();
+			dataBox = controller.selectAll();
+			btlButton.setEnabled(true);
+			btl_flag = true;
+		}
+		else if(e.getSource().equals(contractButton)){
+			controller = ContractController.getController();
+			dataBox = controller.selectAll();
+			contractButton.setEnabled(true);
+			contract_flag = true;
+		}
+		else if(e.getSource().equals(gameButton)){
+			controller = GameController.getController();
+			dataBox = controller.selectAll();
+			gameButton.setEnabled(true);
+			game_flag = true;
+		}
+		else if(e.getSource().equals(matchButton)){
+			controller = MatchController.getController();
+			dataBox = controller.selectAll();
+			matchButton.setEnabled(true);
+			match_flag = true;
+		}*/
+		else if(e.getSource().equals(ppsButton)){
+			controller = PPSController.getController();
+			dataBox = controller.selectAll();
+			ppsButton.setEnabled(true);
+			pps_flag = true;
+		}
 		else if(e.getSource().equals(searchButton)) {
 			searchButtonListener();	
 		}
+		else if(e.getSource().equals(orderButton)){
+			orderButtonListener();
+		}
+	//	else if(e.getSource().equals(countButton)){
+	//		countButtonListener();
+	//	}
 		else if(e.getSource().equals(cancelButton)) {
 			for(JButton buttons : entityButtons){
 				buttons.setEnabled(true);
@@ -98,16 +164,15 @@ public class UserView implements ActionListener{
 		 */
 		
 		if(scanner_flag) {
-				if(player_flag) {
-					dataBox = controller.search(attribute, condition);
-				}
+
+		//	if(player_flag) {
+				dataBox = controller.search(attribute, condition);
+		//	}
+
 		} else {
 			//System.out.println("no attribute");
 			// handling case : attribute is blank
-		}
-		
-		
-		
+		}		
 		
 		text.setText(dataBox);
 		scanner_free();
@@ -116,14 +181,35 @@ public class UserView implements ActionListener{
 
 	private void orderButtonListener() {
 
+		scanner_flag = search_scanner_set();
+
+		if(scanner_flag){
+		//	if(player_flag){
+				dataBox = controller.order(attribute, condition);
+		//	}
+		}
+
 		/* TODO Call controller method for search like below 
 		 * dataBox = controller.search(attribute, condition, logic);
 		 */
-		
+
+		text.setText(dataBox);
+		scanner_free();		
 	}
-	
-	
-	
+/*
+	private void countButtonListener(){
+		scanner_flag = search_scanner_set();
+
+		if(scanner_flag){
+		//	if(player_flag){
+				dataBox = controller.count(attribute, condition);
+		//	}
+		}
+
+		text.setText(dataBox);
+		scanner_free();
+	}*/
+
 	
 	boolean search_scanner_set() {
 		s1 = new Scanner(byText.getText());
@@ -131,6 +217,7 @@ public class UserView implements ActionListener{
 		if(s1.hasNext() && s2.hasNext()) {
 			attribute = s1.nextLine();
 			condition = s2.nextLine();
+
 			return true;
 		}
 		return false;
@@ -187,11 +274,12 @@ public class UserView implements ActionListener{
 //	JTextArea searchText = new JTextArea("", 1, 75);
 	JTextArea byText = new JTextArea("", 1, 60);
 	JTextArea conditionText = new JTextArea("", 1, 15);
-	Scanner s1;
-	Scanner s2;
+//	JTextArea moreLessText = new JTextArea("", 1, 5);
+	Scanner s1, s2;
 	JButton searchButton = new JButton("Search");
 	JButton orderButton = new JButton("Order");
-	JButton topTenButton = new JButton("Top10");
+	JButton countButton = new JButton("Count");
+//	JButton topTenButton = new JButton("Top10");
 	JButton cancelButton = new JButton("Cancel All");
 
 	JButton[] entityButtons = {appearButton, btlButton, clubsButton, contractButton, gameButton, 

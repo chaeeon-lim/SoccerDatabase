@@ -26,8 +26,8 @@
  	<insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="user_id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instance name of entity" -->
-		INSERT INTO Users (user_name, user_account, user_password)
-		VALUES (#{user_name}, #{user_account}, #{user_password});
+		INSERT INTO Users (user_name, user_account, user_password, user_email)
+		VALUES (#{user_name}, #{user_account}, #{user_password}, #{user_email));
 
  	</insert>
  	
