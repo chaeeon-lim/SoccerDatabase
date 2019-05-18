@@ -36,6 +36,11 @@
  		SELECT * FROM Contracts WHERE club_id = #{club_id};
  	</select>
  	
+ 	<select id="selectBySeasonId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts WHERE season_id = #{season_id};
+ 	</select>
+ 	
  	<select id="selectBySalaryOverThan" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
  		SELECT * FROM Contracts WHERE salary >= #{salary};

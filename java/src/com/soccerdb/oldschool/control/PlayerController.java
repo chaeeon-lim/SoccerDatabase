@@ -103,9 +103,10 @@ public class PlayerController implements ControllerInterface<Player>{
 				e.printStackTrace();
 			}
 		}
+
 		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Player Table"  + " \n";
-		return temp;
-		
+
+		return temp;		
 	}
 	@Override
 	public String order(String attribute, String condition) {
