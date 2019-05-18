@@ -53,7 +53,17 @@ public class ImplContractDAO extends ImplAbstractDAO<Contract, Integer> implemen
 	}
 
 	@Override
-	public List<Contract> selectBySalaryOverThan(int salary) throws Exception {
+	public List<Contract> selectBySeasonId(int season_id) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".selectBySeasonId", season_id);
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Contract> selectBySalaryOverThan(float salary) throws Exception {
 		try {
 			session = getSqlSessionFactory().openSession();
 			return session.selectList(namespace + ".selectBySalaryOverThan", salary);
