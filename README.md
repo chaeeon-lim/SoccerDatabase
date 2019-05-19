@@ -5,10 +5,10 @@ This document instruct how to run this program.
 There is 3 things you need to implement it.
 	
 >These things must be done below this sentence. <br/>
->>* Download this program<br/><br/>
->>* Download database configuration file in the program<br/>
->>(in case of network protection, config file is in the other drive)<br/><br/>
->>* Make a build environment for this program (if you use IDE) <br/><br/>
+>* Download this program<br/><br/>
+>* Download database configuration file in the program<br/>
+>(in case of network protection, config file is in the other drive)<br/><br/>
+>* Make a build environment for this program (if you use IDE) <br/><br/>
 
 ## 1. Download this program
 
@@ -40,22 +40,22 @@ If you are trying to implement this program in the other IDE, we can not support
 #### In a workspace of your Eclipse IDE,
 
 >Please follow below instruction carefully.<br/>
-- Right click the workspace and press 'Import' button<br/><br/>
-- General -> Projects from Folder or Archive<br/><br/>
-- Click 'Directory' on the upper right side.<br/><br/>
-- Find the project folder where you cloned this repository.<br/><br/>
-- Make sure the folder that 'SoccerDatabase' folder is selected.<br/><br/>
-- Click Confirm(or Apply)<br/><br/>
-- Click Finish, then you can find out that the repository is uploaded on your workspace<br/><br/>
-- Right click again the workspace to import external library<br/><br/>
-- Build Path -> Configure Build Path<br/><br/>
-- Click 'Library' tab on the upper side.<br/><br/>
-- Click 'Classpath' in the box, then click 'Add JARs' on the right side<br/><br/>
-- In the box, the external libraries are 'SoccerDatabase/java/libs'<br/><br/>
-- Click the both libraries 'mysql-connector-java-8.0.15.jar' and 'mybatis-3.5.1.jar'<br/><br/>
-- Check that those libraries are uploaded as subtrees of 'Classpath'<br/><br/>
-- Click 'Apply and Close'<br/><br/>
-- Then You are ready to run this program. 
+>- Right click the workspace and press 'Import' button<br/><br/>
+>- General -> Projects from Folder or Archive<br/><br/>
+>- Click 'Directory' on the upper right side.<br/><br/>
+>- Find the project folder where you cloned this repository.<br/><br/>
+>- Make sure the folder that 'SoccerDatabase' folder is selected.<br/><br/>
+>- Click Confirm(or Apply)<br/><br/>
+>- Click Finish, then you can find out that the repository is uploaded on your workspace<br/><br/>
+>- Right click again the workspace to import external library<br/><br/>
+>- Build Path >-> Configure Build Path<br/><br/>
+>- Click 'Library' tab on the upper side.<br/><br/>
+>- Click 'Classpath' in the box, then click 'Add JARs' on the right side<br/><br/>
+>- In the box, the external libraries are 'SoccerDatabase/java/libs'<br/><br/>
+>- Click the both libraries 'mysql-connector-java-8.0.15.jar' and 'mybatis-3.5.1.jar'<br/><br/>
+>- Check that those libraries are uploaded as subtrees of 'Classpath'<br/><br/>
+>- Click 'Apply and Close'<br/><br/>
+>- Then You are ready to run this program. 
 
 
 ### 3.2. Build and Run in CLI (with Ant Builder)
