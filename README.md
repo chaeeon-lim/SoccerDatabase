@@ -38,37 +38,37 @@ If you are trying to implement this program in the other IDE, we can not support
 
 ##### In a workspace of your Eclipse,
 	
-	Right click the workspace and press 'Import' button
+	- Right click the workspace and press 'Import' button
 	
-	General -> Projects from Folder or Archive
+	- General -> Projects from Folder or Archive
 	
-	Click 'Directory' on the upper right side.
+	- Click 'Directory' on the upper right side.
 	
-	Find the project folder where you cloned this repository.
+	- Find the project folder where you cloned this repository.
 	
-	Make sure the folder that 'SoccerDatabase' folder is selected.
+	- Make sure the folder that 'SoccerDatabase' folder is selected.
 	
-	Click Confirm(or Apply)
+	- Click Confirm(or Apply)
 	
-	Click Finish, then you can find out that the repository is uploaded on your workspace
+	- Click Finish, then you can find out that the repository is uploaded on your workspace
 	
-	Right click again the workspace to import external library
+	- Right click again the workspace to import external library
 	
-	Build Path -> Configure Build Path
+	- Build Path -> Configure Build Path
 	
-	Click 'Library' tab on the upper side.
+	- Click 'Library' tab on the upper side.
 	
-	Click 'Classpath' in the box, then click 'Add JARs' on the right side
+	- Click 'Classpath' in the box, then click 'Add JARs' on the right side
 	
-	In the box, the external libraries are 'SoccerDatabase/java/libs'
+	- In the box, the external libraries are 'SoccerDatabase/java/libs'
 	
-	Click the both libraries 'mysql-connector-java-8.0.15.jar' and 'mybatis-3.5.1.jar'
+	- Click the both libraries 'mysql-connector-java-8.0.15.jar' and 'mybatis-3.5.1.jar'
 	
-	Check that those libraries are uploaded as subtrees of 'Classpath'
+	- Check that those libraries are uploaded as subtrees of 'Classpath'
 	
-	Click 'Apply and Close'
+	- Click 'Apply and Close'
 	
-	Then You are ready to run this program. 
+	- Then You are ready to run this program. 
 
 
 ### 3.2. Build and Run in CLI (with Ant Builder)
