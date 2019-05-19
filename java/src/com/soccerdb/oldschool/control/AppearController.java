@@ -62,6 +62,7 @@ public class AppearController implements ControllerInterface<Appear>{
 		init();
 		try {
 			appearList = appearDAO.selectAll();
+			count = count("all", "anything");
 			getData();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -96,32 +97,41 @@ public class AppearController implements ControllerInterface<Appear>{
 						appearList = appearDAO.selectByStartTimeBetween(
 								new SimpleDateFormat("hh:mm:ss").parse(condition1), 
 								new SimpleDateFormat("hh:mm:ss").parse(condition2)); 
+						count = count(attribute, condition);
 						break; 
 					case "end_time_between":
 						appearList = appearDAO.selectByEndTimeBetween(
 								new SimpleDateFormat("hh:mm:ss").parse(condition1), 
 								new SimpleDateFormat("hh:mm:ss").parse(condition2));  
+						count = count(attribute, condition);
 						break; 
 					case "in_game_position":
 						appearList = appearDAO.selectByInGamePosition(condition);  
+						count = count(attribute, condition);
 						break;
 					case "goals_more_than":
 						appearList = appearDAO.selectByGoalsMoreThan(Integer.parseInt(condition));  
+						count = count(attribute, condition);
 						break;
 					case "assist_more_than":
 						appearList = appearDAO.selectByAssistMoreThan(Integer.parseInt(condition)); 
+						count = count(attribute, condition);
 						break;
 					case "save_more_than":
 						appearList = appearDAO.selectBySaveMoreThan(Integer.parseInt(condition)); 
+						count = count(attribute, condition);
 						break;
 					case "foul_more_than":
 						appearList = appearDAO.selectByFoulMoreThan(Integer.parseInt(condition)); 
+						count = count(attribute, condition);
 						break;
 					case "card_more_than":
 						appearList = appearDAO.selectByCardMoreThan(Integer.parseInt(condition)); 
+						count = count(attribute, condition);
 						break;
 					case "distance_more_than":
 						appearList = appearDAO.selectByDistanceMoreThan(Float.parseFloat(condition)); 
+						count = count(attribute, condition);
 						break;
 					default:
 						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
@@ -231,8 +241,57 @@ public class AppearController implements ControllerInterface<Appear>{
 
 	@Override
 	public int count(String attribute, String condition) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
+			try {
+				switch(attribute) {
+					case "all":
+						count = appearDAO.CountAllAppears();
+						break;
+					case "start_time_between":
+						count = appearDAO.CountByStartTimeBetween(
+								new SimpleDateFormat("hh:mm:ss").parse(condition1), 
+								new SimpleDateFormat("hh:mm:ss").parse(condition2)); 
+						break; 
+					case "end_time_between":
+						count = appearDAO.CountByEndTimeBetween(
+								new SimpleDateFormat("hh:mm:ss").parse(condition1), 
+								new SimpleDateFormat("hh:mm:ss").parse(condition2));  
+						break; 
+					case "in_game_position":
+						count = appearDAO.CountByInGamePosition(condition);  
+						break;
+					case "goals_more_than":
+						count = appearDAO.CountByGoalsMoreThan(Integer.parseInt(condition));  
+						break;
+					case "assist_more_than":
+						count = appearDAO.CountByAssistMoreThan(Integer.parseInt(condition)); 
+						break;
+					case "save_more_than":
+						count = appearDAO.CountBySaveMoreThan(Integer.parseInt(condition)); 
+						break;
+					case "foul_more_than":
+						count = appearDAO.CountByFoulMoreThan(Integer.parseInt(condition)); 
+						break;
+					case "card_more_than":
+						count = appearDAO.CountByCardMoreThan(Integer.parseInt(condition)); 
+						break;
+					case "distance_more_than":
+						count = appearDAO.CountByDistanceMoreThan(Float.parseFloat(condition)); 
+						break;
+					default:
+						count = -1;
+						break;
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally{
+				getData();
+			}
+			
+		}
+
+		return count;
 	}
 	
 	public static AppearController getController() {
@@ -253,6 +312,7 @@ public class AppearController implements ControllerInterface<Appear>{
 						appear.getAssist() + "\t" + appear.getFoul() + "\t" + 
 						appear.getCard() + "\t" + appear.getDistance() +"\n";
 			}
+			temp += "\n\n" + "Total : \t" + count + " Appears\n";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
