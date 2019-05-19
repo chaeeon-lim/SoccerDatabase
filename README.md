@@ -1,9 +1,7 @@
 # SoccerDatabase
+SoccerDatabase Project Program from Database Systems Class in Handong Global University
 
-
-####SoccerDatabase Project Program from Database Systems Class in Handong Global University
-
-This document instruct how to run this program.
+This document instructs how to run this program.
 There is 3 things you need to implement it.
 	
 **These things must be done below this sentence.**
