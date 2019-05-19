@@ -65,7 +65,7 @@ public class UserView implements ActionListener{
 	//	panel.add(moreLessText);
 		panel.add(searchButton);
 		panel.add(orderButton);
-		panel.add(countButton);
+		//panel.add(countButton);
 		panel.add(sp);
 	}
 
@@ -270,7 +270,7 @@ public class UserView implements ActionListener{
 	Scanner s1, s2;
 	JButton searchButton = new JButton("Search");
 	JButton orderButton = new JButton("Order");
-	JButton countButton = new JButton("Count");
+	//JButton countButton = new JButton("Count");
 //	JButton topTenButton = new JButton("Top10");
 	JButton cancelButton = new JButton("Cancel All");
 

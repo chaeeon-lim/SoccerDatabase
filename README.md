@@ -4,7 +4,7 @@ SoccerDatabase Project Program from Database Systems Class in Handong Global Uni
 This document instruct how to run this program.
 There is 3 things you need to implement it.
 	
->These things must be done below this sentence. <br/>
+>**These things must be done below this sentence.** <br/>
 >* Download this program<br/><br/>
 >* Download database configuration file in the program<br/>
 >(in case of network protection, config file is in the other drive)<br/><br/>
