@@ -40,6 +40,7 @@ public class SeasonController implements ControllerInterface<Season>{
 		init();
 		try {
 			seasonList = seasonDAO.selectAll();
+			count = count("all","anything");
 			getData();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -80,6 +81,7 @@ public class SeasonController implements ControllerInterface<Season>{
 			season = itr.next();
 			temp += season.getSeason_year() + "\n";
 		}
+		temp += "\n\n" + "Total : \t" + count + " Seasons\n";
 	}
 	
 	public static SeasonController getController() {

@@ -40,6 +40,7 @@ public class GameController implements ControllerInterface<Game>{
 		init();
 		try {
 			gameList = gameDAO.selectAll();
+			count = count("all","anything");
 			getData();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -59,60 +60,79 @@ public class GameController implements ControllerInterface<Game>{
 						break;
 					case "weather":
 						gameList = gameDAO.selectByWeather(condition);
+						count = count(attribute,condition);
 						break;
 					case "extended":
 						gameList = gameDAO.selectByExtended(Boolean.parseBoolean(condition));
+						count = count(attribute,condition);
 						break;
 					case "shoot out":
 						gameList = gameDAO.selectByShootOut(Boolean.parseBoolean(condition));
+						count = count(attribute,condition);
 						break;
 					case "type":
 						gameList = gameDAO.selectByGameType(condition);
+						count = count(attribute,condition);
 						break;
 					case "score upper":
 						gameList = gameDAO.selectByScoreUpper(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "score lower":
 						gameList = gameDAO.selectByScoreLower(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "throwing upper":
 						gameList = gameDAO.selectByThrowingUpper(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "throwing lower":
 						gameList = gameDAO.selectByThrowingLower(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "foul upper":
 						gameList = gameDAO.selectByFoulUpper(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "foul lower":
 						gameList = gameDAO.selectByFoulLower(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "card upper":
 						gameList = gameDAO.selectByCardUpper(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "card lower":
 						gameList = gameDAO.selectByCardLower(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "cornerkick upper":
 						gameList = gameDAO.selectByCornerKickUpper(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "cornerkick lower":
 						gameList = gameDAO.selectByFreekickLower(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "freekick upper":
 						gameList = gameDAO.selectByFreekickUpper(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "freekick lower":
 						gameList = gameDAO.selectByCornerKickLower(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "penaltykick upper":
 						gameList = gameDAO.selectByPenaltykickUpper(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "penaltykick lower":
 						gameList = gameDAO.selectByPenaltykickLower(Integer.parseInt(condition));
+						count = count(attribute,condition);
 						break;
 					case "uniform color":
 						gameList = gameDAO.selectByUniformColor(condition);
+						count = count(attribute,condition);
 						break;
 					default:
 						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
@@ -160,6 +180,7 @@ public class GameController implements ControllerInterface<Game>{
 			} catch(Exception e) {
 				e.printStackTrace();
 			} finally {
+				count = count("all","anything");
 				getData();
 			}
 		}
@@ -187,6 +208,7 @@ public class GameController implements ControllerInterface<Game>{
 			+ "\t" + game.getgame_card() + "\t"+ game.getgame_corner_kick() + "\t"+ game.getgame_penalty_kick() + "\t"
 			+ game.getgame_throwing() + "\t"+ game.getgame_uniform_color() + "\t"+"\n";
 		}
+		temp += "\n\n" + "Total : \t" + count + " Games\n";
 	}
 	
 	

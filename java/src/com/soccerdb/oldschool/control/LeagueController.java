@@ -39,6 +39,7 @@ public class LeagueController implements ControllerInterface<League> {
 		init();
 		try {
 			leagueList = leagueDAO.selectAll();
+			count = count("all","anything");
 			getData();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -87,6 +88,8 @@ public class LeagueController implements ControllerInterface<League> {
 			league = itr.next();
 			temp += league.getLeague_name() + "\n" ;
 		}
+		temp += "\n\n" + "Total : \t" + count + " Leagues\n";
+
 	}
 	
 	public static LeagueController getController() {
