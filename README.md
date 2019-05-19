@@ -1,30 +1,32 @@
 # SoccerDatabase
-SoccerDatabase Project Program from Database Systems Class in Handong Global University
+#####SoccerDatabase Project Program from Database Systems Class in Handong Global University
 
 This document instruct how to run this program.
 There is 3 things you need to implement it.
 	
->**These things must be done below this sentence.** <br/>
->* Download this program<br/><br/>
->* Download database configuration file in the program<br/>
->(in case of network protection, config file is in the other drive)<br/><br/>
->* Make a build environment for this program (if you use IDE) <br/><br/>
+**These things must be done below this sentence.**
+
+* Download this program<br/>
+* Download database configuration file in the program<br/>
+(in case of network protection, config file is in the other drive)<br/>
+* Make a build environment for this program (if you use IDE) <br/><br/>
 
 ## 1. Download this program
 
 The easiest way to download this program is clone this repository.
 
-If you see this this docs, then you can access the [repository][repository link]
+If you see this this docs, then you can access the [**repository**][repository link]
 
 ## 2. Download configuration file
 
 To connect our database system through this program, configuration file is needed to connect. 
 
-the file is stored in the other drive for some security and protection reasons. 
+The file is stored in the other drive for some security and protection reasons. 
 
-If you have permissions to connect our database program (who are related to our team) then download the configure file [here][config download link]
+If you have permissions to connect our database program (who are related to our team) then download the configure file [**here**][config download link]
 
-If you just want to template files for the configuration file we can give our skeleton file at here[config skeleton download link]
+If you just want to template files for the configuration file we can give our skeleton file at [**here**][config skeleton download link]
+
 ## 3. How to run this
 
 We provide 2 ways for build and run this program.
@@ -39,7 +41,8 @@ If you are trying to implement this program in the other IDE, we can not support
 
 #### In a workspace of your Eclipse IDE,
 
->Please follow below instruction carefully.<br/>
+>**Please follow below instruction carefully.**
+>
 >- Right click the workspace and press 'Import' button<br/><br/>
 >- General -> Projects from Folder or Archive<br/><br/>
 >- Click 'Directory' on the upper right side.<br/><br/>
@@ -61,16 +64,15 @@ If you are trying to implement this program in the other IDE, we can not support
 ### 3.2. Build and Run in CLI (with Ant Builder)
 
 This is more easy way to build this program if you have Ant Builder
-If you don't have Ant Builder, you can download it from [here][ant builder link]
+If you don't have Ant Builder, you can download it from [**here**][ant builder link]
 
-	In the project folder (In the 'SoccerDatabase' folder where build.xml file is)
+>- In the project folder (In the 'SoccerDatabase' folder where build.xml file is)
 	Command "ant MainClass"
-	
-	Then you can see the program is running.
+>- Then you can see the program is running.
 
 ### 4. Programming Constraints
 
-Detail constaints are written in [Google docs][program constraint docs link]
+Detail constaints are written in [**Google docs**][program constraint docs link]
 
 ### 5. Contributers
 [![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/0)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/0)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/1)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/1)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/2)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/2)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/3)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/3)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/4)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/4)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/5)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/5)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/6)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/6)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/7)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/7)
@@ -82,7 +84,7 @@ Detail constaints are written in [Google docs][program constraint docs link]
 
 [config download link]: https://drive.google.com/file/d/1_G0mdALdjm8qDZjlgntfRH0KpwwEcHdz/view?usp=sharing
 
-[config skeleton download link]: 
+[config skeleton download link]: https://drive.google.com/
 
 [program constraint docs link]: https://docs.google.com/document/d/1VqkifS9XHX4TQ1pVQHQ47sGiYxZ_lW4N7iegZr8GboM/edit?usp=sharing
 
