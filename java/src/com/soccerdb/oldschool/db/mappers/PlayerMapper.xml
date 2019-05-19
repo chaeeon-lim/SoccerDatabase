@@ -52,6 +52,10 @@
  		SELECT * FROM Players WHERE name LIKE #{player_name};
  	</select>
  	
+ 	<select id="countAllPlayerByLetterForName" parameterType="String" resultType="int">
+ 		SELECT COUNT(*) FROM Players WHERE name LIKE #{player_name};
+ 	</select>
+ 	
  	<select id="selectByBirthday" parameterType="String" resultMap="result">
  		SELECT * FROM Players WHERE birthday = DATE_FORMAT(#{player_birthday},'%Y-%m-%d');
  	</select>
@@ -60,12 +64,27 @@
  		SELECT * FROM Players WHERE debut = #{player_debut}; 
  	</select>
  	
+ 	<select id="countAllPlayersWithDebutYear" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Players WHERE debut = #{player_debut};
+ 	</select>
+ 	
  	<select id="searchPlayerDebutAfterThisYear" parameterType="int" resultMap="result">
  		SELECT * FROM Players WHERE debut > #{player_debut};
  	</select>
  	
+ 	<select id="countAllPlayerDebutAfterThisYear" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Players WHERE debut > #{player_debut};
+ 	</select>
+ 	
  	<select id="searchPlayerDebutBeforeThisYear" parameterType="int" resultMap="result">
  		SELECT * FROM Players 
+ 		<![CDATA[
+			WHERE debut < #{player_debut}; 
+		]]>
+ 	</select>
+ 	
+ 	<select id="countAllPlayerDebutBeforeThisYear" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Players 
  		<![CDATA[
 			WHERE debut < #{player_debut}; 
 		]]>
@@ -121,10 +140,6 @@
  		SELECT COUNT(*) FROM Players WHERE nationality = #{player_nationality};
  	</select>
  	
- 	<select id="countAllPlayersWithDebutYear" parameterType="int" resultType="int">
- 		SELECT COUNT(*) FROM Players WHERE debut = #{player_debut};
- 	</select>
- 	
  	<select id="countAllPlayersWithBirthday" parameterType="String" resultType="int">
  		SELECT COUNT(*) FROM Players WHERE birthday = DATE_FORMAT(#{player_birthday},'%Y-%m-%d');
  	</select>
@@ -178,5 +193,7 @@
  		TIMESTAMPDIFF(year, birthday, NOW()) > #{player_debut};
  		]]>
  	</select>
+ 	
+ 	
  	
  </mapper>

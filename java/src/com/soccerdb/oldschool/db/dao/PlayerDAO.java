@@ -34,5 +34,9 @@ public interface PlayerDAO extends GenericDAO<Player, Integer>{
 	public int countAllPlayersOverAge(int player_debut) throws Exception;
 	public List<Player> searchAllPlayersOverAge(int player_debut) throws Exception;
 	
+	public int countAllPlayerByLetterForName(String name) throws Exception;
+	public int countAllPlayerDebutAfterThisYear(int player_debut) throws Exception;
+	public int countAllPlayerDebutBeforeThisYear(int player_debut) throws Exception;
+	
 	
 }

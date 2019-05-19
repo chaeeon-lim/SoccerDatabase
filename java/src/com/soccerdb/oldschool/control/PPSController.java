@@ -61,6 +61,7 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 		try {
 			System.out.println("selectAll");
 			ppsList = ppsDAO.selectAll();
+			count = count("all", "anything");
 			getData();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -83,6 +84,7 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 					case "height":
 						pps.setPps_height(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseHeightIs(pps);
+						count = count(attribute, condition);
 						break;
 					case "heigth shorter":
 						pps.setPps_height(Integer.parseInt(condition));
@@ -272,6 +274,7 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 			}catch(Exception e) {
 				
 			}finally{
+				count = count("all", "anything");
 				getData();
 			}
 		}

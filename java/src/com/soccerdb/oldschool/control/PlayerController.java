@@ -46,6 +46,7 @@ public class PlayerController implements ControllerInterface<Player>{
 		init();
 		try {
 			playerList = playerDAO.selectAll();
+			count = count("all", "anything");
 			getData();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -65,39 +66,39 @@ public class PlayerController implements ControllerInterface<Player>{
 						return player.getPlayer_name();
 					case "nationality":
 						playerList = playerDAO.selectByNationality(condition);
-						
+						count = count(attribute, condition);
 						break;
 					case "name":
 						playerList = playerDAO.selectByLetterForName("%"+condition+"%");
-						
+						count = count(attribute, "%"+condition+"%");
 						break;
 					case "debut":
 						playerList = playerDAO.searchPlayerDebutAtThisYear(Integer.parseInt(condition));
-						
+						count = count(attribute, condition);
 						break;
 					case "debut after":
 						playerList = playerDAO.searchPlayerDebutAfterThisYear(Integer.parseInt(condition));
-						
+						count = count(attribute, condition);
 						break;
 					case "debut before":
 						playerList = playerDAO.searchPlayerDebutBeforeThisYear(Integer.parseInt(condition));
-						
+						count = count(attribute, condition);
 						break;
 					case "birthday":
 						playerList = playerDAO.selectByBirthday(condition);
-						
+						count = count("birthday", condition);
 						break;
 					case "same age":
 						playerList = playerDAO.searchAllPlayersSameAge(Integer.parseInt(condition));
-						
+						count = count("same age", condition);
 						break;
 					case "under age":
 						playerList = playerDAO.searchAllPlayersUnderAge(Integer.parseInt(condition));
-						
+						count = count("under age", condition);
 						break;
 					case "over age":
 						playerList = playerDAO.searchAllPlayersOverAge(Integer.parseInt(condition));
-						
+						count = count("over age", condition);
 						break;
 					default:
 						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
@@ -173,6 +174,7 @@ public class PlayerController implements ControllerInterface<Player>{
 			} catch(Exception e) {
 				e.printStackTrace();
 			} finally {
+				count = count("all", "anything");
 				getData();
 			}
 		}
@@ -191,11 +193,20 @@ public class PlayerController implements ControllerInterface<Player>{
 				case "all":
 					count = playerDAO.countAllPlayers();
 					break;
-				case "country":
+				case "name":
+					count = playerDAO.countAllPlayerByLetterForName(condition);
+					break;
+				case "nationality":
 					count = playerDAO.countAllPlayerWithCountry(condition);
 					break;
 				case "debut":
 					count = playerDAO.countAllPlayerWithDebutYear(Integer.parseInt(condition));
+					break;
+				case "debut after":
+					count = playerDAO.countAllPlayerDebutAfterThisYear(Integer.parseInt(condition));
+					break;
+				case "debut before":
+					count = playerDAO.countAllPlayerDebutBeforeThisYear(Integer.parseInt(condition));
 					break;
 				case "birthday":
 					count = playerDAO.countAllPlayerWithBirthday(condition);
@@ -232,5 +243,6 @@ public class PlayerController implements ControllerInterface<Player>{
 			player = itr.next();
 			temp += player.getPlayer_name() + "\t" + player.getPlayer_nationality()+ "\t" + player.getPlayer_debut() + "\t" + player.getPlayer_birthday() +  "\n";
 		}
+		temp += "\n\n" + "Total : \t" + count + " Players\n";
 	}
 }

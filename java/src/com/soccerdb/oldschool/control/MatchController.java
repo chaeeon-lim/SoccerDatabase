@@ -38,6 +38,7 @@ public class MatchController implements ControllerInterface<Match>{
 		
 		try {
 			matchList = matchDAO.selectAll();
+			count = count("all", "anything");
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
