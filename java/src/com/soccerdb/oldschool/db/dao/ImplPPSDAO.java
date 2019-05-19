@@ -551,4 +551,254 @@ public class ImplPPSDAO extends ImplAbstractDAO<Player_per_Season, Integer> impl
 			session.close();
 		}
 	}
+
+	@Override
+	public int countPPSWhoseHeightIs(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseHeightIs", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseShorterThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseShorterThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseTallerThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseTallerThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseWeightIs(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseWeightIs", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseLighterThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseLighterThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseHeavierThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseHeavierThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhosePositionIs(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhosePositionIs", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseGoalsAre(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseGoalsAre", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseGoalsLessThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseGoalsLessThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseGoalsMoreThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseGoalsMoreThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseAssistsAre(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseAssistsAre", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseAssistsLessThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseAssistsLessThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseAssistsMoreThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseAssistsMoreThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseSavesAre(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseSavesAre", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseSavesLessThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseSavesLessThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseSavesMoreThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseSavesMoreThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseGamesAre(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseGamesAre", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseGamesLessThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseGamesLessThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseGamesMoreThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseGamesMoreThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseCardsAre(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseCardsAre", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseCardsLessThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseCardsLessThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseCardsMoreThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseCardsMoreThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseFoulsAre(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseFoulsAre", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseFoulsLessThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseFoulsLessThan", pps);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countPPSWhoseFoulsMoreThan(Player_per_Season pps) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countPPSWhoseFoulsMoreThan", pps);
+		}finally {
+			session.close();
+		}
+	}
 }

@@ -27,7 +27,7 @@ public class GameController implements ControllerInterface<Game>{
 	Iterator<Game> itr;
 	int count;
 	String temp = "";
-	String column_name = "GameId\t" + "Time\t" + "Place\tWeather\tBonusTime\tisExtended\tisShootOut\tGameType\tScore\tFoul\tBallOccupation\tCard\tCornerKick\tPenaltyKick\tThrowing\tUniformColor\tFreekick"+ "\n"
+	String column_name = "Place\t" + "GameID\t" + "Time\t\t\t\tWeather\tBonusTime\tisExtended\tisShootOut\tGameType\tScore\tFoul\tBallOccupation\tCard\tCornerKick\tPenaltyKick\tThrowing\tUniformColor\tFreekick"+ "\n"
 						+ "----\t----\t-----\t------\t--------\t-------\t--------\t--------\t----\t----\t--------\t----\t------\t-------\t-----\t------\t-----"+"\n";
 	@Override
 	public void init() {
@@ -57,6 +57,7 @@ public class GameController implements ControllerInterface<Game>{
 				switch(attribute) {
 					case "place":
 						gameList = gameDAO.selectByPlace(condition);
+						count = count(attribute,condition);
 						break;
 					case "weather":
 						gameList = gameDAO.selectByWeather(condition);
@@ -190,8 +191,102 @@ public class GameController implements ControllerInterface<Game>{
 	}
 	@Override
 	public int count(String attribute, String condition) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
+			try {
+				switch(attribute) {
+					case "all":
+						count = gameDAO.countAll();
+						break;
+					case "place":
+						count = gameDAO.countByPlace(condition);
+						break;
+					case "weather":
+						count = gameDAO.countByWeather(condition);
+						 
+						break;
+					case "extended":
+						count = gameDAO.countByExtended(Boolean.parseBoolean(condition));
+						 
+						break;
+					case "shoot out":
+						count = gameDAO.countByShootOut(Boolean.parseBoolean(condition));
+						 
+						break;
+					case "type":
+						count = gameDAO.countByGameType(condition);
+						 
+						break;
+					case "score upper":
+						count = gameDAO.countByScoreUpper(Integer.parseInt(condition));
+						 
+						break;
+					case "score lower":
+						count = gameDAO.countByScoreLower(Integer.parseInt(condition));
+						 
+						break;
+					case "throwing upper":
+						count = gameDAO.countByThrowingUpper(Integer.parseInt(condition));
+						 
+						break;
+					case "throwing lower":
+						count = gameDAO.countByThrowingLower(Integer.parseInt(condition));
+						 
+						break;
+					case "foul upper":
+						count = gameDAO.countByFoulUpper(Integer.parseInt(condition));
+						 
+						break;
+					case "foul lower":
+						count = gameDAO.countByFoulLower(Integer.parseInt(condition));
+						 
+						break;
+					case "card upper":
+						count = gameDAO.countByCardUpper(Integer.parseInt(condition));
+						 
+						break;
+					case "card lower":
+						count = gameDAO.countByCardLower(Integer.parseInt(condition));
+						 
+						break;
+					case "cornerkick upper":
+						count = gameDAO.countByCornerKickUpper(Integer.parseInt(condition));
+						 
+						break;
+					case "cornerkick lower":
+						count = gameDAO.countByFreekickLower(Integer.parseInt(condition));
+						 
+						break;
+					case "freekick upper":
+						count = gameDAO.countByFreekickUpper(Integer.parseInt(condition));
+						 
+						break;
+					case "freekick lower":
+						count = gameDAO.countByCornerKickLower(Integer.parseInt(condition));
+						 
+						break;
+					case "penaltykick upper":
+						count = gameDAO.countByPenaltykickUpper(Integer.parseInt(condition));
+						 
+						break;
+					case "penaltykick lower":
+						count = gameDAO.countByPenaltykickLower(Integer.parseInt(condition));
+						 
+						break;
+					case "uniform color":
+						count = gameDAO.countByUniformColor(condition);
+						 
+						break;
+					default:
+						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
+						break;
+				}
+			
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return count;
 	}
 	public static GameController getController() {
 		return controller;

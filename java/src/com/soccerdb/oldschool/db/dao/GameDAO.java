@@ -18,6 +18,7 @@ public interface GameDAO extends GenericDAO<Game, Integer>{
 	public void updateGame(Game game) throws Exception;
 	public void deleteGame(Game game) throws Exception;
 	
+	
 	public List<Game> selectByScoreUpper (int game_score) throws Exception;
 	public List<Game> selectByScoreLower (int game_score) throws Exception;
 	public List<Game> selectByThrowingUpper (int game_throwing) throws Exception;
@@ -35,6 +36,31 @@ public interface GameDAO extends GenericDAO<Game, Integer>{
 	public List<Game> selectByBallOccupationUpper (int game_ball_occupation) throws Exception;
 	public List<Game> selectByBallOccupationLower (int game_ball_occupation) throws Exception;
 	public List<Game> selectByUniformColor (String game_uniform_color) throws Exception;
+	
+	public int countAll() throws Exception;
+	public int countByGameTime(Date game_time) throws Exception;
+	public int countByPlace(String place) throws Exception;
+	public int countByWeather(String weather) throws Exception;
+	public int countByExtended(boolean is_extended) throws Exception;
+	public int countByShootOut(boolean is_shoot_out) throws Exception;
+	public int countByGameType(String type) throws Exception;
+	public int countByScoreUpper (int game_score) throws Exception;
+	public int countByScoreLower (int game_score) throws Exception;
+	public int countByThrowingUpper (int game_throwing) throws Exception;
+	public int countByThrowingLower (int game_Throwing) throws Exception;
+	public int countByFoulUpper (int game_foul) throws Exception;
+	public int countByFoulLower (int game_foul) throws Exception;
+	public int countByCardUpper (int game_card) throws Exception;
+	public int countByCardLower (int game_card) throws Exception;
+	public int countByCornerKickUpper (int game_corner_kick) throws Exception;
+	public int countByCornerKickLower (int game_corner_kick) throws Exception;
+	public int countByFreekickUpper (int game_freekick) throws Exception;
+	public int countByFreekickLower (int game_freekick) throws Exception;
+	public int countByPenaltykickUpper (int game_penalty_kick) throws Exception;
+	public int countByPenaltykickLower (int game_penalty_kick) throws Exception;
+	public int countByBallOccupationUpper (int game_ball_occupation) throws Exception;
+	public int countByBallOccupationLower (int game_ball_occupation) throws Exception;
+	public int countByUniformColor (String game_uniform_color) throws Exception;
 	
 	
 	public List<Game> selectOrderByScore () throws Exception;

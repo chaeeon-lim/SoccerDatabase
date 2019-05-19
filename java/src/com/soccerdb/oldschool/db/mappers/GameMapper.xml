@@ -107,6 +107,91 @@
  		SELECT * FROM Games WHERE ball_occupation &lt; #{game_ball_occupation};
  	</select>
  	
+ 	<!--  !! -->
+ 	
+ 	<select id="countAll" resultType="int">
+ 		SELECT COUNT(*) FROM Games;
+ 	</select>
+ 	
+ 	<select id="countByTime" parameterType="string" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE time = DATE_FORMAT(#{game_time},'%Y-%m-%d');
+ 	</select>
+ 	<select id="countByPlace" parameterType="String" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE place = #{game_place};
+ 	</select>
+ 	<select id="countByWeather" parameterType="String" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE weather = #{game_weather};
+ 	</select>
+ 	<select id="countByExtended" parameterType="boolean" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE is_extended = #{game_is_extended};
+ 	</select>
+ 	<select id="countByShootOut" parameterType="boolean" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE is_shoot_out = #{game_is_shoot_out};
+ 	</select>
+ 	<select id="countByType" parameterType="String" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE type = #{game_type};
+ 	</select>
+ 	<select id="countByThrowingUpper" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE throwing &gt; #{game_throwing};
+ 	</select>
+ 	
+ 	<select id="countByThrowingLower" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE throwing &lt; #{game_throwing};
+ 	</select>
+ 	<select id="countByScoreUpper" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE score &gt; #{game_score};
+ 	</select>
+ 	
+ 	<select id="countByScoreLower" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE score &lt; #{game_score};
+ 	</select>
+ 	<select id="countByFoulUpper" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE foul &gt; #{game_foul};
+ 	</select>
+ 	
+ 	<select id="countByFoulLower" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE foul &lt; #{game_foul};
+ 	</select>
+ 	<select id="countByCardUpper" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE card &gt; #{game_card};
+ 	</select>
+ 	
+ 	<select id="countByCardLower" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE card &lt; #{game_card};
+ 	</select>
+ 	<select id="countByCornerkicsUpper" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE corner_kick &gt; #{game_corner_kick};
+ 	</select>
+ 	
+ 	<select id="countByCornerKickLower" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE corner_kick &lt; #{game_corner_kick};
+ 	</select>
+ 	<select id="countByFreekickUpper" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE free_kick &gt; #{game_freekick};
+ 	</select>
+ 	
+ 	<select id="countByFreekickLower" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE free_kick &lt; #{game_freekick};
+ 	</select>
+ 	<select id="countByPenaltykickUpper" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE penalty_kick &gt; #{game_penalty_kick};
+ 	</select>
+ 	
+ 	<select id="countByPenaltykickLower" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE penalty_kick &lt; #{game_penalty_kick};
+ 	</select>
+ 	<select id="countByUniformColor" parameterType="String" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE uniform_color &gt; #{game_uniform_color};
+ 	</select> 	 	
+ 	<select id="countByBallOccupationUpper" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE ball_occupation &gt; #{game_ball_occupation};
+ 	</select>
+ 	<select id="countByBallOccupationLower" parameterType="int" resultType="int">
+ 		SELECT COUNT(*) FROM Games WHERE ball_occupation &lt; #{game_ball_occupation};
+ 	</select>
+ 	
+ 	<!-- !! -->
+ 	
  	<select id="selectOrderByScore" resultMap="result">
  		SELECT * FROM Games ORDER BY score;
  	</select>

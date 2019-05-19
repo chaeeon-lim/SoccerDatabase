@@ -1,9 +1,27 @@
 package com.soccerdb.oldschool.view;
 
-import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
-import com.soccerdb.oldschool.control.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import com.soccerdb.oldschool.control.AppearController;
+import com.soccerdb.oldschool.control.BTLController;
+import com.soccerdb.oldschool.control.ClubController;
+import com.soccerdb.oldschool.control.ContractController;
+import com.soccerdb.oldschool.control.ControllerInterface;
+import com.soccerdb.oldschool.control.GameController;
+import com.soccerdb.oldschool.control.LeagueController;
+import com.soccerdb.oldschool.control.MatchController;
+import com.soccerdb.oldschool.control.PPSController;
+import com.soccerdb.oldschool.control.PlayerController;
+import com.soccerdb.oldschool.control.SeasonController;
 
 
 public class UserView implements ActionListener{
@@ -39,7 +57,9 @@ public class UserView implements ActionListener{
 			panel.add(buttons);
 		}
 		panel.add(cancelButton);
+		panel.add(attributeTextLabel);
 		panel.add(byText);
+		panel.add(conditionTextLabel);
 		panel.add(conditionText);
 
 	//	panel.add(moreLessText);
@@ -245,6 +265,8 @@ public class UserView implements ActionListener{
 	JTextArea byText = new JTextArea("", 1, 60);
 	JTextArea conditionText = new JTextArea("", 1, 15);
 //	JTextArea moreLessText = new JTextArea("", 1, 5);
+	JLabel attributeTextLabel = new JLabel("Attribute : ");
+	JLabel conditionTextLabel = new JLabel("Condition : ");
 	Scanner s1, s2;
 	JButton searchButton = new JButton("Search");
 	JButton orderButton = new JButton("Order");

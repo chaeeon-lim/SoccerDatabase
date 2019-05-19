@@ -354,5 +354,199 @@ public class ImplGameDAO extends ImplAbstractDAO<Game, Integer> implements GameD
 			session.close();
 		}
 	}
-	
+	@Override
+	public int countAll() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countAll");
+		}finally {
+			session.close();
+		}
+	}
+	@Override
+	public int countByGameTime(Date game_time) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByGameTime", game_time);
+		}finally {
+			session.close();
+		}
+	}
+	@Override
+	public int countByPlace(String place) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByPlace", place);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByWeather(String weather) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByWeather", weather);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByExtended(boolean is_extended) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByExtended", is_extended);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByShootOut(boolean is_shoot_out) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByShootOut", is_shoot_out);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByGameType(String type) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByGameType", type);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByScoreUpper(int game_score) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByScoreUpper", game_score);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByScoreLower(int game_score) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByScoreLower", game_score);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByThrowingUpper(int game_throwing) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByThrowingUpper", game_throwing);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByThrowingLower(int game_Throwing) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByThrowingLower", game_Throwing);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByFoulUpper(int game_foul) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByFoulUpper", game_foul);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByFoulLower(int game_foul) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByFoulLower", game_foul);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByCardUpper(int game_card) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByCardUpper", game_card);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByCardLower(int game_card) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByCardLower", game_card);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByCornerKickUpper(int game_corner_kick) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByCornerKickUpper", game_corner_kick);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByCornerKickLower(int game_corner_kick) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByCornerKickLower", game_corner_kick);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByFreekickUpper(int game_freekick) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByFreekickUpper", game_freekick);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByFreekickLower(int game_freekick) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByFreekickLower", game_freekick);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByPenaltykickUpper(int game_penalty_kick) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByPenaltykickLower", game_penalty_kick);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByPenaltykickLower(int game_penalty_kick) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByPenaltykickLower", game_penalty_kick);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByBallOccupationUpper(int game_ball_occupation) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByBallOccupationLower", game_ball_occupation);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByBallOccupationLower(int game_ball_occupation) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByBallOccupationLower", game_ball_occupation);
+		}finally {
+			session.close();
+		}
+	}@Override
+	public int countByUniformColor(String game_uniform_color) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countByUniformColor", game_uniform_color);
+		}finally {
+			session.close();
+		}
+	}
 }

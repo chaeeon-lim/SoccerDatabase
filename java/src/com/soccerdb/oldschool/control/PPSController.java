@@ -30,7 +30,7 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 	//PlayerController c_player;
 	//SeasonController c_season;
 	
-	Player_per_Season pps;
+	Player_per_Season pps = new Player_per_Season();
 	Player player;
 	Season season;
 	PlayerDAO playerDAO = new ImplPlayerDAO();
@@ -49,8 +49,11 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
+		pps.setPlayer_id(0);
+		pps.setSeason_id(0);
 		temp = column_name;
 		range_condition = "";
+		count = 0;
 		//if(c_player == null) c_player = PlayerController.getController();
 		//if(c_season == null) c_season = SeasonController.getController();
 	}
@@ -309,12 +312,144 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 
 	@Override
 	public int count(String attribute, String condition) {
-		if(!attribute.isEmpty()) pps.setPlayer_id(Integer.parseInt(attribute));
-		if(!condition.isEmpty()) pps.setSeason_id(Integer.parseInt(condition));
-		try {
-			count = ppsDAO.countAllPPS(pps);
-		}catch(Exception e) {
-			e.printStackTrace();
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
+			try {
+				commaChecker(condition);
+				// TODO Between Queries!
+				switch(attribute) {
+				case "all":
+					count = ppsDAO.countAllPPS(pps);
+					case "position":
+						pps.setPps_position(condition);
+						count = ppsDAO.countPPSWhosePositionIs(pps);
+						break;
+					case "height":
+						pps.setPps_height(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseHeightIs(pps);
+						
+						break;
+					case "heigth shorter":
+						pps.setPps_height(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseShorterThan(pps);
+						
+						break;
+					case "height taller":
+						pps.setPps_height(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseTallerThan(pps);
+						
+						break;
+					case "weight":
+						pps.setPps_weight(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseWeightIs(pps);
+						
+						break;
+					case "weight lighter":
+						pps.setPps_weight(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseLighterThan(pps);
+						
+						break;
+					case "weight heavier":
+						pps.setPps_weight(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseHeightIs(pps);
+						
+						break;
+					case "goal":
+						pps.setPps_season_goal(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseGoalsAre(pps);
+						
+						break;
+					case "goal less":
+						pps.setPps_season_goal(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseGoalsLessThan(pps);
+						
+						break;
+					case "goal more":
+						pps.setPps_season_goal(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseGoalsMoreThan(pps);
+						
+						break;
+					case "assist":
+						pps.setPps_season_assist(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseAssistsAre(pps);
+						
+						break;
+					case "assist less":
+						pps.setPps_season_assist(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseAssistsLessThan(pps);
+						
+						break;
+					case "assist more":
+						pps.setPps_season_assist(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseAssistsMoreThan(pps);
+						
+						break;
+					case "save":
+						pps.setPps_season_save(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseSavesAre(pps);
+						
+						break;
+					case "save less":
+						pps.setPps_season_save(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseSavesLessThan(pps);
+						
+						break;
+					case "save more":
+						pps.setPps_season_save(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseSavesMoreThan(pps);
+						
+						break;
+					case "game":
+						pps.setPps_season_game(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseGamesAre(pps);
+						
+						break;
+					case "game less":
+						pps.setPps_season_game(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseGamesLessThan(pps);
+						
+						break;
+					case "game more":
+						pps.setPps_season_game(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseGamesMoreThan(pps);
+						
+						break;
+					case "card":
+						pps.setPps_season_card(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseCardsAre(pps);
+						
+						break;
+					case "card less":
+						pps.setPps_season_card(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseCardsLessThan(pps);
+						
+						break;
+					case "card more":
+						pps.setPps_season_card(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseCardsMoreThan(pps);
+						
+						break;
+					case "foul":
+						pps.setPps_season_foul(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseFoulsAre(pps);
+						
+						break;
+					case "foul less":
+						pps.setPps_season_foul(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseFoulsLessThan(pps);
+						
+						break;
+					case "foul more":
+						pps.setPps_season_foul(Integer.parseInt(condition));
+						count = ppsDAO.countPPSWhoseFoulsMoreThan(pps);
+						
+						break;
+					default:
+						count = -1;	
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		return count;
@@ -326,22 +461,22 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 		}else {
 			try {
 				switch(attribute) {
-				case "goal":
+				case "sum goal":
 					count = ppsDAO.sumOfPlayerGoals(_pps);
 					break;
-				case "assist":
+				case "sum assist":
 					count = ppsDAO.sumOfPlayerAssists(_pps);
 					break;
-				case "save":
+				case "sum save":
 					count = ppsDAO.sumOfPlayerSaves(_pps);
 					break;
-				case "game":
+				case "sum game":
 					count = ppsDAO.sumOfPlayerGames(_pps);
 					break;
-				case "card":
+				case "sum card":
 					count = ppsDAO.sumOfPlayerCards(_pps);
 					break;
-				case "foul":
+				case "sum foul":
 					count = ppsDAO.sumOfPlayerFouls(_pps);
 					break;
 				default:
@@ -368,6 +503,9 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		temp += "\n\n" + "Total : \t" + count + " Players\n";
+		
 	}
 	
 	void commaChecker(String target) {
