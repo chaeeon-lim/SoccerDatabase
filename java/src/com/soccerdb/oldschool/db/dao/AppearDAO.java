@@ -25,6 +25,17 @@ public interface AppearDAO extends GenericDAO<Appear, Integer>{
 	public List<Appear> selectByFoulMoreThan(int foul) throws Exception; 
 	public List<Appear> selectByCardMoreThan(int card) throws Exception; 
 	public List<Appear> selectByDistanceMoreThan(float distance) throws Exception; 
+
+	public int CountAllAppears() throws Exception;
+	public int CountByStartTimeBetween(Date time1, Date time2) throws Exception; 
+	public int CountByEndTimeBetween(Date time1, Date time2) throws Exception; 
+	public int CountByInGamePosition(String position) throws Exception; 
+	public int CountByGoalsMoreThan(int goals) throws Exception; 
+	public int CountByAssistMoreThan(int assist) throws Exception; 
+	public int CountBySaveMoreThan(int save) throws Exception;
+	public int CountByFoulMoreThan(int foul) throws Exception; 
+	public int CountByCardMoreThan(int card) throws Exception; 
+	public int CountByDistanceMoreThan(float distance) throws Exception; 
 	
 	public List<Appear> orderByPlayerId() throws Exception; 
 	public List<Appear> orderByGameId() throws Exception; 
