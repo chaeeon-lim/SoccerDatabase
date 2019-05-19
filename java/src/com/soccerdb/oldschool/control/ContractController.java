@@ -7,7 +7,7 @@ import com.soccerdb.oldschool.db.dao.ContractDAO;
 import com.soccerdb.oldschool.db.dao.ImplContractDAO;
 import com.soccerdb.oldschool.db.entity.Contract;
 
-public class ContractController implements ControllerInterface{
+public class ContractController implements ControllerInterface<Contract>{
 	
 	private static ContractController controller;
 
@@ -92,16 +92,63 @@ public class ContractController implements ControllerInterface{
 			}
 		}
 
-		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Player Table"  + " \n";
+		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Contract Table"  + " \n";
 		return temp;
 		
 	}
 	@Override
 	public String order(String attribute, String condition) {
-		
 		init();
+
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
+			try {
+				if(condition.equals("dsc")) {
+					switch(attribute) {
+					case "player_id":
+						contractList = contractDAO.orderByPlayerIdDESC(); 
+						break; 
+					case "club_id": 
+						contractList = contractDAO.orderByClubIdDESC(); 
+						break; 
+					case "season_id":
+						contractList = contractDAO.orderBySeasonIdDESC();  
+						break; 
+					case "salary":
+						contractList = contractDAO.orderBySalaryDESC();  
+						break; 
+					case "duration":
+						contractList = contractDAO.orderByDurationContractDESC(); 
+						break; 
+					}
+					
+				}else {
+					switch(attribute) {
+					case "player_id":
+						contractList = contractDAO.orderByPlayerId(); 
+						break; 
+					case "club_id": 
+						contractList = contractDAO.orderByClubId(); 
+						break; 
+					case "season_id":
+						contractList = contractDAO.orderBySeasonId();  
+						break; 
+					case "salary":
+						contractList = contractDAO.orderBySalary();  
+						break; 
+					case "duration":
+						contractList = contractDAO.orderByDurationContract(); 
+						break; 
+					}
+				}
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				getData(); 
+			}
+		}
 		
-		return temp;
+		return temp; 
 	}
 	
 	@Override

@@ -265,6 +265,37 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 	}
 
 	@Override
+	public int countAllPlayerByLetterForName(String name) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countAllPlayerByLetterForName", name);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countAllPlayerDebutAfterThisYear(int player_debut) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countAllPlayerDebutAfterThisYear", player_debut);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int countAllPlayerDebutBeforeThisYear(int player_debut) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countAllPlayerDebutBeforeThisYear", player_debut);
+		}finally {
+			session.close();
+		}
+	}
+
+	/*
+	@Override
 	public List<Player> searchPlayerOrderBy(Player player) throws Exception {
 		try {
 			session = getSqlSessionFactory().openSession();
@@ -273,5 +304,5 @@ public class ImplPlayerDAO extends ImplAbstractDAO<Player, Integer> implements P
 			session.close();
 		}
 	}
-
+*/
 }

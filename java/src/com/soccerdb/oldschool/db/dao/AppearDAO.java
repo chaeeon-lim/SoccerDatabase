@@ -37,4 +37,16 @@ public interface AppearDAO extends GenericDAO<Appear, Integer>{
 	public List<Appear> orderByFoul() throws Exception; 
 	public List<Appear> orderByCard() throws Exception; 
 	public List<Appear> orderByDistance() throws Exception; 
+	
+	public List<Appear> orderByPlayerIdDESC() throws Exception; 
+	public List<Appear> orderByGameIdDESC() throws Exception; 
+	public List<Appear> orderBySeasonIdDESC() throws Exception; 
+	public List<Appear> orderByStartTimeDESC() throws Exception; 
+	public List<Appear> orderByEndTimeDESC() throws Exception; 
+	public List<Appear> orderByGoalsDESC() throws Exception; 
+	public List<Appear> orderByAssistDESC() throws Exception; 
+	public List<Appear> orderBySaveDESC() throws Exception; 
+	public List<Appear> orderByFoulDESC() throws Exception; 
+	public List<Appear> orderByCardDESC() throws Exception; 
+	public List<Appear> orderByDistanceDESC() throws Exception; 
 }

@@ -21,7 +21,7 @@ public interface PlayerDAO extends GenericDAO<Player, Integer>{
 	public List<Player> searchPlayersOrderByNationalityDesc() throws Exception;
 	public List<Player> searchPlayersOrderByDebutDesc() throws Exception;
 	public List<Player> searchPlayersOrderByBirthdayDesc() throws Exception;
-	public List<Player> searchPlayerOrderBy(Player player) throws Exception;
+	//public List<Player> searchPlayerOrderBy(Player player) throws Exception;
 	public int calculatePlayerAge(int player_id) throws Exception;
 	public int countAllPlayers() throws Exception;
 	public int countAllPlayerWithCountry(String player_nationality) throws Exception;
@@ -33,6 +33,10 @@ public interface PlayerDAO extends GenericDAO<Player, Integer>{
 	public List<Player> searchAllPlayersUnderAge(int player_debut) throws Exception;
 	public int countAllPlayersOverAge(int player_debut) throws Exception;
 	public List<Player> searchAllPlayersOverAge(int player_debut) throws Exception;
+	
+	public int countAllPlayerByLetterForName(String name) throws Exception;
+	public int countAllPlayerDebutAfterThisYear(int player_debut) throws Exception;
+	public int countAllPlayerDebutBeforeThisYear(int player_debut) throws Exception;
 	
 	
 }

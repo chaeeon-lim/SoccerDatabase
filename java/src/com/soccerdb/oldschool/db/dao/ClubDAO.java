@@ -20,4 +20,11 @@ public interface ClubDAO extends GenericDAO<Club, Integer>{
 	public List<Club> orderByOwner() throws Exception; 
 	public List<Club> orderByChairman() throws Exception; 
 	public List<Club> orderByManager() throws Exception; 
+	
+	public List<Club> orderByFullnameDESC() throws Exception; 
+	public List<Club> orderByGroundDESC() throws Exception; 
+	public List<Club> orderByNicknameDESC() throws Exception; 
+	public List<Club> orderByOwnerDESC() throws Exception; 
+	public List<Club> orderByChairmanDESC() throws Exception; 
+	public List<Club> orderByManagerDESC() throws Exception; 
 }

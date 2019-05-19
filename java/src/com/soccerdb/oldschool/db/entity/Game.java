@@ -20,10 +20,11 @@ public class Game{
     private int game_penalty_kick;
     private int game_throwing;
     private String game_uniform_color;
+    private int game_freekick;
     public Game() {
     }
 
-public Game(int game_id,Date game_time,String game_place,String game_weather,int game_bonus_time,boolean game_is_extended,boolean game_is_shoot_out,String game_type,int game_score,int game_foul,int game_ball_occupation,int game_card,int game_corner_kick,int game_penalty_kick,int game_throwing,String game_uniform_color) {
+public Game(int game_id,Date game_time,String game_place,String game_weather,int game_bonus_time,boolean game_is_extended,boolean game_is_shoot_out,String game_type,int game_score,int game_foul,int game_ball_occupation,int game_card,int game_corner_kick,int game_penalty_kick,int game_throwing,String game_uniform_color, int game_freekick) {
     	
     this.game_id=game_id;
    	this.game_time=game_time;
@@ -40,7 +41,8 @@ public Game(int game_id,Date game_time,String game_place,String game_weather,int
     this.game_corner_kick=game_corner_kick;
     this.game_penalty_kick=game_penalty_kick;
     this.game_throwing=game_throwing;
-   	this.game_uniform_color=game_uniform_color;   	
+   	this.game_uniform_color=game_uniform_color;
+   	this.game_freekick = game_freekick;
 }
 
 public int getGame_id() {
@@ -178,6 +180,14 @@ public String toString() {
 			+ game_type + ", game_score=" + game_score + ", game_foul=" + game_foul + ", game_ball_occupation=" + game_ball_occupation + ", game_card="
 			+ game_card + ", game_corner_kick=" + game_corner_kick + ", game_penalty_kick=" + game_penalty_kick + ", game_throwing=" + game_throwing
 			+ ", game_uniform_color=" + game_uniform_color + "]";
+}
+
+public int getGame_freekick() {
+	return game_freekick;
+}
+
+public void setGame_freekick(int game_freekick) {
+	this.game_freekick = game_freekick;
 }
   
 }

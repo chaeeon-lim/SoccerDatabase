@@ -18,7 +18,7 @@
                   
  	</resultMap>
  	
- 	<select id="selectAll" resultMap="result">
+ 	<select id="selectAll" resultMap="result" timeout="5">
  		SELECT * FROM player_per_season;
  	</select>
  	
@@ -74,8 +74,22 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="countPPSWhoseShorterThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season
+		WHERE 
+		<![CDATA[
+			 height < #{pps_height}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
 	<select id="searchPPSWhoseTallerThan" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE height >= #{pps_height}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="countPPSWhoseTallerThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE height >= #{pps_height}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
@@ -93,13 +107,32 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="countPPSWhoseLighterThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season
+		WHERE 
+		<![CDATA[
+			 weight < #{pps_weight}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
 	<select id="searchPPSWhoseHeavierThan" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE weight >= #{pps_weight}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="countPPSWhoseHeavierThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE weight >= #{pps_weight}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
 	<select id="searchPPSWhosePositionIs" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE position LIKE #{pps_position}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="countPPSWhosePositionIs" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE position LIKE #{pps_position}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
@@ -116,8 +149,21 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="countPPSWhoseGoalsLessThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT COUNT(*) FROM player_per_season WHERE 
+		<![CDATA[
+			season_goal < #{pps_season_goal}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
 	<select id="searchPPSWhoseGoalsMoreThan" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE season_goal >= #{pps_season_goal}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="countPPSWhoseGoalsMoreThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE season_goal >= #{pps_season_goal}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
@@ -135,14 +181,32 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="countPPSWhoseAssistsLessThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE 
+		<![CDATA[
+			season_assist < #{pps_season_assist}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
 	<select id="searchPPSWhoseAssistsMoreThan" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE season_assist >= #{pps_season_assist}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="countPPSWhoseAssistsMoreThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE season_assist >= #{pps_season_assist}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
 	
 	<select id="searchPPSWhoseSavessAre" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE season_save = #{pps_season_save}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="countPPSWhoseSavessAre" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE season_save = #{pps_season_save}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
@@ -154,11 +218,23 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="countPPSWhoseSavessLessThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE 
+		<![CDATA[
+			season_save < #{pps_season_save}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
 	<select id="searchPPSWhoseSavessMoreThan" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE season_save >= #{pps_season_save}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="countPPSWhoseSavessMoreThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE season_save >= #{pps_season_save}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
 	
 	<select id="searchPPSWhoseGamesAre" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE season_game = #{pps_season_game}
@@ -173,8 +249,22 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	
+	<select id="countPPSWhoseGamesLessThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE 
+		<![CDATA[
+			season_game < #{pps_season_game}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
 	<select id="searchPPSWhoseGamesMoreThan" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE season_game >= #{pps_season_game}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
+	<select id="countPPSWhoseGamesMoreThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE season_game >= #{pps_season_game}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
@@ -192,11 +282,23 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="countPPSWhoseCardsLessThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE 
+		<![CDATA[
+			season_card < #{pps_season_card}
+		]]>
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
+	
 	<select id="searchPPSWhoseCardsMoreThan" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE season_card >= #{pps_season_card}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="countPPSWhoseCardsMoreThan" parameterType="Player_per_Season" resultType="int">
+		SELECT COUNT(*) FROM player_per_season WHERE season_card >= #{pps_season_card}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
 	
 	<select id="searchPPSWhoseFoulsAre" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE season_foul = #{pps_season_foul}

@@ -89,6 +89,7 @@ public class LeagueController implements ControllerInterface<League> {
 			temp += league.getLeague_name() + "\n" ;
 		}
 		temp += "\n\n" + "Total : \t" + count + " Leagues\n";
+
 	}
 	
 	public static LeagueController getController() {
