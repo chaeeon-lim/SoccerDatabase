@@ -60,17 +60,14 @@ public class GameController implements ControllerInterface<Game>{
 					case "weather":
 						gameList = gameDAO.selectByWeather(condition);
 						break;
-					case "is_extended":
+					case "extended":
 						gameList = gameDAO.selectByExtended(Boolean.parseBoolean(condition));
 						break;
-					case "is_shoot_out":
+					case "shoot out":
 						gameList = gameDAO.selectByShootOut(Boolean.parseBoolean(condition));
 						break;
 					case "type":
 						gameList = gameDAO.selectByGameType(condition);
-						break;
-					case "extended":
-						gameList = gameDAO.selectByExtended(Boolean.parseBoolean(condition));
 						break;
 					case "score upper":
 						gameList = gameDAO.selectByScoreUpper(Integer.parseInt(condition));
@@ -135,7 +132,37 @@ public class GameController implements ControllerInterface<Game>{
 	@Override
 	public String order(String attribute, String condition) {
 		init();
-		
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
+			try {
+				switch(attribute) {
+				case "score":
+					gameList = gameDAO.selectOrderByScore();
+					break;
+				case "bonus time":
+					gameList = gameDAO.selectOrderByBonus();
+					break;
+				case "ball occupation":
+					gameList = gameDAO.selectOrderByBallOccupation();
+					break;
+				case "card":
+					gameList = gameDAO.selectOrderByCard();
+					break;
+				case "cornerkick":
+					gameList = gameDAO.selectOrderByCornerkick();
+					break;
+				case "penaltykick":
+					gameList = gameDAO.selectOrderByPenaltykick();
+					break;
+				case "throwing":
+					gameList = gameDAO.selectOrderByThrowing();
+					break;
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				getData();
+			}
+		}
 
 		
 		return temp;
@@ -151,7 +178,6 @@ public class GameController implements ControllerInterface<Game>{
 	
 	void getData() {
 		itr = gameList.iterator();
-		temp += column_name;
 		while(itr.hasNext()) {
 			game = itr.next();
 			temp += game.getgame_place() + "\t" + game.getGame_id()+ "\t" + game.getgame_time() + "\t"

@@ -61,9 +61,17 @@
 	    </set>
 	    WHERE game_id=#{game_id},club_id=#{club_id},season_id=#{season_id};		
  	</update>
- 	
 
 	 <delete id="deleteMatch" parameterType="Match">
 		DELETE FROM Matches WHERE club_id=#{club_id},game_id=#{game_id},season_id=#{season_id}; 
 	 </delete>
+	 
+	 <!-- Additional Queries -->
+	 
+	 <select id="searchMatchOrderByPlace" parameterType="Match" resultMap="result">
+	 	SELECT * FROM Matches ORDER BY (SELECTi)
+	 </select>
+	 
+	 
+	 <!-- CREATE VIEW MatchDetail AS SELECT B.full_name AS 'Home Team', C.full_name AS 'Away Team', A.place AS 'Place', A.game_type AS 'Type', D.year AS 'Season' From Games A, Clubs B, Clubs C, Seasons D, Matches E WHERE (E.game_id = A.game_id AND ((E.club_id = B.club_id AND E.is_home = 1) OR (E.club_id = C.club_id AND E.is_home = 0)) AND E.season_id = D.season_id); -->
  </mapper>

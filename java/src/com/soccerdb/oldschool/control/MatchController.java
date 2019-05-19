@@ -30,8 +30,7 @@ public class MatchController implements ControllerInterface<Match>{
 	String column_name = "";
 	@Override
 	public void init() {
-		temp ="";
-		
+		temp = column_name;
 	}
 	@Override
 	public String selectAll() {
@@ -39,17 +38,35 @@ public class MatchController implements ControllerInterface<Match>{
 		
 		try {
 			matchList = matchDAO.selectAll();
-			getData();
 		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			getData();
 		}
 		
 		return temp;
 	}
 	@Override
 	public String search(String attribute, String condition) {
-		// TODO Auto-generated method stub
-		return null;
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
+			try {
+				switch(attribute) {
+				case "home":
+					matchList = matchDAO.selectByIsHome(Boolean.parseBoolean(condition));
+					break;
+				default:
+					temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";
+				}
+			} catch(Exception e) {
+				
+			} finally {
+				getData();
+			}
+		}
+
+		if(temp.equals(column_name)) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Player Table"  + " \n";
+
+		return temp;
 	}
 	@Override
 	public String order(String attribute, String condition) {
@@ -64,7 +81,6 @@ public class MatchController implements ControllerInterface<Match>{
 	
 	void getData() {
 		itr = matchList.iterator();
-		temp = column_name;
 		while(itr.hasNext()) {
 			match = itr.next();
 			temp += match.toString() +"\n";
