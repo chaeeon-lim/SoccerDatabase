@@ -5,10 +5,10 @@ This document instruct how to run this program.
 There is 3 things you need to implement it.
 	
 >These things must be done below this sentence. <br/>
-* Download this program<br/><br/>
-* Download database configuration file in the program<br/>
-(in case of network protection, config file is in the other drive)<br/><br/>
-* Make a build environment for this program (if you use IDE) <br/><br/>
+>>* Download this program<br/><br/>
+>>* Download database configuration file in the program<br/>
+>>(in case of network protection, config file is in the other drive)<br/><br/>
+>>* Make a build environment for this program (if you use IDE) <br/><br/>
 
 ## 1. Download this program
 
