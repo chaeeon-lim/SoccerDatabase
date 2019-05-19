@@ -70,16 +70,7 @@ If you don't have Ant Builder, you can download it from [here][ant builder link]
 
 ### 4. Programming Constraints
 
-#### 4.1. How to use this program
-
->there is 
-
-#### 4.2. Trouble-shooting
-
->4.2.1. For Player_per_Season table
->	There are quite massive data for Player_per_Season table so that th
->
-
+Detail constaints are written in [Google docs][program constraint docs link]
 
 ### 5. Contributers
 [![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/0)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/0)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/1)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/1)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/2)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/2)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/3)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/3)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/4)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/4)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/5)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/5)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/6)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/6)[![](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/images/7)](https://sourcerer.io/fame/PASTANERD/PASTANERD/SoccerDatabase/links/7)
@@ -89,4 +80,6 @@ If you don't have Ant Builder, you can download it from [here][ant builder link]
 [repository link]: https://github.com/PASTANERD/SoccerDatabase/tree/master
 [config download link]: https://drive.google.com/file/d/1_G0mdALdjm8qDZjlgntfRH0KpwwEcHdz/view?usp=sharing
 [config skeleton download link]: 
+[program constraint docs link]: https://docs.google.com/document/d/1VqkifS9XHX4TQ1pVQHQ47sGiYxZ_lW4N7iegZr8GboM/edit?usp=sharing
+
 <!-- To setting this contributer check this site. https://sourcerer.io/settings#hof -->

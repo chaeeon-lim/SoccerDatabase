@@ -54,6 +54,7 @@ public class LeagueController implements ControllerInterface<League> {
 		if(!condition.isEmpty()) {
 			try {
 				leagueList = leagueDAO.searchLeagueName("%"+condition+"%");
+				count = count(attribute, condition);
 			}catch(Exception e) {
 				e.printStackTrace();
 			} finally {
