@@ -94,6 +94,55 @@
  		SELECT * FROM Appears WHERE distance >= #{distance};
  	</select>
  	
+ 	<select id="CountAllAppears" resultType="int">
+ 		SELECT COUNT(*) FROM Appears;
+ 	</select>
+ 	
+ 	<select id="CountByStartTimeBetween" parameterType="map" resultType="int">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT COUNT(*) FROM Appears WHERE start_time BETWEEN #{time1} AND #{time2}; 
+ 	</select>
+
+ 	<select id="CountByEndTimeBetween" parameterType="map" resultType="int">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT COUNT(*) FROM Appears WHERE end_time BETWEEN #{time1} AND #{time2}; 
+ 	</select>
+
+ 	<select id="CountByInGamePosition" parameterType="String" resultType="int">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT COUNT(*) FROM Appears WHERE in_game_position = #{in_game_position};
+ 	</select>
+
+ 	<select id="CountByGoalsMoreThan" parameterType="int" resultType="int">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT COUNT(*) FROM Appears WHERE goals >= #{goals};
+ 	</select>
+
+ 	<select id="CountByAssistMoreThan" parameterType="int" resultType="int">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT COUNT(*) FROM Appears WHERE assist >= #{assist};
+ 	</select>
+ 	
+  	<select id="CountBySaveMoreThan" parameterType="int" resultType="int">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT COUNT(*) FROM Appears WHERE save >= #{save};
+ 	</select>
+ 	
+  	<select id="CountByFoulMoreThan" parameterType="int" resultType="int">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT COUNT(*) FROM Appears WHERE foul >= #{foul};
+ 	</select>
+ 	
+  	<select id="CountByCardMoreThan" parameterType="int" resultType="int">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT COUNT(*) FROM Appears WHERE card >= #{card};
+ 	</select>
+ 	
+  	<select id="CountByDistanceMoreThan" parameterType="float" resultType="int">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT COUNT(*) FROM Appears WHERE distance >= #{distance};
+ 	</select>
+ 	
     <select id="orderByPlayerId" resultMap="result">
  		SELECT * FROM Appears ORDER BY player_id; 
  	</select>
