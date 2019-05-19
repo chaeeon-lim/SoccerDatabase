@@ -3,6 +3,8 @@ SoccerDatabase Project Program from Database Systems Class in Handong Global Uni
 
 This document instruct how to run this program.
 There is 3 things you need to implement it.
+	
+	These things must be done below this sentence.
 	* Download this program
 	* Download database configuration file in the program
 	(in case of network protection, config file is in the other drive)
@@ -36,6 +38,8 @@ We have tested this program on the Eclipse (both Eclipse IDE and Eclipse Oxygen 
 If you are trying to implement this program in the other IDE, we can not support it.
 
 ##### In a workspace of your Eclipse,
+
+	Please follow below instruction carefully.
 	- Right click the workspace and press 'Import' button
 	
 	- General -> Projects from Folder or Archive
