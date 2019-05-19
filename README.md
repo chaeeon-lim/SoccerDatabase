@@ -77,9 +77,13 @@ Detail constaints are written in [Google docs][program constraint docs link]
 
 
 [ant builder link]: https://ant.apache.org/bindownload.cgi 
+
 [repository link]: https://github.com/PASTANERD/SoccerDatabase/tree/master
+
 [config download link]: https://drive.google.com/file/d/1_G0mdALdjm8qDZjlgntfRH0KpwwEcHdz/view?usp=sharing
+
 [config skeleton download link]: 
+
 [program constraint docs link]: https://docs.google.com/document/d/1VqkifS9XHX4TQ1pVQHQ47sGiYxZ_lW4N7iegZr8GboM/edit?usp=sharing
 
 <!-- To setting this contributer check this site. https://sourcerer.io/settings#hof -->
