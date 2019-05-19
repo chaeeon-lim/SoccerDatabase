@@ -17,8 +17,6 @@ public class UserView implements ActionListener{
 
 		frame.setSize(900, 550);		
 		
-		// TODO make all buttons like '<~~>Button.addActionListener(this);
-		
 		seasonsButton.addActionListener(this);
 		leaguesButton.addActionListener(this);
 		playersButton.addActionListener(this);
@@ -32,7 +30,7 @@ public class UserView implements ActionListener{
 
 		orderButton.addActionListener(this);
 		searchButton.addActionListener(this);
-		countButton.addActionListener(this);
+		//countButton.addActionListener(this);
 
 		cancelButton.addActionListener(this);
 	
@@ -58,18 +56,6 @@ public class UserView implements ActionListener{
 			buttons.setEnabled(false);
 		}
 		text.setText("");
-		
-		// TODO MUST make proper flags on each entity! 
-		// TODO controller does not have to be assigned except here!
-		 
-		/* TODO Call controller method for search like below
-		 *  
-		 * controller = PlayerController.getController();
-		 *	dataBox = controller.selectAll();
-		 *	playersButton.setEnabled(true);
-		 *	player_flag = true;
-		 *
-		 */
 		
 		if(e.getSource().equals(playersButton)) {
 			controller = PlayerController.getController();
@@ -157,18 +143,8 @@ public class UserView implements ActionListener{
 
 	void searchButtonListener() {
 		scanner_flag = search_scanner_set();
-		
-		
-		/* TODO Call controller method for search like below 
-		 * dataBox = controller.search(attribute, condition);
-		 */
-		
 		if(scanner_flag) {
-
-		//	if(player_flag) {
-				dataBox = controller.search(attribute, condition);
-		//	}
-
+			dataBox = controller.search(attribute, condition);
 		} else {
 			//System.out.println("no attribute");
 			// handling case : attribute is blank
@@ -184,15 +160,8 @@ public class UserView implements ActionListener{
 		scanner_flag = search_scanner_set();
 
 		if(scanner_flag){
-		//	if(player_flag){
-				dataBox = controller.order(attribute, condition);
-		//	}
+			dataBox = controller.order(attribute, condition);
 		}
-
-		/* TODO Call controller method for search like below 
-		 * dataBox = controller.search(attribute, condition, logic);
-		 */
-
 		text.setText(dataBox);
 		scanner_free();		
 	}

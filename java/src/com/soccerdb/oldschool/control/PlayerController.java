@@ -172,6 +172,8 @@ public class PlayerController implements ControllerInterface<Player>{
 				
 			} catch(Exception e) {
 				e.printStackTrace();
+			} finally {
+				getData();
 			}
 		}
 		
@@ -183,8 +185,6 @@ public class PlayerController implements ControllerInterface<Player>{
 	@Override
 	public int count(String attribute, String condition) {
 
-		init();
-		
 		if(!attribute.isEmpty() && !condition.isEmpty()) {
 			try {
 				switch(attribute) {
@@ -216,8 +216,6 @@ public class PlayerController implements ControllerInterface<Player>{
 				
 			}catch(Exception e) {
 				e.printStackTrace();
-			}finally{
-				getData();
 			}
 			
 		}

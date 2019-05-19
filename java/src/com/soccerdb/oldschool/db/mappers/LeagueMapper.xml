@@ -33,4 +33,14 @@
  		DELETE FROM Leagues WHERE league_id = #{league_id};
  		<!-- DELETE FROM "Relation" WHERE "attribute name of relation" = #{"instace name of entity"}; -->
  	</delete>
+ 	
+ 	<!-- Additional Queries here -->
+ 	
+ 	<select id="searchLeagueName" parameterType="String" resultMap="result">
+ 		SELECT * FROM Leagues WHERE league_name = ${league_name};
+ 	</select>
+ 	
+ 	<select id="countAllLeague" resultType="int">
+ 		SELECT COUNT(*) FROM Leagues;
+ 	</select>
  </mapper>

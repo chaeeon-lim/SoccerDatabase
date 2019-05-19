@@ -26,11 +26,11 @@ public class LeagueController implements ControllerInterface<League> {
 	Iterator<League> itr;
 	int count;
 	String temp = "";
-	String column_name ="";
+	String column_name ="Name\n" + "----\n";
 
 	@Override
 	public void init() {
-		temp = "";
+		temp = column_name;
 		
 	}
 
@@ -49,8 +49,19 @@ public class LeagueController implements ControllerInterface<League> {
 
 	@Override
 	public String search(String attribute, String condition) {
+		init();
+		if(!condition.isEmpty()) {
+			try {
+				leagueList = leagueDAO.searchLeagueName("%"+condition+"%");
+			}catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				getData();
+			}
+		}
 		// TODO Auto-generated method stub
-		return null;
+		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + "in League Table"  + " \n";
+		return temp;
 	}
 
 	@Override
@@ -62,15 +73,19 @@ public class LeagueController implements ControllerInterface<League> {
 	@Override
 	public int count(String attribute, String condition) {
 		// TODO Auto-generated method stub
+		try {
+			count = leagueDAO.countAllLeague();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		return 0;
 	}
 	
 	void getData() {
 		itr = leagueList.iterator();
-		temp = column_name;
 		while(itr.hasNext()) {
 			league = itr.next();
-			temp += league.toString() + "\n" ;
+			temp += league.getLeague_name() + "\n" ;
 		}
 	}
 	
