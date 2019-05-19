@@ -4,4 +4,6 @@ import com.soccerdb.oldschool.db.source.GenericDAO;
 
 public interface SeasonDAO extends GenericDAO<Season, Integer>{
     //TODO please give dditional methods for 'Player' entity.
+	
+	public int countAllSeason() throws Exception;
 }

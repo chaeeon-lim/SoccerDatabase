@@ -9,4 +9,14 @@ public class ImplSeasonDAO extends ImplAbstractDAO<Season, Integer> implements S
 		super();
 		namespace = "com.soccerdb.oldschool.db.dao.SeasonDAO";
 	}
+
+	@Override
+	public int countAllSeason() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".countAllSeason");
+		}finally {
+			session.close();
+		}
+	}
 }

@@ -70,8 +70,13 @@ public class SeasonController implements ControllerInterface<Season>{
 
 	@Override
 	public int count(String attribute, String condition) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			count = seasonDAO.countAllSeason();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
 	}
 
 	void getData() {

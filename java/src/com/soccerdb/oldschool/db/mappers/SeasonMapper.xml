@@ -20,6 +20,10 @@
 		 SELECT * FROM Seasons WHERE season_id = #{season_id};
  	</select>
  	
+ 	<select id="countAllSeason" resultType="int">
+ 		SELECT CONT(*) FROM Seasons;
+ 	</select>
+ 	
  	<insert id="insert" parameterType="Season" useGeneratedKeys="true" keyProperty="season_id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->
