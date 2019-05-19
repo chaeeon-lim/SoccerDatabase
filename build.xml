@@ -5,12 +5,17 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="SoccerDatabase">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../../../../../eclipse/java-oxygen/Eclipse.app/Contents/Eclipse/"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="9"/>
-    <property name="source" value="9"/>
+    <property name="target" value="11"/>
+    <property name="source" value="11"/>
+  	<property name="test" value="bitch test"/>
     <path id="SoccerDatabase.classpath">
         <pathelement location="bin"/>
+        <pathelement location="java/libs/mybatis-3.5.1.jar"/>
+        <pathelement location="java/libs/mysql-connector-java-8.0.15.jar"/>
+    </path>
+    <path id="run.MainClass.classpath">
+        <path refid="SoccerDatabase.classpath"/>
         <pathelement location="java/libs/mybatis-3.5.1.jar"/>
         <pathelement location="java/libs/mysql-connector-java-8.0.15.jar"/>
     </path>
@@ -18,8 +23,7 @@
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="java/src">
-                <exclude name="**/*.ucls"/>
-                <exclude name="**/*.useq"/>
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -51,9 +55,9 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="SoccerDatabase">
+    <target name="MainClass">
         <java classname="com.soccerdb.oldschool.main.MainClass" failonerror="true" fork="yes">
-            <classpath refid="SoccerDatabase.classpath"/>
+            <classpath refid="run.MainClass.classpath"/>
         </java>
     </target>
 </project>
