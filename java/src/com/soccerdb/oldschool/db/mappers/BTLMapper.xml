@@ -10,19 +10,45 @@
  	</resultMap>
  	
  	<select id="selectAll" resultMap="result">
- 		SELECT * FROM Belong_to_League;
+ 		SELECT * FROM Belong_to_Leagues;
  	</select>
  	
  	<select id="selectById" parameterType="int" resultMap="result">
  		<!--SELECT * FROM Belong_to_League WHERE league_id = #{league_id} AND club_id = #{club_id};-->
  	</select>
+ 
+ 	<select id="selectByLeagueId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Belong_to_Leagues WHERE league_id = #{league_id};
+ 	</select>
+ 	
+  	<select id="selectByClubId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Belong_to_Leagues WHERE club_id = #{club_id};
+ 	</select>
+ 	
+ 	<select id="orderByLeagueId" resultMap="result">
+ 		SELECT * FROM Belong_to_Leagues ORDER BY league_id; 
+ 	</select>
+ 	
+  	<select id="orderByClubId" resultMap="result">
+ 		SELECT * FROM Belong_to_Leagues ORDER BY club_id; 
+ 	</select>
+ 
+  	<select id="orderByLeagueIdDESC" resultMap="result">
+ 		SELECT * FROM Belong_to_Leagues ORDER BY league_id DESC; 
+ 	</select>
+ 	
+  	<select id="orderByClubIdDESC" resultMap="result">
+ 		SELECT * FROM Belong_to_Leagues ORDER BY club_id DESC; 
+ 	</select>
  	
 	 <select id="selectByLeagueAndClubId" parameterType="Belong_to_League" resultMap="result">
- 		SELECT * FROM Belong_to_League WHERE league_id = #{league_id} AND club_id = #{club_id};
+ 		SELECT * FROM Belong_to_Leagues WHERE league_id = #{league_id} AND club_id = #{club_id};
  	</select>
 
  	<insert id="insert" parameterType="Belong_to_League" useGeneratedKeys="true" keyProperty="id">
- 		INSERT INTO Belong_to_League(league_id, club_id)
+ 		INSERT INTO Belong_to_Leagues(league_id, club_id)
  		VALUES (#{league_id},#{club_id});
  	</insert>
  	
@@ -41,6 +67,6 @@
  	</delete>
 
 	<delete id="deleteByBTL" parameterType="Belong_to_League">
-		DELETE FROM Belong_to_League WHERE league_id = #{league_id} AND club_id = #{club_id};
+		DELETE FROM Belong_to_Leagues WHERE league_id = #{league_id} AND club_id = #{club_id};
 	</delete>
  </mapper>

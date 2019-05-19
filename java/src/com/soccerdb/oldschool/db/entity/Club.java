@@ -94,10 +94,12 @@ public class Club{
     public String toString() {
         return "{" +
             " club_id='" + getClub_id() + "'" +
+            ", club_full_name='" + getClub_fullname() + "'" +
             ", club_groundname='" + getClub_ground() + "'" +
             ", club_nickname='" + getClub_nickname() + "'" +
             ", club_owner='" + getClub_owner() + "'" +
             ", club_chairman='" + getClub_chairman() + "'" +
+            ", club_manager='" + getClub_manager() + "'" +
             ", club_logo='" + getClub_logo() + "'" +
             "}";
     }

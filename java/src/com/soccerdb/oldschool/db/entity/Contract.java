@@ -9,17 +9,18 @@ public class Contract{
 	private int club_id;
 	private int season_id;
 	private float salary;
-	private String year_contract; 
+	private int duration_contract; 
 
 
 	public Contract() {
 	}
 	
-	public Contract(int player_id, int club_id, float salary, String year_contract) {
+	public Contract(int player_id, int club_id, int season_id, float salary, int duration_contract) {
 		this.player_id = player_id; 
 		this.club_id = club_id; 
+		this.season_id = season_id; 
 		this.salary = salary; 
-		this.year_contract = year_contract; 
+		this.duration_contract = duration_contract; 
 	  }
   
 	public int getPlayer_id() {
@@ -54,12 +55,12 @@ public class Contract{
 		this.salary = salary;
 	}
 
-	public String getYear_contract() {
-		return year_contract;
+	public int getDuration_contract() {
+		return duration_contract;
 	}
 
-	public void setYear_contract(String year_contract) {
-		this.year_contract = year_contract;
+	public void setDuration_contract(int duration_contract) {
+		this.duration_contract = duration_contract;
 	}
 	
     @Override
@@ -69,7 +70,7 @@ public class Contract{
             ", club_id='" + getClub_id() + "'" +
             ", season_id='" + getSeason_id() +"'" +
             ", salary='" + getSalary() + "'" +
-            ", year_contract='" + getYear_contract() + "'" +
+            ", duration_contract='" + getDuration_contract() + "'" +
             "}";
     }
 //player_id,club_id,salary,year_contract

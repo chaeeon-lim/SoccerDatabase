@@ -5,7 +5,6 @@ import java.util.Date;
 public class Player{
     private int player_id;
     private String player_name;
-    private String player_position;
     private String player_nationality;
     private int player_debut;
     private Date player_birthday;
@@ -17,7 +16,6 @@ public class Player{
     public Player(int player_id, String player_name, String player_position, String player_nationality, int player_debut, Date player_birthday) {
         this.player_id = player_id;
         this.player_name = player_name;
-        this.player_position = player_position;
         this.player_nationality = player_nationality;
         this.player_debut = player_debut;
         this.player_birthday = player_birthday;
@@ -37,14 +35,6 @@ public class Player{
 
     public void setPlayer_name(String player_name) {
         this.player_name = player_name;
-    }
-
-    public String getPlayer_position() {
-        return this.player_position;
-    }
-
-    public void setPlayer_position(String player_position) {
-        this.player_position = player_position;
     }
 
     public String getPlayer_nationality() {
@@ -76,7 +66,6 @@ public class Player{
         return "{" +
             " player_id='" + getPlayer_id() + "'" +
             ", player_name='" + getPlayer_name() + "'" +
-            ", player_position='" + getPlayer_position() + "'" +
             ", player_nationality='" + getPlayer_nationality() + "'" +
             ", player_debut='" + getPlayer_debut() + "'" +
             ", player_birthday='" + getPlayer_birthday() + "'" +
