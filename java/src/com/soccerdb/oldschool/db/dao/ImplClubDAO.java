@@ -129,4 +129,63 @@ public class ImplClubDAO extends ImplAbstractDAO<Club, Integer> implements ClubD
 			session.close();
 		}
 	}
+	@Override
+	public List<Club> orderByFullnameDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByFullnameDESC");
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public List<Club> orderByGroundDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByGroundDESC");
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public List<Club> orderByNicknameDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByNicknameDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Club> orderByOwnerDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByOwnerDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Club> orderByChairmanDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByChairmanDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Club> orderByManagerDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByManagerDESC");
+		}finally {
+			session.close();
+		}
+	}
 }

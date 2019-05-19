@@ -29,7 +29,7 @@ public class ClubController implements ControllerInterface<Club>{
 	String temp = "";
 	
 	
-	String column_name = "Full name\t" + "gound name\t" + "nickname\t"+ "owner\t" + "chairman\t" +
+	String column_name = "Full name\t" + "gound\t" + "nickname\t"+ "owner\t" + "chairman\t" +
 	"manager\t" + "logo\t" + "----\t--------\t-----\t--------"+"\n"; 
 
 	@Override
@@ -95,18 +95,70 @@ public class ClubController implements ControllerInterface<Club>{
 			}
 		}
 
-		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Player Table"  + " \n";
+		if(temp.equals(column_name) || temp.isEmpty()) temp += "\n\n\n\t\t\t There is no data for " + condition + " at " + attribute + "in Club Table"  + " \n";
 
 		return temp;	
 	}
-	
 	
 	@Override
 	public String order(String attribute, String condition) {
 		// TODO Auto-generated method stub
 		init();
 		
-		return temp;
+		if(!attribute.isEmpty() && !condition.isEmpty()) {
+			try {
+				if(condition.equals("dsc")) {
+					switch(attribute) {
+					case "full_name":
+						clubList = clubDAO.orderByFullnameDESC();  
+						break; 
+					case "ground":
+						clubList = clubDAO.orderByGroundDESC();  
+						break;
+					case "nickname":
+						clubList = clubDAO.orderByNicknameDESC();  
+						break;
+					case "owner":
+						clubList = clubDAO.orderByOwnerDESC();  
+						break;
+					case "chairman":
+						clubList = clubDAO.orderByChairmanDESC();  
+						break;
+					case "manager":
+						clubList = clubDAO.orderByManagerDESC();  
+						break;
+					}
+				}else {
+					switch(attribute) {
+					case "full_name":
+						clubList = clubDAO.orderByFullname();  
+						break; 
+					case "ground":
+						clubList = clubDAO.orderByGround();  
+						break;
+					case "nickname":
+						clubList = clubDAO.orderByNickname();  
+						break;
+					case "owner":
+						clubList = clubDAO.orderByOwner();  
+						break;
+					case "chairman":
+						clubList = clubDAO.orderByChairman();  
+						break;
+					case "manager":
+						clubList = clubDAO.orderByManager();  
+						break;
+					}
+				}
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				getData(); 
+			}
+		}
+		
+		return temp; 
 	}
 
 	@Override

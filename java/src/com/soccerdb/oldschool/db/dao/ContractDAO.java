@@ -17,6 +17,13 @@ public interface ContractDAO extends GenericDAO<Contract, Integer>{
 	
 	public List<Contract> orderByPlayerId() throws Exception; 
 	public List<Contract> orderByClubId() throws Exception; 
+	public List<Contract> orderBySeasonId() throws Exception; 
 	public List<Contract> orderBySalary() throws Exception; 
 	public List<Contract> orderByDurationContract() throws Exception; 
+	
+	public List<Contract> orderByPlayerIdDESC() throws Exception; 
+	public List<Contract> orderByClubIdDESC() throws Exception; 
+	public List<Contract> orderBySeasonIdDESC() throws Exception; 
+	public List<Contract> orderBySalaryDESC() throws Exception; 
+	public List<Contract> orderByDurationContractDESC() throws Exception; 
 }
