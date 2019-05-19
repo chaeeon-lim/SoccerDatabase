@@ -8,7 +8,6 @@ import com.soccerdb.oldschool.db.source.GenericDAO;
 public interface GameDAO extends GenericDAO<Game, Integer>{
     //TODO please give dditional methods for 'Game' entity.
 	public List<Game> selectAll() throws Exception;
-	public List<Game> selectById(int game_id) throws Exception;
 	public List<Game> selectByGameTime(Date game_time) throws Exception;
 	public List<Game> selectByPlace(String place) throws Exception;
 	public List<Game> selectByWeather(String weather) throws Exception;

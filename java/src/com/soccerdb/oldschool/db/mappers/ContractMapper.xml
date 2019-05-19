@@ -60,6 +60,11 @@
  		<!--SELECT * FROM "Relation" WHERE ???;-->
  		SELECT * FROM Contracts ORDER BY club_id; 
  	</select>
+ 
+  	<select id="orderBySeasonId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY season_id; 
+ 	</select>
  	
   	<select id="orderBySalary" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
@@ -69,6 +74,31 @@
   	<select id="orderByDurationContract" parameterType="int" resultMap="result">
  		<!--SELECT * FROM "Relation" WHERE ???;-->
  		SELECT * FROM Contracts ORDER BY duration_contract; 
+ 	</select>
+
+ 	<select id="orderByPlayerIdDESC" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY player_id DESC; 
+ 	</select>
+
+ 	<select id="orderByClubIdDESC" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY club_id DESC; 
+ 	</select>
+ 
+  	<select id="orderBySeasonIdDESC" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY season_id DESC; 
+ 	</select>
+ 	
+  	<select id="orderBySalaryDESC" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY salary DESC; 
+ 	</select>
+ 	
+  	<select id="orderByDurationContractDESC" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Contracts ORDER BY duration_contract DESC; 
  	</select>
  	
  	<insert id="insert" parameterType="Contract" useGeneratedKeys="true" keyProperty="id">

@@ -138,6 +138,50 @@
  		SELECT * FROM Appears ORDER BY distance; 
  	</select>
 
+    <select id="orderByPlayerIdDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY player_id DESC; 
+ 	</select>
+ 	
+    <select id="orderByGameIdDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY game_id DESC; 
+ 	</select>
+ 	
+     <select id="orderBySeasonIdDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY season_id DESC; 
+ 	</select>
+ 	
+     <select id="orderByStartTimeDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY start_time DESC; 
+ 	</select>
+ 	
+     <select id="orderByEndTimeDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY end_time DESC; 
+ 	</select>
+ 	
+     <select id="orderByGoalsDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY goals DESC; 
+ 	</select>
+ 	
+     <select id="orderByAssistDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY assist DESC; 
+ 	</select>
+ 	
+     <select id="orderBySaveDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY save DESC; 
+ 	</select>
+ 	
+     <select id="orderByFoulDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY foul DESC; 
+ 	</select>
+ 	
+     <select id="orderByCardDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY card DESC; 
+ 	</select>
+ 	
+     <select id="orderByDistanceDESC" resultMap="result">
+ 		SELECT * FROM Appears ORDER BY distance DESC; 
+ 	</select>
+
  	<insert id="insert" parameterType="Appear" useGeneratedKeys="true" keyProperty="id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->

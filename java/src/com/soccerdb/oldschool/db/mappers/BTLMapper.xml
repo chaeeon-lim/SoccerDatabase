@@ -16,6 +16,32 @@
  	<select id="selectById" parameterType="int" resultMap="result">
  		<!--SELECT * FROM Belong_to_League WHERE league_id = #{league_id} AND club_id = #{club_id};-->
  	</select>
+ 
+ 	<select id="selectByLeagueId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Belong_to_Leagues WHERE league_id = #{league_id};
+ 	</select>
+ 	
+  	<select id="selectByClubId" parameterType="int" resultMap="result">
+ 		<!--SELECT * FROM "Relation" WHERE ???;-->
+ 		SELECT * FROM Belong_to_Leagues WHERE club_id = #{club_id};
+ 	</select>
+ 	
+ 	<select id="orderByLeagueId" resultMap="result">
+ 		SELECT * FROM Belong_to_Leagues ORDER BY league_id; 
+ 	</select>
+ 	
+  	<select id="orderByClubId" resultMap="result">
+ 		SELECT * FROM Belong_to_Leagues ORDER BY club_id; 
+ 	</select>
+ 
+  	<select id="orderByLeagueIdDESC" resultMap="result">
+ 		SELECT * FROM Belong_to_Leagues ORDER BY league_id DESC; 
+ 	</select>
+ 	
+  	<select id="orderByClubIdDESC" resultMap="result">
+ 		SELECT * FROM Belong_to_Leagues ORDER BY club_id DESC; 
+ 	</select>
  	
 	 <select id="selectByLeagueAndClubId" parameterType="Belong_to_League" resultMap="result">
  		SELECT * FROM Belong_to_Leagues WHERE league_id = #{league_id} AND club_id = #{club_id};

@@ -73,7 +73,31 @@
     <select id="orderByManager" resultMap="result">
  		SELECT * FROM Clubs ORDER BY manager; 
  	</select>
+
+    <select id="orderByFullnameDESC" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY full_name DESC; 
+ 	</select>
+ 	
+    <select id="orderByGroundDESC" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY ground DESC; 
+ 	</select>
+ 	
+    <select id="orderByNicknameDESC" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY nickname DESC; 
+ 	</select>
  
+     <select id="orderByOwnerDESC" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY owner DESC; 
+ 	</select>
+ 
+    <select id="orderByChairmanDESC" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY chairman DESC; 
+ 	</select>
+ 	
+    <select id="orderByManagerDESC" resultMap="result">
+ 		SELECT * FROM Clubs ORDER BY manager DESC; 
+ 	</select>
+ 	
  	<insert id="insert" parameterType="Club" useGeneratedKeys="true" keyProperty="club_id">
  		<!-- insert into "Relation"  ("attribute name of relation" , ... , ???)
  		values "instace name of entity" , ... , "instace name of entity" -->

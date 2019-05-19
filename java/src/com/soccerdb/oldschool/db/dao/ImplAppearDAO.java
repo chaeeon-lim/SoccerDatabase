@@ -273,4 +273,113 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 		}
 	}
 	
+	@Override
+	public List<Appear> orderByPlayerIdDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByPlayerIdDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Appear> orderByGameIdDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByGameIdDESC");
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public List<Appear> orderBySeasonIdDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderBySeasonIdDESC");
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public List<Appear> orderByStartTimeDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByStartTimeDESC");
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public List<Appear> orderByEndTimeDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByEndTimeDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Appear> orderByGoalsDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByGoalsDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Appear> orderByAssistDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByAssistDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Appear> orderBySaveDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderBySaveDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Appear> orderByFoulDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByFoulDESC");
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public List<Appear> orderByCardDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByCardDESC");
+		}finally {
+			session.close();
+		}
+	}
+	
+	@Override
+	public List<Appear> orderByDistanceDESC() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectList(namespace + ".orderByDistanceDESC");
+		}finally {
+			session.close();
+		}
+	}
 }
