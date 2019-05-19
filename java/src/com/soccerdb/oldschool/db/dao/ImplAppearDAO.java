@@ -164,6 +164,114 @@ public class ImplAppearDAO extends ImplAbstractDAO<Appear, Integer> implements A
 	}
 
 	@Override
+	public int CountAllAppears() throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".CountAllAppears");
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int CountByStartTimeBetween(Date time1, Date time2) throws Exception {
+		try {
+			Map<String, Object> params = new HashMap<String, Object>(); 
+			params.put("time1", time1); 
+			params.put("time2", time2);
+			System.out.println(params);
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".CountByStartTimeBetween", params);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int CountByEndTimeBetween(Date time1, Date time2) throws Exception {
+		try {
+			Map<String, Object> params = new HashMap<String, Object>(); 
+			params.put("time1", time1); 
+			params.put("time2", time2);
+			System.out.println(params);
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".CountByEndTimeBetween", params);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int CountByInGamePosition(String position) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".CountByInGamePosition", position);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int  CountByGoalsMoreThan(int goals) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ". CountByGoalsMoreThan", goals);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int CountByAssistMoreThan(int assist) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".CountByAssistMoreThan", assist);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int CountBySaveMoreThan(int save) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".CountBySaveMoreThan", save);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int CountByFoulMoreThan(int foul) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".CountByFoulMoreThan", foul);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int CountByCardMoreThan(int card) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".CountByCardMoreThan", card);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int CountByDistanceMoreThan(float distance) throws Exception {
+		try {
+			session = getSqlSessionFactory().openSession();
+			return session.selectOne(namespace + ".CountByDistanceMoreThan", distance);
+		}finally {
+			session.close();
+		}
+	}
+
+	@Override
 	public List<Appear> orderByPlayerId() throws Exception {
 		try {
 			session = getSqlSessionFactory().openSession();
