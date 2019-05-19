@@ -80,6 +80,7 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 					case "position":
 						pps.setPps_position(condition);
 						ppsList = ppsDAO.searchPPSWhosePositionIs(pps);
+						count = count(attribute, condition);
 						break;
 					case "height":
 						pps.setPps_height(Integer.parseInt(condition));
@@ -89,94 +90,117 @@ public class PPSController implements ControllerInterface<Player_per_Season>{
 					case "heigth shorter":
 						pps.setPps_height(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseShorterThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "height taller":
 						pps.setPps_height(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseTallerThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "weight":
 						pps.setPps_weight(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseWeightIs(pps);
+						count = count(attribute, condition);
 						break;
 					case "weight lighter":
 						pps.setPps_weight(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseLighterThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "weight heavier":
 						pps.setPps_weight(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseHeightIs(pps);
+						count = count(attribute, condition);
 						break;
 					case "goal":
 						pps.setPps_season_goal(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseGoalsAre(pps);
+						count = count(attribute, condition);
 						break;
 					case "goal less":
 						pps.setPps_season_goal(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseGoalsLessThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "goal more":
 						pps.setPps_season_goal(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseGoalsMoreThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "assist":
 						pps.setPps_season_assist(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseAssistsAre(pps);
+						count = count(attribute, condition);
 						break;
 					case "assist less":
 						pps.setPps_season_assist(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseAssistsLessThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "assist more":
 						pps.setPps_season_assist(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseAssistsMoreThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "save":
 						pps.setPps_season_save(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseSavesAre(pps);
+						count = count(attribute, condition);
 						break;
 					case "save less":
 						pps.setPps_season_save(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseSavesLessThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "save more":
 						pps.setPps_season_save(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseSavesMoreThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "game":
 						pps.setPps_season_game(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseGamesAre(pps);
+						count = count(attribute, condition);
 						break;
 					case "game less":
 						pps.setPps_season_game(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseGamesLessThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "game more":
 						pps.setPps_season_game(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseGamesMoreThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "card":
 						pps.setPps_season_card(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseCardsAre(pps);
+						count = count(attribute, condition);
 						break;
 					case "card less":
 						pps.setPps_season_card(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseCardsLessThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "card more":
 						pps.setPps_season_card(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseCardsMoreThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "foul":
 						pps.setPps_season_foul(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseFoulsAre(pps);
+						count = count(attribute, condition);
 						break;
 					case "foul less":
 						pps.setPps_season_foul(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseFoulsLessThan(pps);
+						count = count(attribute, condition);
 						break;
 					case "foul more":
 						pps.setPps_season_foul(Integer.parseInt(condition));
 						ppsList = ppsDAO.searchPPSWhoseFoulsMoreThan(pps);
+						count = count(attribute, condition);
 						break;
 					default:
 						temp += "\n\n\n\t\t\tIllegal Attribute... is it " + attribute +"?";	

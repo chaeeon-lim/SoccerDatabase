@@ -194,7 +194,7 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
-	<select id="searchPPSWhoseAssistsMoreThan" parameterType="Player_per_Season" resultType="int">
+	<select id="countPPSWhoseAssistsMoreThan" parameterType="Player_per_Season" resultType="int">
 		SELECT COUNT(*) FROM player_per_season WHERE season_assist >= #{pps_season_assist}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
@@ -250,7 +250,7 @@
 	</select>
 	
 	
-	<select id="searchPPSWhoseGamesLessThan" parameterType="Player_per_Season" resultMap="result">
+	<select id="countPPSWhoseGamesLessThan" parameterType="Player_per_Season" resultMap="result">
 		SELECT * FROM player_per_season WHERE 
 		<![CDATA[
 			season_game < #{pps_season_game}
@@ -258,6 +258,10 @@
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	
+	<select id="searchPPSWhoseGamesMoreThan" parameterType="Player_per_Season" resultMap="result">
+		SELECT * FROM player_per_season WHERE season_game >= #{pps_season_game}
+		<if test="season_id != 0">AND season_id = #{season_id}</if>
+	</select>
 	
 	<select id="countPPSWhoseGamesMoreThan" parameterType="Player_per_Season" resultType="int">
 		SELECT COUNT(*) FROM player_per_season WHERE season_game >= #{pps_season_game}
@@ -292,7 +296,7 @@
 	</select>
 	
 	<select id="countPPSWhoseCardsMoreThan" parameterType="Player_per_Season" resultType="int">
-		SELECT * FROM player_per_season WHERE season_card >= #{pps_season_card}
+		SELECT COUNT(*) FROM player_per_season WHERE season_card >= #{pps_season_card}
 		<if test="season_id != 0">AND season_id = #{season_id}</if>
 	</select>
 	

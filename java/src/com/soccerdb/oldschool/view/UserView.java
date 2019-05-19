@@ -215,6 +215,7 @@ public class UserView implements ActionListener{
 	String condition;
 	
 	String dataBox;
+	
 
 	boolean appear_flag = false;
 	boolean btl_flag = false;
