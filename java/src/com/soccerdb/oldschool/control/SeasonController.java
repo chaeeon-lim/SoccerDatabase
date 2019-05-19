@@ -21,7 +21,7 @@ public class SeasonController implements ControllerInterface<Season>{
 		}
 	}
 	
-	Season season;
+	Season season = new Season();
 	SeasonDAO seasonDAO = new ImplSeasonDAO();
 	List<Season> seasonList;
 	Iterator<Season> itr;
@@ -30,6 +30,8 @@ public class SeasonController implements ControllerInterface<Season>{
 	String column_name = "Season" + "\n" + "-----" + "\n";
 	@Override
 	public void init() {
+		season.setSeason_id(0);
+		season.setSeason_year(0);
 		temp = "";
 	}
 
@@ -38,6 +40,7 @@ public class SeasonController implements ControllerInterface<Season>{
 		init();
 		try {
 			seasonList = seasonDAO.selectAll();
+			count = count("all","anything");
 			getData();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -76,8 +79,9 @@ public class SeasonController implements ControllerInterface<Season>{
 		temp += column_name;
 		while(itr.hasNext()) {
 			season = itr.next();
-			temp += season.getSeason_year();
+			temp += season.getSeason_year() + "\n";
 		}
+		temp += "\n\n" + "Total : \t" + count + " Seasons\n";
 	}
 	
 	public static SeasonController getController() {
